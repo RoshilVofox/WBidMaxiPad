@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SynchView">
+            <connections>
+                <outlet property="btnBoth" destination="7ld-GF-BtR" id="rnh-OJ-BbK"/>
+                <outlet property="btnQuickSet" destination="yaB-8u-chL" id="4eG-p4-7j8"/>
+                <outlet property="btnState" destination="ukx-Sb-Tru" id="uiG-CR-nje"/>
+                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="350"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGY-l6-R4g">
+                    <rect key="frame" x="0.0" y="0.0" width="500" height="350"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dch-ry-MaG">
+                            <rect key="frame" x="0.0" y="0.0" width="500" height="50"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Sychronisation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJE-TY-uof">
+                                    <rect key="frame" x="165" y="14.5" width="170" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.59321349859237671" green="0.78824836015701294" blue="0.33550477027893066" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="9Tf-AP-q9V"/>
+                                <constraint firstItem="YJE-TY-uof" firstAttribute="centerY" secondItem="dch-ry-MaG" secondAttribute="centerY" id="c7E-zs-5Rp"/>
+                                <constraint firstItem="YJE-TY-uof" firstAttribute="centerX" secondItem="dch-ry-MaG" secondAttribute="centerX" id="dWt-69-cEV"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to synchronize with server?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQ8-m3-SQ5">
+                            <rect key="frame" x="77.5" y="67" width="345" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEb-tr-aj3">
+                            <rect key="frame" x="157" y="272" width="80" height="30"/>
+                            <color key="backgroundColor" red="0.59321349860000006" green="0.7882483602" blue="0.33550477029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="L8C-Eh-26L"/>
+                                <constraint firstAttribute="height" constant="30" id="Uqf-Cd-GJI"/>
+                            </constraints>
+                            <state key="normal" title="Ok">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="ActionOK:" destination="-1" eventType="touchUpInside" id="d1I-vB-I6f"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXP-bP-piS">
+                            <rect key="frame" x="245" y="272" width="94" height="30"/>
+                            <color key="backgroundColor" red="0.93252331018447876" green="0.46720415353775024" blue="0.04822947084903717" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="MgP-dW-ABH"/>
+                                <constraint firstAttribute="width" constant="94" id="u0z-GM-Szj"/>
+                            </constraints>
+                            <state key="normal" title="Cancel">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="actionCancel:" destination="-1" eventType="touchUpInside" id="VuV-se-8Ms"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukx-Sb-Tru">
+                            <rect key="frame" x="204" y="117" width="92" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22" id="GfD-XJ-FoM"/>
+                                <constraint firstAttribute="width" constant="92" id="xJH-4s-laJ"/>
+                            </constraints>
+                            <state key="normal" title=" STATE" image="radioNo.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="regular"/>
+                            </state>
+                            <connections>
+                                <action selector="actionState:" destination="-1" eventType="touchUpInside" id="BWe-05-u3e"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yaB-8u-chL">
+                            <rect key="frame" x="204" y="164" width="125" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="125" id="gyW-OU-BvC"/>
+                                <constraint firstAttribute="height" constant="22" id="kfB-cA-vbX"/>
+                            </constraints>
+                            <state key="normal" title=" QUICK SET" image="radioNo.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="ActionQuickset:" destination="-1" eventType="touchUpInside" id="mHV-IB-l6b"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ld-GF-BtR">
+                            <rect key="frame" x="204" y="215" width="70" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="fy7-uQ-YOR"/>
+                                <constraint firstAttribute="height" constant="22" id="kZ7-hH-MDx"/>
+                            </constraints>
+                            <state key="normal" title=" BOTH" image="radioNo.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="ActionBoth:" destination="-1" eventType="touchUpInside" id="j1N-Ln-bva"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="7ld-GF-BtR" firstAttribute="leading" secondItem="dGY-l6-R4g" secondAttribute="leading" constant="204" id="0WC-CN-32z"/>
+                        <constraint firstItem="sQ8-m3-SQ5" firstAttribute="top" secondItem="dch-ry-MaG" secondAttribute="bottom" constant="17" id="9gf-av-M4B"/>
+                        <constraint firstItem="yaB-8u-chL" firstAttribute="top" secondItem="ukx-Sb-Tru" secondAttribute="bottom" constant="25" id="A8I-xr-lXE"/>
+                        <constraint firstItem="bXP-bP-piS" firstAttribute="leading" secondItem="TEb-tr-aj3" secondAttribute="trailing" constant="8" id="BpN-Xg-gdA"/>
+                        <constraint firstItem="ukx-Sb-Tru" firstAttribute="leading" secondItem="dGY-l6-R4g" secondAttribute="leading" constant="204" id="D3p-4P-18E"/>
+                        <constraint firstItem="yaB-8u-chL" firstAttribute="leading" secondItem="dGY-l6-R4g" secondAttribute="leading" constant="204" id="DtW-pb-qCX"/>
+                        <constraint firstAttribute="height" constant="350" id="Hnz-pO-0af"/>
+                        <constraint firstItem="ukx-Sb-Tru" firstAttribute="top" secondItem="sQ8-m3-SQ5" secondAttribute="bottom" constant="29" id="SKW-cV-lzN"/>
+                        <constraint firstItem="TEb-tr-aj3" firstAttribute="leading" secondItem="dGY-l6-R4g" secondAttribute="leading" constant="157" id="Uhh-Wj-TJg"/>
+                        <constraint firstItem="TEb-tr-aj3" firstAttribute="top" secondItem="7ld-GF-BtR" secondAttribute="bottom" constant="35" id="VYc-Rw-LSs"/>
+                        <constraint firstAttribute="trailing" secondItem="dch-ry-MaG" secondAttribute="trailing" id="biD-bD-30X"/>
+                        <constraint firstItem="7ld-GF-BtR" firstAttribute="top" secondItem="yaB-8u-chL" secondAttribute="bottom" constant="29" id="e1K-Rg-iZM"/>
+                        <constraint firstItem="dch-ry-MaG" firstAttribute="top" secondItem="dGY-l6-R4g" secondAttribute="top" id="hYU-uz-Xee"/>
+                        <constraint firstItem="sQ8-m3-SQ5" firstAttribute="centerX" secondItem="dGY-l6-R4g" secondAttribute="centerX" id="kKX-fZ-aZX"/>
+                        <constraint firstItem="bXP-bP-piS" firstAttribute="top" secondItem="7ld-GF-BtR" secondAttribute="bottom" constant="35" id="lLO-oz-ZVB"/>
+                        <constraint firstItem="dch-ry-MaG" firstAttribute="leading" secondItem="dGY-l6-R4g" secondAttribute="leading" id="nTV-VC-HAX"/>
+                        <constraint firstAttribute="width" constant="500" id="ySx-rf-4i7"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="0.24221500880281691" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="dGY-l6-R4g" firstAttribute="centerY" secondItem="2" secondAttribute="centerY" id="DAz-tx-Nj9"/>
+                <constraint firstItem="dGY-l6-R4g" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="eN8-CB-eDH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="24.609375" y="51.5625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="radioNo.png" width="16" height="16"/>
+    </resources>
+</document>

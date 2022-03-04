@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="cxk-wN-pdQ" customClass="DaysOfWeekSomeCell">
+            <rect key="frame" x="0.0" y="0.0" width="482" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
+                <rect key="frame" x="0.0" y="0.0" width="482" height="39"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EyM-OF-Xhq">
+                        <rect key="frame" x="0.0" y="0.0" width="482" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DOW - Some" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzT-SH-dIS">
+                                <rect key="frame" x="38" y="9" width="93" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="el4-wT-P0S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2">
+                                <rect key="frame" x="159" y="7" width="55" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="61U-OW-uwS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <state key="normal" title="Tue">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnDaySomeConstraintEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="O41-GJ-yp2"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8t-uS-Slz">
+                                <rect key="frame" x="30" y="7" width="1" height="25"/>
+                                <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="CJp-6d-6fB"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4im-3B-zG3">
+                                <rect key="frame" x="5" y="9" width="21" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="21" id="15P-Rb-H52"/>
+                                    <constraint firstAttribute="height" constant="21" id="O3A-o0-DDq"/>
+                                </constraints>
+                                <state key="normal" image="closeIcon.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnDeleteEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="wzP-0W-pkF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNd-SZ-uLq">
+                                <rect key="frame" x="344" y="7" width="53" height="26"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <state key="normal" title="Less than">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.031372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnLessthanEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="9hr-Ke-sgx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdY-tW-bCs">
+                                <rect key="frame" x="442" y="7" width="30" height="26"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <state key="normal" title="1">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnDaySomeValueEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="UPY-FT-D6W"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2" firstAttribute="leading" secondItem="wzT-SH-dIS" secondAttribute="trailing" constant="27" id="63J-ck-Wto"/>
+                            <constraint firstAttribute="trailing" secondItem="HdY-tW-bCs" secondAttribute="trailing" constant="10" id="92t-To-UhV"/>
+                            <constraint firstItem="J8t-uS-Slz" firstAttribute="leading" secondItem="4im-3B-zG3" secondAttribute="trailing" constant="4" id="AmV-KN-LZF"/>
+                            <constraint firstItem="4im-3B-zG3" firstAttribute="top" secondItem="EyM-OF-Xhq" secondAttribute="top" constant="9" id="Kb8-kY-rcM"/>
+                            <constraint firstItem="XNd-SZ-uLq" firstAttribute="centerY" secondItem="EyM-OF-Xhq" secondAttribute="centerY" id="Mob-AV-IZx"/>
+                            <constraint firstAttribute="bottom" secondItem="J8t-uS-Slz" secondAttribute="bottom" constant="8" id="PFq-Ck-vUz"/>
+                            <constraint firstItem="2" firstAttribute="top" secondItem="EyM-OF-Xhq" secondAttribute="top" constant="7" id="Qrh-g4-Fv8"/>
+                            <constraint firstItem="HdY-tW-bCs" firstAttribute="leading" secondItem="XNd-SZ-uLq" secondAttribute="trailing" constant="45" id="X2n-pO-aaE"/>
+                            <constraint firstItem="wzT-SH-dIS" firstAttribute="top" secondItem="EyM-OF-Xhq" secondAttribute="top" constant="9" id="afU-tI-pU6"/>
+                            <constraint firstItem="4im-3B-zG3" firstAttribute="leading" secondItem="EyM-OF-Xhq" secondAttribute="leading" constant="5" id="ghh-ts-gFo"/>
+                            <constraint firstItem="J8t-uS-Slz" firstAttribute="top" secondItem="EyM-OF-Xhq" secondAttribute="top" constant="7" id="hOR-eb-bct"/>
+                            <constraint firstItem="HdY-tW-bCs" firstAttribute="centerY" secondItem="EyM-OF-Xhq" secondAttribute="centerY" id="jav-0c-4Fk"/>
+                            <constraint firstItem="2" firstAttribute="centerY" secondItem="EyM-OF-Xhq" secondAttribute="centerY" id="k9o-s2-j44"/>
+                            <constraint firstItem="wzT-SH-dIS" firstAttribute="centerY" secondItem="EyM-OF-Xhq" secondAttribute="centerY" id="qm0-De-JFp"/>
+                            <constraint firstItem="wzT-SH-dIS" firstAttribute="leading" secondItem="J8t-uS-Slz" secondAttribute="trailing" constant="8" id="rrX-ho-sSr"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="EyM-OF-Xhq" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" id="8Gi-5d-9yw"/>
+                    <constraint firstAttribute="trailing" secondItem="EyM-OF-Xhq" secondAttribute="trailing" id="Ouv-o9-xE0"/>
+                    <constraint firstItem="EyM-OF-Xhq" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" id="kpS-Xc-y2u"/>
+                    <constraint firstAttribute="bottom" secondItem="EyM-OF-Xhq" secondAttribute="bottom" constant="-0.5" id="ykt-I0-Wy4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="btnDaySomeConstraint" destination="2" id="u1q-fh-tQU"/>
+                <outlet property="btnDaySomeValue" destination="HdY-tW-bCs" id="yZK-jm-lNi"/>
+                <outlet property="btnDelete" destination="4im-3B-zG3" id="68c-My-8NS"/>
+                <outlet property="btnLessthan" destination="XNd-SZ-uLq" id="3Um-y1-gTf"/>
+            </connections>
+            <point key="canvasLocation" x="99" y="277"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="closeIcon.png" width="24" height="24"/>
+    </resources>
+</document>

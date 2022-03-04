@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="cxk-wN-pdQ" customClass="DaysOfWeekAllCell">
+            <rect key="frame" x="0.0" y="0.0" width="482" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
+                <rect key="frame" x="0.0" y="0.0" width="482" height="39"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHT-wr-gCe">
+                        <rect key="frame" x="0.0" y="0.0" width="482" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOW - All" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkA-Mv-CVc">
+                                <rect key="frame" x="38" y="13" width="56" height="14.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLg-C1-n8H">
+                                <rect key="frame" x="30" y="7" width="1" height="25"/>
+                                <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="1Ep-mu-xJX"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTy-wC-ZNe">
+                                <rect key="frame" x="5" y="9.5" width="21" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="UrB-T5-mrw"/>
+                                    <constraint firstAttribute="width" constant="21" id="XKh-ms-EPj"/>
+                                </constraints>
+                                <state key="normal" image="closeIcon.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnDeleteEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="INQ-JU-D4k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGK-wF-4IN">
+                                <rect key="frame" x="202" y="7.5" width="30" height="25"/>
+                                <color key="backgroundColor" red="0.67450980390000004" green="1" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                <state key="normal" title="Sun">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnSunButtonEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="6uz-jk-aRy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qoo-pj-Feb">
+                                <rect key="frame" x="242" y="7.5" width="30" height="25"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.29803921570000003" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                <state key="normal" title="Mon">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnMonButtonEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="FB1-gt-YSR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNV-PX-OWk">
+                                <rect key="frame" x="282" y="7.5" width="30" height="25"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.29803921570000003" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                <state key="normal" title="Tue">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnTueButtonEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="K1H-mo-anT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLA-Hs-CrT">
+                                <rect key="frame" x="322" y="7.5" width="30" height="25"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.29803921570000003" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                <state key="normal" title="Wed">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnWedButtonEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="Eqs-o7-SYd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deA-rY-edU">
+                                <rect key="frame" x="362" y="7.5" width="30" height="25"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.29803921570000003" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                <state key="normal" title="Thu">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnThuButtonEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="caY-tv-opO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xu4-eQ-w6m">
+                                <rect key="frame" x="402" y="7.5" width="30" height="25"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.29803921570000003" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                <state key="normal" title="Fri">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnFriButtonEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="SRo-BT-LUC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCh-gp-YeE">
+                                <rect key="frame" x="442" y="7.5" width="30" height="25"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.29803921570000003" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                <state key="normal" title="Sat">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnSatButtonEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="zdB-1c-SoY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FLg-C1-n8H" firstAttribute="leading" secondItem="lTy-wC-ZNe" secondAttribute="trailing" constant="4" id="0DH-Au-eHk"/>
+                            <constraint firstAttribute="trailing" secondItem="SCh-gp-YeE" secondAttribute="trailing" constant="10" id="1Be-1c-IZ2"/>
+                            <constraint firstItem="nLA-Hs-CrT" firstAttribute="leading" secondItem="hNV-PX-OWk" secondAttribute="trailing" constant="10" id="2K6-yQ-y2j"/>
+                            <constraint firstItem="Qoo-pj-Feb" firstAttribute="centerY" secondItem="IHT-wr-gCe" secondAttribute="centerY" id="4Hl-BO-4SL"/>
+                            <constraint firstItem="deA-rY-edU" firstAttribute="centerY" secondItem="IHT-wr-gCe" secondAttribute="centerY" id="7JK-BO-WOl"/>
+                            <constraint firstAttribute="bottom" secondItem="FLg-C1-n8H" secondAttribute="bottom" constant="8" id="8f1-hV-lVV"/>
+                            <constraint firstItem="FLg-C1-n8H" firstAttribute="top" secondItem="IHT-wr-gCe" secondAttribute="top" constant="7" id="8sO-xk-UKS"/>
+                            <constraint firstItem="lTy-wC-ZNe" firstAttribute="centerY" secondItem="IHT-wr-gCe" secondAttribute="centerY" id="94M-1w-gDC"/>
+                            <constraint firstItem="NkA-Mv-CVc" firstAttribute="leading" secondItem="FLg-C1-n8H" secondAttribute="trailing" constant="7" id="Axi-19-AYM"/>
+                            <constraint firstItem="Qoo-pj-Feb" firstAttribute="leading" secondItem="BGK-wF-4IN" secondAttribute="trailing" constant="10" id="BzO-GN-5Qj"/>
+                            <constraint firstItem="deA-rY-edU" firstAttribute="leading" secondItem="nLA-Hs-CrT" secondAttribute="trailing" constant="10" id="EAJ-AY-oqV"/>
+                            <constraint firstItem="nLA-Hs-CrT" firstAttribute="centerY" secondItem="IHT-wr-gCe" secondAttribute="centerY" id="Fvf-ik-4sB"/>
+                            <constraint firstItem="Xu4-eQ-w6m" firstAttribute="leading" secondItem="deA-rY-edU" secondAttribute="trailing" constant="10" id="H7J-7u-FUQ"/>
+                            <constraint firstItem="hNV-PX-OWk" firstAttribute="centerY" secondItem="IHT-wr-gCe" secondAttribute="centerY" id="Ksi-94-Bem"/>
+                            <constraint firstItem="NkA-Mv-CVc" firstAttribute="centerY" secondItem="IHT-wr-gCe" secondAttribute="centerY" id="cyX-Mp-9f9"/>
+                            <constraint firstItem="BGK-wF-4IN" firstAttribute="centerY" secondItem="IHT-wr-gCe" secondAttribute="centerY" id="gUF-91-Aij"/>
+                            <constraint firstItem="SCh-gp-YeE" firstAttribute="leading" secondItem="Xu4-eQ-w6m" secondAttribute="trailing" constant="10" id="gfz-Y1-ABL"/>
+                            <constraint firstItem="lTy-wC-ZNe" firstAttribute="leading" secondItem="IHT-wr-gCe" secondAttribute="leading" constant="5" id="orn-nY-W0X"/>
+                            <constraint firstItem="hNV-PX-OWk" firstAttribute="leading" secondItem="Qoo-pj-Feb" secondAttribute="trailing" constant="10" id="qri-yh-bVJ"/>
+                            <constraint firstItem="Xu4-eQ-w6m" firstAttribute="centerY" secondItem="IHT-wr-gCe" secondAttribute="centerY" id="rWN-Ql-IbC"/>
+                            <constraint firstItem="SCh-gp-YeE" firstAttribute="centerY" secondItem="IHT-wr-gCe" secondAttribute="centerY" id="sx6-UH-wM1"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="IHT-wr-gCe" secondAttribute="trailing" id="9Oj-ui-mcz"/>
+                    <constraint firstItem="IHT-wr-gCe" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" id="AWl-6E-w4p"/>
+                    <constraint firstAttribute="bottom" secondItem="IHT-wr-gCe" secondAttribute="bottom" constant="-0.5" id="OoA-gN-hgZ"/>
+                    <constraint firstItem="IHT-wr-gCe" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" id="eju-ba-XRi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="btnDelete" destination="lTy-wC-ZNe" id="TBe-q4-CXc"/>
+                <outlet property="btnFriday" destination="Xu4-eQ-w6m" id="gTP-Xr-JtK"/>
+                <outlet property="btnMonday" destination="Qoo-pj-Feb" id="GfW-cD-YKL"/>
+                <outlet property="btnSaturday" destination="SCh-gp-YeE" id="KiU-0t-AUT"/>
+                <outlet property="btnSunday" destination="BGK-wF-4IN" id="9Ut-AG-wF5"/>
+                <outlet property="btnThursday" destination="deA-rY-edU" id="BkV-BS-dD0"/>
+                <outlet property="btnTuesday" destination="hNV-PX-OWk" id="9JD-ed-Dqv"/>
+                <outlet property="btnWednesday" destination="nLA-Hs-CrT" id="d1w-s1-EfO"/>
+                <outlet property="lbDayOfWeekAll" destination="NkA-Mv-CVc" id="8jT-Z1-vJa"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="closeIcon.png" width="24" height="24"/>
+    </resources>
+</document>

@@ -1,0 +1,1076 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{2653575A-3D5E-4617-800C-82F93C5F0F65}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TestTablewViewLeak</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>TestTablewViewLeak</AssemblyName>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchProfiling>false</MtouchProfiling>
+    <CodesignKey>Apple Development: francis vimal (TVW829A2JK)</CodesignKey>
+    <MtouchI18n>west</MtouchI18n>
+    <MtouchSdkVersion>15.0</MtouchSdkVersion>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <NoStdLib>false</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <MtouchI18n>west</MtouchI18n>
+    <IpaPackageName>
+    </IpaPackageName>
+    <NoStdLib>false</NoStdLib>
+    <MtouchSdkVersion>14.0</MtouchSdkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>i386</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchUseLlvm></MtouchUseLlvm>
+    <MtouchUseThumb></MtouchUseThumb>
+    <MtouchFloat32></MtouchFloat32>
+    <NoStdLib>false</NoStdLib>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: francis vimal (TVW829A2JK)</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchProfiling>false</MtouchProfiling>
+    <CodesignKey>Apple Development: francis vimal (TVW829A2JK)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchI18n>west</MtouchI18n>
+    <MtouchSdkVersion>14.0</MtouchSdkVersion>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <NoStdLib>false</NoStdLib>
+    <CodesignProvision>WBIDIPADDEV</CodesignProvision>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Json" />
+    <Reference Include="HtmlAgilityPackiOs">
+      <HintPath>ThrirdParty\HtmlAgilityPackiOs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="protobuf-net">
+      <HintPath>..\WBid.WBidiPad.Model\ThirdParty\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml.Serialization" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Windows" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\WBid.WBidiPad.PortableLibrary\ThirdParty\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter">
+      <HintPath>..\packages\Microsoft.AppCenter.1.9.0\lib\Xamarin.iOS10\Microsoft.AppCenter.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.iOS.Bindings">
+      <HintPath>..\packages\Microsoft.AppCenter.1.9.0\lib\Xamarin.iOS10\Microsoft.AppCenter.iOS.Bindings.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Crashes">
+      <HintPath>..\packages\Microsoft.AppCenter.Crashes.1.9.0\lib\Xamarin.iOS10\Microsoft.AppCenter.Crashes.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Crashes.iOS.Bindings">
+      <HintPath>..\packages\Microsoft.AppCenter.Crashes.1.9.0\lib\Xamarin.iOS10\Microsoft.AppCenter.Crashes.iOS.Bindings.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Analytics">
+      <HintPath>..\packages\Microsoft.AppCenter.Analytics.1.9.0\lib\Xamarin.iOS10\Microsoft.AppCenter.Analytics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Analytics.iOS.Bindings">
+      <HintPath>..\packages\Microsoft.AppCenter.Analytics.1.9.0\lib\Xamarin.iOS10\Microsoft.AppCenter.Analytics.iOS.Bindings.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Xamarin.Essentials">
+      <HintPath>..\packages\Xamarin.Essentials.1.3.1\lib\xamarinios10\Xamarin.Essentials.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK-1.0" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="LZStringCSharp">
+      <HintPath>..\packages\LZStringCSharp.1.4.0\lib\netstandard1.0\LZStringCSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <InterfaceDefinition Include="UnusedClass\Modern.xib" />
+    <InterfaceDefinition Include="UnusedClass\ModernViewPaintCode.xib" />
+    <InterfaceDefinition Include="View Controllers\Home\homeViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\User registration\userRegistrationViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\User registration\PasswordManagementTool.xib" />
+    <InterfaceDefinition Include="View Controllers\User registration\WebViewForLicence.xib" />
+    <InterfaceDefinition Include="View Controllers\User registration\UserAccountDifferenceCell.xib" />
+    <InterfaceDefinition Include="View Controllers\User registration\UserAccountDifferenceScreen.xib" />
+    <InterfaceDefinition Include="View Controllers\Admin area\adminArea.xib" />
+    <InterfaceDefinition Include="View Controllers\User registration\CellCarrierPicker.xib" />
+    <InterfaceDefinition Include="View Controllers\Admin area\Test vacation\TestVacationViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\lineViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\BAViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Cell\AMPMCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Cell\BADaysOfMonthCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Cell\BlankReserveCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Cell\CommutableLinesCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Cell\DHFirstLastCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Cell\DaysOfWeekAllCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Cell\DaysOfWeekSomeCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Cell\EquipmentCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Cell\LinesTypeCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Cell\OvernightsCityCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Cell\RestCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Cell\StartDayOfWeekCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Cell\TripBlockLengthCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintModalView\ConstraintModalCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintModalView\ConstraintModalView.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintView\ConstraintItemsView.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Constraints\PopOverController\BAPopOverViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\BAConstraintDaysMonthViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CitiesOvernights\CityCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CommuteLines\CommutablePickerView.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CommuteLines\CommutableTimeViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CommuteLines\ConnectTimeView.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\PickerView\CitiesPickerCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Constraints\PickerView\PickerView.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Sort\BAblockSortCollectionCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Bid Automator\Sort\BAsortAndWeightViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\BidLineView\BidLineViewCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\CSW\CSWViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\CSW\ConstraintsViewController\ConstraintsCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\CSW\ConstraintsViewController\ContraintsViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\CSW\ConstraintsViewController\DOMorCL\DaysOfMonthCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\CSW\ConstraintsViewController\DOMorCL\DaysOfMonthColl.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\CSW\ConstraintsViewController\DefineViewController\DefineConstraints.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\CSW\ConstraintsViewController\OvernightsBulk\OvernightBulkCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\CSW\ConstraintsViewController\OvernightsBulk\OvernightBulkColl.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\CSW\SortAndWieghtViewController\Sort\blockSortCollectionCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\CSW\SortAndWieghtViewController\Sort\sortAndWeightViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\CSW\SortAndWieghtViewController\Weights\WeightsCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\CalendarPopover\CalenderPopCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\ModernView\ModernViewCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\SummaryView\Headers\summaryHeaderCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\SummaryView\Table\summaryListCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Bid automator view\BAGroupCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Bid automator view\BaPopViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\DownloadBidData\downloadBidDataViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\QuickSet\QuickSetDetailCell.xib" />
+    <InterfaceDefinition Include="View Controllers\QuickSet\QuickSetDetailViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\QuickSet\QuickSetViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Subscription\SubscriptionViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\HelpView\HelpViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\ViewFile\viewFileViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\About\AboutViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Base\baseViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Base\AvoidanceBid\AvoidanceBidVC.xib" />
+    <InterfaceDefinition Include="View Controllers\BidEditor\BidEditorForFA.xib" />
+    <InterfaceDefinition Include="View Controllers\BidEditor\BidEditorForPilot.xib" />
+    <InterfaceDefinition Include="View Controllers\BidEditor\BidEditorPrep\bidEditorPrepViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\BIdReciept\BidRecieptViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Change Emp\ChangeEmpNumberView.xib" />
+    <InterfaceDefinition Include="View Controllers\ConfigurationView\ConfigViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\ContactUs\ContactUsViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\GetNewBidPeriod\getNewBidPeriodViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Login\loginViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\MIL Config\MILConfigCell.xib" />
+    <InterfaceDefinition Include="View Controllers\MIL Config\MILConfigViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Overlap Correction\OverlapCorrectionViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Paring VView\PairingViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\RetrieveAward\RetrieveAwardViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Scrap\webView.xib" />
+    <InterfaceDefinition Include="View Controllers\SubmitBid\SubmitBidViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\SynchConflictView\SynchConflictViewController.xib" />
+    <InterfaceDefinition Include="Common\Brightness\BrightnessViewController.xib" />
+    <InterfaceDefinition Include="Common\ChangeBuddy\ChangeBuddyViewController.xib" />
+    <InterfaceDefinition Include="Common\FileViewer\webPrint.xib" />
+    <InterfaceDefinition Include="Common\Popover\NumberPadView.xib" />
+    <InterfaceDefinition Include="Common\Popover\PopoverListCell.xib" />
+    <InterfaceDefinition Include="Common\Popover\PopoverViewController.xib" />
+    <InterfaceDefinition Include="Common\Tooltip Popover\TooltipViewController.xib" />
+    <InterfaceDefinition Include="WBid_WBidiPad_iOSViewController.xib" />
+    <InterfaceDefinition Include="ConstraintView.xib" />
+    <InterfaceDefinition Include="WbidLaunchScreen.xib" />
+    <InterfaceDefinition Include="View Controllers\Walkthrough\WalkChildViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Walkthrough\WalkthroughViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\User Login\UserLoginviewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Home\CollectionView\BidCollectionCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\Main.storyboard" />
+    <InterfaceDefinition Include="View Controllers\Scrap\ContractorEmpScrap.xib" />
+    <InterfaceDefinition Include="View Controllers\CAP\CAPViewController.xib" />
+    <InterfaceDefinition Include="Resources\CAPCell.xib" />
+    <InterfaceDefinition Include="View Controllers\CAP\CAPHeaderCell.xib" />
+    <InterfaceDefinition Include="View Controllers\CAP\CAPDetailCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\CSW\SortAndWieghtViewController\Sort\CommutabilityCell.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\SummaryView\LineStoryboardView.storyboard" />
+    <InterfaceDefinition Include="View Controllers\SubmitBid\FAPostionChoiceViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\QueryView\queryViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\QueryView\BidChoicesViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\ModernView\ModernViewCellClassic.xib" />
+    <InterfaceDefinition Include="Common\FileViewer\SubmitwebPrint.xib" />
+    <InterfaceDefinition Include="View Controllers\timeoutalert\TimeOutAlertView.xib" />
+    <InterfaceDefinition Include="View Controllers\SecretDataDownload.xib" />
+    <InterfaceDefinition Include="View Controllers\SecretDomicile.xib" />
+    <InterfaceDefinition Include="View Controllers\MonthsViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\Line\CSW\ConstraintsViewController\ReportReleaseCell.xib" />
+    <InterfaceDefinition Include="Resources\launchStory.storyboard" />
+    <InterfaceDefinition Include="View Controllers\SynchSelectionView\SynchSelectionViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\SyncView\SynchView.xib" />
+    <InterfaceDefinition Include="View Controllers\MonthToMonthAlertView.xib" />
+    <InterfaceDefinition Include="View Controllers\CustomAlert\CustomAlertView.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\WBid.WBidiPad.SharedLibrary\app.config">
+      <Link>app.config</Link>
+    </None>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="View Controllers\Line\SummaryView\Headers\summaryHeaderCell.cs.orig" />
+    <None Include="ThrirdParty\HtmlAgilityPackiOs.dll" />
+    <None Include="ThrirdParty\System.Runtime.Serialization.dll" />
+    <None Include="ThrirdParty\protobuf-net.dll" />
+    <None Include="Common\FileViewer\search.js">
+      <Link>Common\search.js</Link>
+    </None>
+    <None Include="Privacy policy\WBid License Agreement.pdf" />
+    <None Include="Privacy policy\WBid Personal Information and Privacy Policy.pdf" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\WBid.WBidiPad.SharedLibrary\Parser\BidLineParser.cs">
+      <Link>Parser\BidLineParser.cs</Link>
+    </Compile>
+    <Compile Include="..\WBid.WBidiPad.SharedLibrary\Parser\CoverLetterParser.cs">
+      <Link>Parser\CoverLetterParser.cs</Link>
+    </Compile>
+    <Compile Include="..\WBid.WBidiPad.SharedLibrary\Parser\FASecondRoundParser.cs">
+      <Link>Parser\FASecondRoundParser.cs</Link>
+    </Compile>
+    <Compile Include="..\WBid.WBidiPad.SharedLibrary\Parser\ModifiedSeniorityListParser.cs">
+      <Link>Parser\ModifiedSeniorityListParser.cs</Link>
+    </Compile>
+    <Compile Include="..\WBid.WBidiPad.SharedLibrary\Parser\SeniorityListParser.cs">
+      <Link>Parser\SeniorityListParser.cs</Link>
+    </Compile>
+    <Compile Include="..\WBid.WBidiPad.SharedLibrary\Parser\TripTtpParser.cs">
+      <Link>Parser\TripTtpParser.cs</Link>
+    </Compile>
+    <Compile Include="..\WBid.WBidiPad.SharedLibrary\Parser\WBidUpdateParser.cs">
+      <Link>Parser\WBidUpdateParser.cs</Link>
+    </Compile>
+    <Compile Include="..\WBid.WBidiPad.SharedLibrary\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\WBid.WBidiPad.SharedLibrary\Serialization\Serialization.cs">
+      <Link>Serialization\Serialization.cs</Link>
+    </Compile>
+    <Compile Include="..\WBid.WBidiPad.SharedLibrary\SWA\Authentication.cs">
+      <Link>SWA\Authentication.cs</Link>
+    </Compile>
+    <Compile Include="..\WBid.WBidiPad.SharedLibrary\SWA\DownloadAward.cs">
+      <Link>SWA\DownloadAward.cs</Link>
+    </Compile>
+    <Compile Include="..\WBid.WBidiPad.SharedLibrary\SWA\DownloadBid.cs">
+      <Link>SWA\DownloadBid.cs</Link>
+    </Compile>
+    <Compile Include="..\WBid.WBidiPad.SharedLibrary\SWA\SWAConstants.cs">
+      <Link>SWA\SWAConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\WBid.WBidiPad.SharedLibrary\SWA\SWASubmitBid.cs">
+      <Link>SWA\SWASubmitBid.cs</Link>
+    </Compile>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="ViewController.cs" />
+    <Compile Include="ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnusedClass\LeakTablewViewControllerCell.cs" />
+    <Compile Include="UnusedClass\LeakTablewViewControllerCell.designer.cs">
+      <DependentUpon>LeakTablewViewControllerCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnusedClass\LeakTablewViewControllerController.cs" />
+    <Compile Include="UnusedClass\LeakTablewViewControllerController.designer.cs">
+      <DependentUpon>LeakTablewViewControllerController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnusedClass\LeakTablewViewControllerSource.cs" />
+    <Compile Include="UnusedClass\Modern.cs" />
+    <Compile Include="UnusedClass\Modern.designer.cs">
+      <DependentUpon>Modern.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnusedClass\ModernViewPaintCode.cs" />
+    <Compile Include="UnusedClass\ModernViewPaintCode.designer.cs">
+      <DependentUpon>ModernViewPaintCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnusedClass\sampleCell.cs" />
+    <Compile Include="UnusedClass\sampleController.cs" />
+    <Compile Include="UnusedClass\sampleSource.cs" />
+    <Compile Include="View Controllers\Home\homeViewController.cs" />
+    <Compile Include="View Controllers\Home\homeViewController.designer.cs" />
+    <Compile Include="View Controllers\User registration\userRegistrationViewController.cs" />
+    <Compile Include="View Controllers\User registration\userRegistrationViewController.designer.cs">
+      <DependentUpon>userRegistrationViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\User registration\UserAccountDifferenceCell.designer.cs">
+      <DependentUpon>UserAccountDifferenceCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\User registration\WebViewForLicence.designer.cs">
+      <DependentUpon>WebViewForLicence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\User registration\PasswordManagementTool.designer.cs">
+      <DependentUpon>PasswordManagementTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\User registration\WebViewForLicence.cs" />
+    <Compile Include="View Controllers\User registration\UserAccountDifferenceScreen.cs" />
+    <Compile Include="View Controllers\User registration\UserAccountDifferenceScreen.designer.cs">
+      <DependentUpon>UserAccountDifferenceScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\User registration\UserDifferenceTableDataSource.cs" />
+    <Compile Include="View Controllers\User registration\PasswordManagementTool.cs" />
+    <Compile Include="View Controllers\User registration\UserAccountDifferenceCell.cs" />
+    <Compile Include="View Controllers\Admin area\adminArea.cs" />
+    <Compile Include="View Controllers\Admin area\adminArea.designer.cs" />
+    <Compile Include="View Controllers\User registration\CellCarrierPicker.designer.cs">
+      <DependentUpon>CellCarrierPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\User registration\CellCarrierPicker.cs" />
+    <Compile Include="View Controllers\Admin area\Test vacation\TestVacationViewController.designer.cs">
+      <DependentUpon>TestVacationViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\Admin area\Test vacation\TestVacationViewController.cs" />
+    <Compile Include="View Controllers\Line\lineViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\BAViewController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\BAViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Colors.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\ConstraintView.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\ConstraintView.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\SortViewController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\SortViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\SubSortViewController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\SubSortViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\UIHelpers.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\AMPMCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\AMPMCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\BADaysOfMonthCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\BADaysOfMonthCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\BlankReserveCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\BlankReserveCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\CommutableLinesCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\CommutableLinesCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\DHFirstLastCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\DHFirstLastCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\DaysOfWeekAllCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\DaysOfWeekAllCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\DaysOfWeekSomeCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\DaysOfWeekSomeCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\EquipmentCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\EquipmentCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\LinesTypeCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\LinesTypeCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\OvernightsCityCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\OvernightsCityCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\RestCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\RestCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\StartDayOfWeekCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\StartDayOfWeekCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\TripBlockLengthCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Cell\TripBlockLengthCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\BaseViewController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintViewController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintsChangeViewController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintsChangeViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintModalView\ConstraintModalCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintModalView\ConstraintModalCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintModalView\ConstraintModalView.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintModalView\ConstraintModalView.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintModalView\ConstraintTableSource.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintView\ConstraintItemsView.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintView\ConstraintItemsView.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintView\NoConstraintVC.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\ConstraintView\NoConstraintVC.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\PopOverController\BAPopOverViewController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\PopOverController\BAPopOverViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\PopOverController\BAPopOverViewTableViewCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\PopOverController\BAPopOverViewTableViewSource.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\BAConstraintDaysMonthViewController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\BAConstraintDaysMonthViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\ConstraintDaysMonthViewController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\ConstraintDaysMonthViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CitiesOvernights\CitiesOvernightSource.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CitiesOvernights\CitiesOvernightsViewController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CitiesOvernights\CitiesOvernightsViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CitiesOvernights\CityCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CitiesOvernights\CityCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CommuteLines\CommutablePickerView.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CommuteLines\CommutableTimeViewController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CommuteLines\CommutableTimeViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CommuteLines\CommuteLinesViewController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CommuteLines\CommuteLinesViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CommuteLines\ConnectTimeView.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\SubviewsConstraint\CommuteLines\ConnectTimeView.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\PickerView\CalendarButton.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\PickerView\CitiesPickerCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\PickerView\CitiesPickerCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\PickerView\CitiesPickerSource.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\PickerView\CitiesPickerVC.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\PickerView\CitiesPickerVC.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\PickerView\PickerView.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Sort\BAblockSortCollectionCell.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Sort\BAblockSortCollectionCell.designer.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Sort\BAblockSortTableControllerController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Sort\BAblockSortTableControllerSource.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Sort\BAsortAndWeightViewController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Sort\sortAndWeightViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\BidLineView\BidLineViewCell.cs" />
+    <Compile Include="View Controllers\Line\BidLineView\BidLineViewCell.designer.cs" />
+    <Compile Include="View Controllers\Line\BidLineView\BidLineViewControllerController.cs" />
+    <Compile Include="View Controllers\Line\BidLineView\BidLineViewControllerSource.cs" />
+    <Compile Include="View Controllers\Line\CSW\CSWViewController.cs" />
+    <Compile Include="View Controllers\Line\CSW\CSWViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\ConstraintsCell.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\ConstraintsCell.designer.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\ConstraintsTableController.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\ConstraintsTableSource.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\ConstraintsViewController.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\ConstraintsViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\DOMorCL\DaysOfMonthCell.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\DOMorCL\DaysOfMonthCell.designer.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\DOMorCL\DaysOfMonthColl.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\DOMorCL\DaysOfMonthColl.designer.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\DOMorCL\DaysOfMonthCollectionController.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\DefineViewController\DefineConstraints.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\DefineViewController\DefineConstraints.designer.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\OvernightsBulk\OvernightBulkCell.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\OvernightsBulk\OvernightBulkCell.designer.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\OvernightsBulk\OvernightBulkColl.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\OvernightsBulk\OvernightBulkColl.designer.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\OvernightsBulk\OvernightBulkCollectionController.cs" />
+    <Compile Include="View Controllers\Line\CSW\SortAndWieghtViewController\Sort\blockSortCollectionCell.cs" />
+    <Compile Include="View Controllers\Line\CSW\SortAndWieghtViewController\Sort\blockSortCollectionCell.designer.cs" />
+    <Compile Include="View Controllers\Line\CSW\SortAndWieghtViewController\Sort\blockSortTableControllerController.cs" />
+    <Compile Include="View Controllers\Line\CSW\SortAndWieghtViewController\Sort\blockSortTableControllerSource.cs" />
+    <Compile Include="View Controllers\Line\CSW\SortAndWieghtViewController\Sort\sortAndWeightViewController.cs" />
+    <Compile Include="View Controllers\Line\CSW\SortAndWieghtViewController\Sort\sortAndWeightViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\CSW\SortAndWieghtViewController\Weights\WeightsCell.cs" />
+    <Compile Include="View Controllers\Line\CSW\SortAndWieghtViewController\Weights\WeightsCell.designer.cs" />
+    <Compile Include="View Controllers\Line\CSW\SortAndWieghtViewController\Weights\WeightsTableCell.cs" />
+    <Compile Include="View Controllers\Line\CSW\SortAndWieghtViewController\Weights\WeightsTableController.cs" />
+    <Compile Include="View Controllers\Line\CSW\SortAndWieghtViewController\Weights\WeightsTableSource.cs" />
+    <Compile Include="View Controllers\Line\CalendarPopover\CalenderPopCell.cs" />
+    <Compile Include="View Controllers\Line\CalendarPopover\CalenderPopCell.designer.cs" />
+    <Compile Include="View Controllers\Line\CalendarPopover\CalenderPopoverController.cs" />
+    <Compile Include="View Controllers\Line\CalendarPopover\TripPopListViewCell.cs" />
+    <Compile Include="View Controllers\Line\CalendarPopover\TripPopListViewController.cs" />
+    <Compile Include="View Controllers\Line\CalendarPopover\TripPopListViewSource.cs" />
+    <Compile Include="View Controllers\Line\ModernView\ModernViewCell.cs" />
+    <Compile Include="View Controllers\Line\ModernView\ModernViewCell.designer.cs" />
+    <Compile Include="View Controllers\Line\ModernView\ModernViewControllerController.cs" />
+    <Compile Include="View Controllers\Line\ModernView\ModernViewControllerSource.cs">
+      <IncludeInPackage>true</IncludeInPackage>
+    </Compile>
+    <Compile Include="View Controllers\Line\SummaryView\Headers\horizontalTableViewCell.cs" />
+    <Compile Include="View Controllers\Line\SummaryView\Headers\horizontalTableViewController.cs" />
+    <Compile Include="View Controllers\Line\SummaryView\Headers\horizontalTableViewSource.cs" />
+    <Compile Include="View Controllers\Line\SummaryView\Headers\summaryHeaderCell.cs" />
+    <Compile Include="View Controllers\Line\SummaryView\Headers\summaryHeaderCell.designer.cs" />
+    <Compile Include="View Controllers\Line\SummaryView\Headers\summaryHeaderListController.cs" />
+    <Compile Include="View Controllers\Line\SummaryView\Headers\summaryHeaderListSource.cs" />
+    <Compile Include="View Controllers\Line\SummaryView\Table\SummaryListController.cs" />
+    <Compile Include="View Controllers\Line\SummaryView\Table\SummaryListSource.cs" />
+    <Compile Include="View Controllers\Line\SummaryView\Table\summaryListCell.cs" />
+    <Compile Include="View Controllers\Line\SummaryView\Table\summaryListCell.designer.cs" />
+    <Compile Include="View Controllers\Bid automator view\BAGroupCell.cs" />
+    <Compile Include="View Controllers\Bid automator view\BAGroupCell.designer.cs" />
+    <Compile Include="View Controllers\Bid automator view\BaPopViewController.cs" />
+    <Compile Include="View Controllers\Bid automator view\BaPopViewController.designer.cs" />
+    <Compile Include="View Controllers\DownloadBidData\downloadBidDataViewControllerOld.cs" />
+    <Compile Include="View Controllers\DownloadBidData\downloadBidDataViewController.designer.cs" />
+    <Compile Include="View Controllers\QuickSet\QuickSetDetailCell.cs" />
+    <Compile Include="View Controllers\QuickSet\QuickSetDetailCell.designer.cs" />
+    <Compile Include="View Controllers\QuickSet\QuickSetDetailViewController.cs" />
+    <Compile Include="View Controllers\QuickSet\QuickSetDetailViewController.designer.cs" />
+    <Compile Include="View Controllers\QuickSet\QuickSetViewController.cs" />
+    <Compile Include="View Controllers\QuickSet\QuickSetViewController.designer.cs" />
+    <Compile Include="View Controllers\Subscription\SubscriptionViewController.cs" />
+    <Compile Include="View Controllers\Subscription\SubscriptionViewController.designer.cs" />
+    <Compile Include="View Controllers\HelpView\HelpViewController.cs" />
+    <Compile Include="View Controllers\HelpView\HelpViewController.designer.cs" />
+    <Compile Include="View Controllers\ViewFile\viewFileViewController.cs" />
+    <Compile Include="View Controllers\ViewFile\viewFileViewController.designer.cs" />
+    <Compile Include="View Controllers\About\AboutViewController.cs" />
+    <Compile Include="View Controllers\About\AboutViewController.designer.cs" />
+    <Compile Include="View Controllers\Base\baseViewController.cs" />
+    <Compile Include="View Controllers\Base\baseViewController.designer.cs" />
+    <Compile Include="View Controllers\Base\AvoidanceBid\AvoidanceBidVC.cs" />
+    <Compile Include="View Controllers\Base\AvoidanceBid\AvoidanceBidVC.designer.cs" />
+    <Compile Include="View Controllers\BidEditor\BidEditorForFA.cs" />
+    <Compile Include="View Controllers\BidEditor\BidEditorForFA.designer.cs" />
+    <Compile Include="View Controllers\BidEditor\BidEditorForPilot.cs" />
+    <Compile Include="View Controllers\BidEditor\BidEditorForPilot.designer.cs" />
+    <Compile Include="View Controllers\BidEditor\pilotBidEditorCollectionCell.cs" />
+    <Compile Include="View Controllers\BidEditor\pilotBidEditorCollectionController.cs" />
+    <Compile Include="View Controllers\BidEditor\BidEditorPrep\bidEditorPrepViewController.cs" />
+    <Compile Include="View Controllers\BidEditor\BidEditorPrep\bidEditorPrepViewController.designer.cs" />
+    <Compile Include="View Controllers\BIdReciept\BidRecieptViewController.cs" />
+    <Compile Include="View Controllers\BIdReciept\BidRecieptViewController.designer.cs" />
+    <Compile Include="View Controllers\BIdReciept\recieptCollectionCell.cs" />
+    <Compile Include="View Controllers\BIdReciept\recieptCollectionController.cs" />
+    <Compile Include="View Controllers\Change Emp\ChangeEmpNumberView.cs" />
+    <Compile Include="View Controllers\Change Emp\ChangeEmpNumberView.designer.cs" />
+    <Compile Include="View Controllers\ConfigurationView\ConfigTabBarControlller.cs" />
+    <Compile Include="View Controllers\ConfigurationView\ConfigViewController.cs" />
+    <Compile Include="View Controllers\ConfigurationView\ConfigViewController.designer.cs" />
+    <Compile Include="View Controllers\ContactUs\ContactUsViewController.cs" />
+    <Compile Include="View Controllers\ContactUs\ContactUsViewController.designer.cs" />
+    <Compile Include="View Controllers\GetNewBidPeriod\getNewBidPeriodViewController.cs" />
+    <Compile Include="View Controllers\GetNewBidPeriod\getNewBidPeriodViewController.designer.cs" />
+    <Compile Include="View Controllers\Login\loginViewController.cs" />
+    <Compile Include="View Controllers\Login\loginViewController.designer.cs" />
+    <Compile Include="View Controllers\MIL Config\MILConfigCell.cs" />
+    <Compile Include="View Controllers\MIL Config\MILConfigCell.designer.cs" />
+    <Compile Include="View Controllers\MIL Config\MILConfigViewController.cs" />
+    <Compile Include="View Controllers\MIL Config\MILConfigViewController.designer.cs" />
+    <Compile Include="View Controllers\Overlap Correction\OverlapCorrectionViewController.cs" />
+    <Compile Include="View Controllers\Overlap Correction\OverlapCorrectionViewController.designer.cs" />
+    <Compile Include="View Controllers\Paring VView\PairingViewController.cs" />
+    <Compile Include="View Controllers\Paring VView\PairingViewController.designer.cs" />
+    <Compile Include="View Controllers\RetrieveAward\RetrieveAwardViewController.cs" />
+    <Compile Include="View Controllers\RetrieveAward\RetrieveAwardViewController.designer.cs" />
+    <Compile Include="View Controllers\Scrap\webView.cs" />
+    <Compile Include="View Controllers\Scrap\webView.designer.cs" />
+    <Compile Include="View Controllers\SubmitBid\SubmitBidViewController.cs" />
+    <Compile Include="View Controllers\SubmitBid\SubmitBidViewController.designer.cs" />
+    <Compile Include="View Controllers\SynchConflictView\SynchConflictViewController.cs" />
+    <Compile Include="View Controllers\SynchConflictView\SynchConflictViewController.designer.cs" />
+    <Compile Include="View Controllers\User Account Creation\CreatePasswordWindow.cs" />
+    <Compile Include="View Controllers\User Account Creation\CreatePasswordWindow.designer.cs" />
+    <Compile Include="Common\AppNotifications.cs" />
+    <Compile Include="Common\ColorClass.cs" />
+    <Compile Include="Common\CommonClass.cs" />
+    <Compile Include="Common\ConstraintsApplied.cs" />
+    <Compile Include="Common\GlobalSettings.cs" />
+    <Compile Include="Common\RegXHandler.cs" />
+    <Compile Include="Common\WeightsApplied.cs" />
+    <Compile Include="Common\Brightness\BrightnessViewController.cs" />
+    <Compile Include="Common\Brightness\BrightnessViewController.designer.cs" />
+    <Compile Include="Common\Calendar\Calendar.cs" />
+    <Compile Include="Common\ChangeBuddy\ChangeBuddyViewController.cs" />
+    <Compile Include="Common\ChangeBuddy\ChangeBuddyViewController.designer.cs" />
+    <Compile Include="Common\FileViewer\webPrint.cs" />
+    <Compile Include="Common\FileViewer\webPrint.designer.cs" />
+    <Compile Include="Common\Popover\NumberPadView.cs" />
+    <Compile Include="Common\Popover\NumberPadView.designer.cs" />
+    <Compile Include="Common\Popover\PopoverListCell.cs" />
+    <Compile Include="Common\Popover\PopoverListCell.designer.cs" />
+    <Compile Include="Common\Popover\PopoverTableViewControllerController.cs" />
+    <Compile Include="Common\Popover\PopoverTableViewControllerSource.cs" />
+    <Compile Include="Common\Popover\PopoverViewController.cs" />
+    <Compile Include="Common\Popover\PopoverViewController.designer.cs" />
+    <Compile Include="Common\Popover\SmallPopoverTableCell.cs" />
+    <Compile Include="Common\Popover\SmallPopoverTableController.cs" />
+    <Compile Include="Common\Popover\SmallPopoverTableSource.cs" />
+    <Compile Include="Common\Tooltip Popover\TooltipViewController.cs" />
+    <Compile Include="Common\Tooltip Popover\TooltipViewController.designer.cs" />
+    <Compile Include="ThrirdParty\KeychainHelpers.cs" />
+    <Compile Include="ThrirdParty\ZipStorer.cs" />
+    <Compile Include="Vacation\VacationCorrectionBL.cs" />
+    <Compile Include="Share Code\CustomPaymentObserver.cs" />
+    <Compile Include="Share Code\InAppPurchaseManager.cs" />
+    <Compile Include="Share Code\PurchaseManager.cs" />
+    <Compile Include="Share Code\SKProductExtension.cs" />
+    <Compile Include="Model\ProtoContract.cs" />
+    <Compile Include="WBidDataDwonloadAuthService.cs" />
+    <Compile Include="WBid_WBidiPad_iOSViewController.designer.cs" />
+    <Compile Include="CalendarViewBL.cs" />
+    <Compile Include="NetworkPlanService.cs" />
+    <Compile Include="PushService.cs" />
+    <Compile Include="WBid_WBidiPad_iOSViewController.cs" />
+    <Compile Include="Utility\BidAutoCalculateCommuteTimes.cs" />
+    <Compile Include="Utility\FileOperations.cs" />
+    <Compile Include="Utility\LoadingOverlay.cs" />
+    <Compile Include="Utility\ManageVacationColumns.cs" />
+    <Compile Include="Utility\NetworkData.cs" />
+    <Compile Include="Utility\OdataBuilder.cs" />
+    <Compile Include="Utility\PraseScrapedTripDetails.cs" />
+    <Compile Include="Utility\Reachability.cs" />
+    <Compile Include="Utility\ReparseBL.cs" />
+    <Compile Include="Utility\RestServiceUtil.cs" />
+    <Compile Include="Utility\ScrapTripForContractorUser.cs" />
+    <Compile Include="Utility\ServiceObjects.cs" />
+    <Compile Include="Utility\ServiceUtil.cs" />
+    <Compile Include="Utility\WBidHelper.cs" />
+    <Compile Include="Utility\WBidLogEvent.cs" />
+    <Compile Include="Utility\WBidMail.cs" />
+    <Compile Include="View Controllers\Walkthrough\WalkthroughViewController.designer.cs" />
+    <Compile Include="View Controllers\Walkthrough\WalkChildViewController.cs" />
+    <Compile Include="View Controllers\Walkthrough\WalkChildViewController.designer.cs" />
+    <Compile Include="View Controllers\Walkthrough\WalkthroughViewController.cs" />
+    <Compile Include="View Controllers\User Login\UserLoginviewController.cs" />
+    <Compile Include="View Controllers\User Login\UserLoginviewController.designer.cs" />
+    <Compile Include="View Controllers\Home\CollectionView\bidDataCollectionController.cs" />
+    <Compile Include="View Controllers\Home\CollectionView\BidCollectionCell.designer.cs" />
+    <Compile Include="View Controllers\Home\CollectionView\BidCollectionCell.cs" />
+    <Compile Include="View Controllers\Home\CollectionView\bidDataCollectionCell.cs" />
+    <Compile Include="Utility\DisposeClass.cs" />
+    <Compile Include="View Controllers\Scrap\ContractorEmpScrap.cs" />
+    <Compile Include="View Controllers\Scrap\ContractorEmpScrap.designer.cs" />
+    <Compile Include="XMLHelper.cs" />
+    <Compile Include="View Controllers\Line\ModernView\ModernViewControllerSourceClassicScroll.cs" />
+    <Compile Include="View Controllers\CAP\CAPViewController.cs" />
+    <Compile Include="View Controllers\CAP\CAPViewController.designer.cs">
+      <DependentUpon>CAPViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\CAP\CAPHeaderCell.cs" />
+    <Compile Include="View Controllers\CAP\CAPHeaderCell.designer.cs">
+      <DependentUpon>CAPHeaderCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\CAP\CAPTableViewControllerCell.cs" />
+    <Compile Include="View Controllers\CAP\CAPTableViewControllerSource.cs" />
+    <Compile Include="View Controllers\CAP\CAPDetailCell.cs" />
+    <Compile Include="View Controllers\CAP\CAPDetailCell.designer.cs">
+      <DependentUpon>CAPDetailCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\Line\CSW\Commutability\CommutabilityLinesViewController.cs" />
+    <Compile Include="View Controllers\Line\CSW\Commutability\CommutabilityLinesViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\CSW\SortAndWieghtViewController\Sort\CommutabilityCell.cs" />
+    <Compile Include="View Controllers\Line\CSW\SortAndWieghtViewController\Sort\CommutabilityCell.designer.cs">
+      <DependentUpon>CommutabilityCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\Line\ModernView\ModernContainerViewController.cs" />
+    <Compile Include="View Controllers\Line\ModernView\ModernContainerViewController.designer.cs">
+      <DependentUpon>ModernContainerViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\Line\SummaryView\Table\SummaryViewController.cs" />
+    <Compile Include="View Controllers\Line\SummaryView\Table\SummaryViewController.designer.cs">
+      <DependentUpon>SummaryViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\Line\BidLineView\BidLineViewController.cs" />
+    <Compile Include="View Controllers\Line\BidLineView\BidLineViewController.designer.cs">
+      <DependentUpon>BidLineViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\SubmitBid\FAPostionChoiceViewController.cs" />
+    <Compile Include="View Controllers\SubmitBid\FAPostionChoiceViewController.designer.cs" />
+    <Compile Include="View Controllers\QueryView\queryViewController.cs" />
+    <Compile Include="View Controllers\QueryView\queryViewController.designer.cs" />
+    <Compile Include="View Controllers\QueryView\BidChoicesViewController.cs" />
+    <Compile Include="View Controllers\QueryView\BidChoicesViewController.designer.cs" />
+    <Compile Include="View Controllers\Line\ModernView\ModernViewCellClassic.cs" />
+    <Compile Include="View Controllers\Line\ModernView\ModernViewCellClassic.designer.cs" />
+    <Compile Include="Common\FileViewer\SubmitwebPrint.cs" />
+    <Compile Include="Common\FileViewer\SubmitwebPrint.designer.cs" />
+    <Compile Include="View Controllers\Line\WBRatioViewController.cs" />
+    <Compile Include="View Controllers\Line\WBRatioViewController.designer.cs">
+      <DependentUpon>WBRatioViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\Line\RatioViewController.cs" />
+    <Compile Include="View Controllers\Line\RatioViewController.designer.cs" />
+    <Compile Include="View Controllers\timeoutalert\TimeOutAlertView.cs" />
+    <Compile Include="View Controllers\timeoutalert\TimeOutAlertView.designer.cs">
+      <DependentUpon>TimeOutAlertView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\SecretDataDownload.cs" />
+    <Compile Include="View Controllers\SecretDataDownload.designer.cs">
+      <DependentUpon>SecretDataDownload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\SecretDomicile.cs" />
+    <Compile Include="View Controllers\SecretDomicile.designer.cs">
+      <DependentUpon>SecretDomicile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\SecretDataTableViewSource.cs" />
+    <Compile Include="View Controllers\MonthsViewController.cs" />
+    <Compile Include="View Controllers\MonthsViewController.designer.cs">
+      <DependentUpon>MonthsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\Line\lineViewController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\CommutableManualBlockSortViewController.cs" />
+    <Compile Include="View Controllers\Line\Bid Automator\Constraints\Constraints\CommutableManualBlockSortViewController.designer.cs">
+      <DependentUpon>CommutableManualBlockSortViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\ReportReleaseCell.cs" />
+    <Compile Include="View Controllers\Line\CSW\ConstraintsViewController\ReportReleaseCell.designer.cs">
+      <DependentUpon>ReportReleaseCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\SynchSelectionView\SynchSelectionViewController.cs" />
+    <Compile Include="View Controllers\SynchSelectionView\SynchSelectionViewController.designer.cs" />
+    <Compile Include="View Controllers\SyncView\SynchView.cs" />
+    <Compile Include="View Controllers\SyncView\SynchView.designer.cs" />
+    <Compile Include="Utility\SyncOperations.cs" />
+    <Compile Include="View Controllers\MonthToMonthAlertView.cs" />
+    <Compile Include="View Controllers\MonthToMonthAlertView.designer.cs">
+      <DependentUpon>MonthToMonthAlertView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\CustomAlert\CustomAlertView.cs" />
+    <Compile Include="View Controllers\CustomAlert\CustomAlertView.designer.cs">
+      <DependentUpon>CustomAlertView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\DownloadBidData\downloadBidDataViewController.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <BundleResource Include="Resources\image001.jpg" />
+    <BundleResource Include="Resources\X_icon.png" />
+    <BundleResource Include="Resources\X_icon%402x.png" />
+    <BundleResource Include="Resources\oneMonth%403x.png" />
+    <BundleResource Include="Resources\oneMonth%402x.png" />
+    <BundleResource Include="Resources\oneMonth.png" />
+    <BundleResource Include="Resources\InAppPurchase1MonthGreen.png" />
+    <BundleResource Include="Resources\InAppPurchase1Month.png" />
+    <BundleResource Include="Resources\NewBid-navbar-xcancelbutton.png" />
+    <BundleResource Include="Resources\NewBid-navbar-xcancelbutton%402x.png" />
+    <BundleResource Include="Resources\down-arrow.png" />
+    <BundleResource Include="Resources\Default-Landscape%402x.png" />
+    <BundleResource Include="Resources\aboutScreen.png" />
+    <BundleResource Include="Resources\activeButtonOrange.png" />
+    <BundleResource Include="Resources\activeButtonOrange%402x.png" />
+    <BundleResource Include="Resources\arrowCalendar.png" />
+    <BundleResource Include="Resources\arrowCalendar%402x.png" />
+    <BundleResource Include="Resources\arrowDown.png" />
+    <BundleResource Include="Resources\arrowDown%402x.png" />
+    <BundleResource Include="Resources\arrowUp.png" />
+    <BundleResource Include="Resources\arrowUp%402x.png" />
+    <BundleResource Include="Resources\bottomLock.png" />
+    <BundleResource Include="Resources\bottomLockIcon.png" />
+    <BundleResource Include="Resources\bottomLockIcon%402x.png" />
+    <BundleResource Include="Resources\calendarBottomLock.png" />
+    <BundleResource Include="Resources\calendarBottomLock%402x.png" />
+    <BundleResource Include="Resources\calendarTopLock.png" />
+    <BundleResource Include="Resources\calendarTopLock%402x.png" />
+    <BundleResource Include="Resources\Check.png" />
+    <BundleResource Include="Resources\Check%402x.png" />
+    <BundleResource Include="Resources\closeIcon.png" />
+    <BundleResource Include="Resources\closeIcon%402x.png" />
+    <BundleResource Include="Resources\Contact.png" />
+    <BundleResource Include="Resources\Contact%402x.png" />
+    <BundleResource Include="Resources\cpBgMen.png" />
+    <BundleResource Include="Resources\cpBgMen%402x.png" />
+    <BundleResource Include="Resources\cpBgWomen.png" />
+    <BundleResource Include="Resources\cpBgWomen%402x.png" />
+    <BundleResource Include="Resources\cross.png" />
+    <BundleResource Include="Resources\delete.png" />
+    <BundleResource Include="Resources\deleteIconBold.png" />
+    <BundleResource Include="Resources\deleteIconBold%402x.png" />
+    <BundleResource Include="Resources\deleteIconThin.png" />
+    <BundleResource Include="Resources\deleteIconThin%402x.png" />
+    <BundleResource Include="Resources\exportMenuIcon.png" />
+    <BundleResource Include="Resources\exportMenuIcon%402x.png" />
+    <BundleResource Include="Resources\faBgMen.png" />
+    <BundleResource Include="Resources\faBgMen%402x.png" />
+    <BundleResource Include="Resources\faBgWomen.png" />
+    <BundleResource Include="Resources\faBgWomen%402x.png" />
+    <BundleResource Include="Resources\foBgMen.png" />
+    <BundleResource Include="Resources\foBgMen%402x.png" />
+    <BundleResource Include="Resources\foBgWomen.png" />
+    <BundleResource Include="Resources\foBgWomen%402x.png" />
+    <BundleResource Include="Resources\full-enter.png" />
+    <BundleResource Include="Resources\full-exit.png" />
+    <BundleResource Include="Resources\gridIcon.png" />
+    <BundleResource Include="Resources\gridIcon%402x.png" />
+    <BundleResource Include="Resources\help.png" />
+    <BundleResource Include="Resources\homeIcon.png" />
+    <BundleResource Include="Resources\homeIcon%402x.png" />
+    <BundleResource Include="Resources\hotelMenuIcon.png" />
+    <BundleResource Include="Resources\hotelMenuIcon%402x.png" />
+    <BundleResource Include="Resources\icon-grid.png" />
+    <BundleResource Include="Resources\icon-grid%402x.png" />
+    <BundleResource Include="Resources\icon-home.png" />
+    <BundleResource Include="Resources\icon-home%402x.png" />
+    <BundleResource Include="Resources\icon-mov-down.png" />
+    <BundleResource Include="Resources\icon-mov-up.png" />
+    <BundleResource Include="Resources\icon-no-grid.png" />
+    <BundleResource Include="Resources\icon-no-grid%402x.png" />
+    <BundleResource Include="Resources\icon-promote.png" />
+    <BundleResource Include="Resources\icon-promote%402x.png" />
+    <BundleResource Include="Resources\icon-remove-bottom-lock%402x.png" />
+    <BundleResource Include="Resources\icon-remove-top-lock%402x.png" />
+    <BundleResource Include="Resources\icon-save.png" />
+    <BundleResource Include="Resources\icon-save%402x.png" />
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+    <BundleResource Include="Resources\icon-trash.png" />
+    <BundleResource Include="Resources\icon-trash%402x.png" />
+    <BundleResource Include="Resources\lock.png" />
+    <BundleResource Include="Resources\lockIcon.png" />
+    <BundleResource Include="Resources\lockIcon%402x.png" />
+    <BundleResource Include="Resources\lockIconGreen.png" />
+    <BundleResource Include="Resources\lockIconGreen%402x.png" />
+    <BundleResource Include="Resources\lockIconRed.png" />
+    <BundleResource Include="Resources\lockIconRed%402x.png" />
+    <BundleResource Include="Resources\loginTextfieldEmp.png" />
+    <BundleResource Include="Resources\loginTextfieldEmp%402x.png" />
+    <BundleResource Include="Resources\loginTextfieldPassword.png" />
+    <BundleResource Include="Resources\loginTextfieldPassword%402x.png" />
+    <BundleResource Include="Resources\menuGreenActive.png" />
+    <BundleResource Include="Resources\menuGreenActive%402x.png" />
+    <BundleResource Include="Resources\menuGreenNormal.png" />
+    <BundleResource Include="Resources\menuGreenNormal%402x.png" />
+    <BundleResource Include="Resources\miscMenuIcon.png" />
+    <BundleResource Include="Resources\miscMenuIcon%402x.png" />
+    <BundleResource Include="Resources\numberBg.png" />
+    <BundleResource Include="Resources\numberBg%402x.png" />
+    <BundleResource Include="Resources\numberpadTextfield.png" />
+    <BundleResource Include="Resources\numberpadTextfield%402x.png" />
+    <BundleResource Include="Resources\over.png" />
+    <BundleResource Include="Resources\overlayIconBold.png" />
+    <BundleResource Include="Resources\overlayIconBold%402x.png" />
+    <BundleResource Include="Resources\overlayIconThin.png" />
+    <BundleResource Include="Resources\overlayIconThin%402x.png" />
+    <BundleResource Include="Resources\profileGreen.png" />
+    <BundleResource Include="Resources\profileOrange.png" />
+    <BundleResource Include="Resources\radiobuttonNo.png" />
+    <BundleResource Include="Resources\radiobuttonYes.png" />
+    <BundleResource Include="Resources\redoGreen2.png" />
+    <BundleResource Include="Resources\redoOrange%402x.png" />
+    <BundleResource Include="Resources\removeBottomLockIcon.png" />
+    <BundleResource Include="Resources\removeBottomLockIcon%402x.png" />
+    <BundleResource Include="Resources\removeGridIcon.png" />
+    <BundleResource Include="Resources\removeGridIcon%402x.png" />
+    <BundleResource Include="Resources\removeTopLockIcon.png" />
+    <BundleResource Include="Resources\removeTopLockIcon%402x.png" />
+    <BundleResource Include="Resources\roundActive.png" />
+    <BundleResource Include="Resources\roundActive%402x.png" />
+    <BundleResource Include="Resources\roundNormal.png" />
+    <BundleResource Include="Resources\roundNormal%402x.png" />
+    <BundleResource Include="Resources\saveIcon.png" />
+    <BundleResource Include="Resources\saveIcon%402x.png" />
+    <BundleResource Include="Resources\saveIconRed.png" />
+    <BundleResource Include="Resources\saveIconRed%402x.png" />
+    <BundleResource Include="Resources\selected.png" />
+    <BundleResource Include="Resources\synchIcon.png" />
+    <BundleResource Include="Resources\synchIcon2.png" />
+    <BundleResource Include="Resources\textField.png" />
+    <BundleResource Include="Resources\textField%402x.png" />
+    <BundleResource Include="Resources\timeMenuIcon.png" />
+    <BundleResource Include="Resources\timeMenuIcon%402x.png" />
+    <BundleResource Include="Resources\topLock.png" />
+    <BundleResource Include="Resources\topLockIcon.png" />
+    <BundleResource Include="Resources\topLockIcon%402x.png" />
+    <BundleResource Include="Resources\uncheck.png" />
+    <BundleResource Include="Resources\uncheck%402x.png" />
+    <BundleResource Include="Resources\undoGreen2.png" />
+    <BundleResource Include="Resources\undoOrange%402x.png" />
+    <BundleResource Include="Resources\unselected.png" />
+    <BundleResource Include="Resources\wbidLogo.png" />
+    <BundleResource Include="Resources\wbidLogo%402x.png" />
+    <BundleResource Include="Resources\weekMenuIcon.png" />
+    <BundleResource Include="Resources\weekMenuIcon%402x.png" />
+    <BundleResource Include="Resources\Default-Landscape.png" />
+    <BundleResource Include="Tutorial Screens\Tut 0.png" />
+    <BundleResource Include="Tutorial Screens\Tut 1.png" />
+    <BundleResource Include="Tutorial Screens\Tut 10.png" />
+    <BundleResource Include="Tutorial Screens\Tut 11.png" />
+    <BundleResource Include="Tutorial Screens\Tut 12.png" />
+    <BundleResource Include="Tutorial Screens\Tut 13.png" />
+    <BundleResource Include="Tutorial Screens\Tut 14.png" />
+    <BundleResource Include="Tutorial Screens\Tut 15.png" />
+    <BundleResource Include="Tutorial Screens\Tut 16.png" />
+    <BundleResource Include="Tutorial Screens\Tut 17.png" />
+    <BundleResource Include="Tutorial Screens\Tut 18.png" />
+    <BundleResource Include="Tutorial Screens\Tut 19.png" />
+    <BundleResource Include="Tutorial Screens\Tut 2.png" />
+    <BundleResource Include="Tutorial Screens\Tut 20.png" />
+    <BundleResource Include="Tutorial Screens\Tut 21.png" />
+    <BundleResource Include="Tutorial Screens\Tut 22.png" />
+    <BundleResource Include="Tutorial Screens\Tut 23.png" />
+    <BundleResource Include="Tutorial Screens\Tut 24.png" />
+    <BundleResource Include="Tutorial Screens\Tut 25.png" />
+    <BundleResource Include="Tutorial Screens\Tut 26.png" />
+    <BundleResource Include="Tutorial Screens\Tut 27.png" />
+    <BundleResource Include="Tutorial Screens\Tut 28.png" />
+    <BundleResource Include="Tutorial Screens\Tut 29.png" />
+    <BundleResource Include="Tutorial Screens\Tut 3.png" />
+    <BundleResource Include="Tutorial Screens\Tut 30.png" />
+    <BundleResource Include="Tutorial Screens\Tut 4.png" />
+    <BundleResource Include="Tutorial Screens\Tut 5.png" />
+    <BundleResource Include="Tutorial Screens\Tut 6.png" />
+    <BundleResource Include="Tutorial Screens\Tut 7.png" />
+    <BundleResource Include="Tutorial Screens\Tut 8.png" />
+    <BundleResource Include="Tutorial Screens\Tut 9.png" />
+    <BundleResource Include="Tutorial Screens\Tut 99.png" />
+    <BundleResource Include="Resources\ColumnDefinitions.xml" />
+    <BundleResource Include="Resources\Help Files\Column Headings.pdf" />
+    <BundleResource Include="Resources\Help Files\Constraints.pdf" />
+    <BundleResource Include="Resources\Help Files\EOM - End of Month.pdf" />
+    <BundleResource Include="Resources\Help Files\MIL Button.pdf" />
+    <BundleResource Include="Resources\Help Files\OVR – MTM Overlap.pdf" />
+    <BundleResource Include="Resources\Help Files\Quicksets.pdf" />
+    <BundleResource Include="Resources\Help Files\Smart Sync.pdf" />
+    <BundleResource Include="Resources\Help Files\Sorts.pdf" />
+    <BundleResource Include="Resources\Help Files\Toolbar Controls.pdf" />
+    <BundleResource Include="Resources\Help Files\VAC - Vacation Pilots.pdf" />
+    <BundleResource Include="Resources\Help Files\VAC – Vacation Flt Att.pdf" />
+    <BundleResource Include="Resources\Help Files\Weights.pdf" />
+    <BundleResource Include="Resources\WBid License Agreement.pdf" />
+    <BundleResource Include="Resources\WBid Personal Information and Privacy Policy.pdf" />
+    <BundleResource Include="Resources\Help Files\Select-Move-Lock-Promote-Trash.pdf" />
+    <BundleResource Include="Resources\WBid.WBidiPad.iOS.entitlements" />
+    <BundleResource Include="Resources\up-arrow.png" />
+    <BundleResource Include="Resources\synchIcon3.png" />
+    <BundleResource Include="Resources\down-arrow1.png" />
+    <BundleResource Include="Resources\down-arrow1%402x.png" />
+    <BundleResource Include="Resources\down-arrow1%403x.png" />
+    <BundleResource Include="Resources\redoGreen.png" />
+    <BundleResource Include="Resources\redoGreen%402x.png" />
+    <BundleResource Include="Resources\undoGreen.png" />
+    <BundleResource Include="Resources\undoGreen%402x.png" />
+    <BundleResource Include="Resources\synchIcon3%402x.png" />
+    <BundleResource Include="Resources\synchIcon3%403x.png" />
+    <BundleResource Include="Resources\up-arrow%402x.png" />
+    <BundleResource Include="Resources\up-arrow%403x.png" />
+    <BundleResource Include="Resources\brightnessIcon.png" />
+    <BundleResource Include="Resources\brightnessIcon%402x.png" />
+    <BundleResource Include="Resources\blueBorder.png" />
+    <BundleResource Include="Resources\blueBorderSelected.png" />
+    <BundleResource Include="Resources\redoOrange.png" />
+    <BundleResource Include="Resources\undoOrange.png" />
+    <BundleResource Include="Resources\radioNo.png" />
+    <BundleResource Include="Resources\radioYes.png" />
+    <BundleResource Include="Resources\activeButtonRed.png" />
+    <BundleResource Include="Resources\activeButtonRed%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BusinessLogic\" />
+    <Folder Include="Model\" />
+    <Folder Include="Service References\" />
+    <Folder Include="testt\" />
+    <Folder Include="User registration\" />
+    <Folder Include="View Controllers\CAP\" />
+    <Folder Include="View Controllers\Admin area\Test vacation\" />
+    <Folder Include="View Controllers\Line\" />
+    <Folder Include="View Controllers\Bid automator view\" />
+    <Folder Include="View Controllers\DownloadBidData\" />
+    <Folder Include="View Controllers\Walkthrough\" />
+    <Folder Include="View Controllers\QuickSet\" />
+    <Folder Include="View Controllers\Subscription\" />
+    <Folder Include="View Controllers\HelpView\" />
+    <Folder Include="View Controllers\ViewFile\" />
+    <Folder Include="View Controllers\About\" />
+    <Folder Include="View Controllers\Base\" />
+    <Folder Include="View Controllers\BidEditor\" />
+    <Folder Include="View Controllers\BIdReciept\" />
+    <Folder Include="View Controllers\Change Emp\" />
+    <Folder Include="View Controllers\ConfigurationView\" />
+    <Folder Include="View Controllers\ContactUs\" />
+    <Folder Include="View Controllers\GetNewBidPeriod\" />
+    <Folder Include="View Controllers\Login\" />
+    <Folder Include="View Controllers\MIL Config\" />
+    <Folder Include="View Controllers\Overlap Correction\" />
+    <Folder Include="View Controllers\Paring VView\" />
+    <Folder Include="View Controllers\QueryView\" />
+    <Folder Include="View Controllers\RetrieveAward\" />
+    <Folder Include="View Controllers\Scrap\" />
+    <Folder Include="View Controllers\SubmitBid\" />
+    <Folder Include="View Controllers\SynchConflictView\" />
+    <Folder Include="View Controllers\PairingView\" />
+    <Folder Include="View Controllers\Offline\" />
+    <Folder Include="View Controllers\subscriptionView\" />
+    <Folder Include="View Controllers\User Account Creation\" />
+    <Folder Include="Common\" />
+    <Folder Include="ThrirdParty\" />
+    <Folder Include="Log4Net\" />
+    <Folder Include="Vacation\" />
+    <Folder Include="Share Code\" />
+    <Folder Include="Tutorial Screens\" />
+    <Folder Include="Utility\" />
+    <Folder Include="View Controllers\User Login\" />
+    <Folder Include="View Controllers\Home\CollectionView\" />
+    <Folder Include="Resources\Images.xcassets\" />
+    <Folder Include="Resources\Help Files\" />
+    <Folder Include="Privacy policy\" />
+    <Folder Include="View Controllers\Line\BA\SortAndWeight\" />
+    <Folder Include="View Controllers\Line\CSW\Commutability\" />
+    <Folder Include="Resources\Common\Brightness\" />
+    <Folder Include="View Controllers\timeoutalert\" />
+    <Folder Include="View Controllers\CustomAlert\" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties ProjectLinkReference="99f8c71d-3066-46f9-9c4c-df6309510870" ProjectLinkerExcludeFilter="\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-40.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-40%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-40%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-60%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-60%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-72.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-72%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-76.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-76%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-83.5%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small-50.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small-50%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Icon%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\appIcon1024.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WBid.WBidiPad.Core\WBid.WBidiPad.Core.csproj">
+      <Project>{AA94679D-7332-4128-8F7D-043D2E35AA78}</Project>
+      <Name>WBid.WBidiPad.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WBid.WBidiPad.Model\WBid.WBidiPad.Model.csproj">
+      <Project>{C90565E2-1E06-4036-9B1E-A6C98D41FEE8}</Project>
+      <Name>WBid.WBidiPad.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WBid.WBidiPad.PortableLibrary\WBid.WBidiPad.PortableLibrary.csproj">
+      <Project>{46B1E192-3E6E-4DBE-92C4-61D7A36D9B02}</Project>
+      <Name>WBid.WBidiPad.PortableLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+    <ITunesArtwork Include="iTunesArtwork" />
+  </ItemGroup>
+</Project>

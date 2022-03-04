@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="cxk-wN-pdQ" customClass="StartDayOfWeekCell">
+            <rect key="frame" x="0.0" y="0.0" width="482" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
+                <rect key="frame" x="0.0" y="0.0" width="482" height="39"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XFc-NQ-E5R">
+                        <rect key="frame" x="0.0" y="0.0" width="482" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SDOW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2a-Vz-Exv">
+                                <rect key="frame" x="38" y="9" width="74" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cnc-HD-5rx">
+                                <rect key="frame" x="30" y="7" width="1" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L84-Au-qk5">
+                                <rect key="frame" x="3" y="9" width="21" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="closeIcon.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnDeleteEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTn-5Q-94j">
+                                <rect key="frame" x="212" y="8.5" width="35" height="23"/>
+                                <color key="backgroundColor" red="0.67450980390000004" green="1" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="t4a-JC-FRw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <state key="normal" title="Mo">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnMonButtonEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHv-19-FKA">
+                                <rect key="frame" x="257" y="8.5" width="35" height="23"/>
+                                <color key="backgroundColor" red="0.67450980390000004" green="1" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="DYZ-04-Xtw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <state key="normal" title="Tu">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnTueButtonEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCH-Ol-f8S">
+                                <rect key="frame" x="347" y="8.5" width="35" height="23"/>
+                                <color key="backgroundColor" red="0.67450980390000004" green="1" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="DAJ-2L-8c1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <state key="normal" title="Th">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnThuButtonEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlk-EE-X3q">
+                                <rect key="frame" x="392" y="8.5" width="35" height="23"/>
+                                <color key="backgroundColor" red="0.67450980390000004" green="1" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="h8O-aL-517"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <state key="normal" title="Fr">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnFriButtonEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGL-dV-uor">
+                                <rect key="frame" x="437" y="8.5" width="35" height="23"/>
+                                <color key="backgroundColor" red="0.98431372549999996" green="0.28235294119999998" blue="0.031372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="5zd-Ii-Z5Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <state key="normal" title="Sa">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnSatButtonEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ya-Ba-guh">
+                                <rect key="frame" x="167" y="8.5" width="35" height="23"/>
+                                <color key="backgroundColor" red="0.98431372549999996" green="0.28235294119999998" blue="0.031372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="Vr2-sT-28C"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <state key="normal" title="Su">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnSunButtonEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKv-ad-CnL">
+                                <rect key="frame" x="302" y="8.5" width="35" height="23"/>
+                                <color key="backgroundColor" red="0.67450980390000004" green="1" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="nEW-S5-Cql"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <state key="normal" title="We">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnWedButtonEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="RTn-5Q-94j" firstAttribute="leading" secondItem="1ya-Ba-guh" secondAttribute="trailing" constant="10" id="2S5-Xt-HXf"/>
+                            <constraint firstItem="nlk-EE-X3q" firstAttribute="leading" secondItem="cCH-Ol-f8S" secondAttribute="trailing" constant="10" id="4Im-pg-waN"/>
+                            <constraint firstItem="nlk-EE-X3q" firstAttribute="centerY" secondItem="XFc-NQ-E5R" secondAttribute="centerY" id="6cz-Bq-UBY"/>
+                            <constraint firstItem="cCH-Ol-f8S" firstAttribute="centerY" secondItem="XFc-NQ-E5R" secondAttribute="centerY" id="74J-HZ-N7v"/>
+                            <constraint firstItem="RGL-dV-uor" firstAttribute="leading" secondItem="nlk-EE-X3q" secondAttribute="trailing" constant="10" id="CqR-eN-dLG"/>
+                            <constraint firstItem="uHv-19-FKA" firstAttribute="leading" secondItem="RTn-5Q-94j" secondAttribute="trailing" constant="10" id="NT6-eS-aSP"/>
+                            <constraint firstItem="uHv-19-FKA" firstAttribute="centerY" secondItem="XFc-NQ-E5R" secondAttribute="centerY" id="PWl-Oj-v7a"/>
+                            <constraint firstItem="RTn-5Q-94j" firstAttribute="centerY" secondItem="XFc-NQ-E5R" secondAttribute="centerY" id="SJN-hN-ex2"/>
+                            <constraint firstAttribute="trailing" secondItem="RGL-dV-uor" secondAttribute="trailing" constant="10" id="W3U-tU-1Wp"/>
+                            <constraint firstItem="jKv-ad-CnL" firstAttribute="leading" secondItem="uHv-19-FKA" secondAttribute="trailing" constant="10" id="eLi-Ex-hUK"/>
+                            <constraint firstItem="cCH-Ol-f8S" firstAttribute="leading" secondItem="jKv-ad-CnL" secondAttribute="trailing" constant="10" id="g4b-GW-tSn"/>
+                            <constraint firstItem="RGL-dV-uor" firstAttribute="centerY" secondItem="XFc-NQ-E5R" secondAttribute="centerY" id="gcQ-eK-hSt"/>
+                            <constraint firstItem="1ya-Ba-guh" firstAttribute="centerY" secondItem="XFc-NQ-E5R" secondAttribute="centerY" id="tUd-df-DYA"/>
+                            <constraint firstItem="jKv-ad-CnL" firstAttribute="centerY" secondItem="XFc-NQ-E5R" secondAttribute="centerY" id="wbU-mx-q1G"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="XFc-NQ-E5R" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" id="05g-M0-yf6"/>
+                    <constraint firstItem="XFc-NQ-E5R" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" id="4ix-aI-SBQ"/>
+                    <constraint firstAttribute="bottom" secondItem="XFc-NQ-E5R" secondAttribute="bottom" constant="-0.5" id="hcL-Pz-LiH"/>
+                    <constraint firstAttribute="trailing" secondItem="XFc-NQ-E5R" secondAttribute="trailing" id="oLt-Vf-I1U"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="btnDelete" destination="L84-Au-qk5" id="bSJ-3Y-tF5"/>
+                <outlet property="btnFri" destination="nlk-EE-X3q" id="a8U-6e-P4n"/>
+                <outlet property="btnMon" destination="RTn-5Q-94j" id="88R-IO-hA3"/>
+                <outlet property="btnSat" destination="RGL-dV-uor" id="GQR-dS-6gj"/>
+                <outlet property="btnSun" destination="1ya-Ba-guh" id="iRJ-EX-2kS"/>
+                <outlet property="btnThu" destination="cCH-Ol-f8S" id="oQZ-dh-twk"/>
+                <outlet property="btnTue" destination="uHv-19-FKA" id="nsi-7h-bcV"/>
+                <outlet property="btnWed" destination="jKv-ad-CnL" id="jqt-GM-kEF"/>
+                <outlet property="lbStartDayOfWeek" destination="m2a-Vz-Exv" id="Nsc-AF-5OD"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="closeIcon.png" width="24" height="24"/>
+    </resources>
+</document>

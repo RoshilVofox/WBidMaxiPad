@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LIE-xR-Nbw">
+    <device id="ipad11_0rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="jLz-LT-yHB">
+            <objects>
+                <viewController id="LIE-xR-Nbw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rkC-3x-qbt">
+                        <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default-Landscape.png" translatesAutoresizingMaskIntoConstraints="NO" id="hjw-mg-sqE" misplaced="YES">
+                                <rect key="frame" x="0.0" y="0.0" width="1194" height="814"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hjw-mg-sqE" firstAttribute="leading" secondItem="30T-5g-aVO" secondAttribute="leading" id="PRq-b5-Bzn"/>
+                            <constraint firstItem="30T-5g-aVO" firstAttribute="bottom" secondItem="hjw-mg-sqE" secondAttribute="bottom" id="ap9-fG-C1N"/>
+                            <constraint firstItem="30T-5g-aVO" firstAttribute="trailing" secondItem="hjw-mg-sqE" secondAttribute="trailing" id="dPC-kh-ttQ"/>
+                            <constraint firstItem="hjw-mg-sqE" firstAttribute="top" secondItem="30T-5g-aVO" secondAttribute="top" id="jiA-SU-5Qh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="30T-5g-aVO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VLv-1r-DGc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="155" y="-38"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Default-Landscape.png" width="1024" height="748"/>
+    </resources>
+</document>

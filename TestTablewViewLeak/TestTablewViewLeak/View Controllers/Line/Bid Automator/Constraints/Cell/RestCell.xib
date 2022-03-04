@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="cxk-wN-pdQ" customClass="RestCell">
+            <rect key="frame" x="0.0" y="0.0" width="482" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
+                <rect key="frame" x="0.0" y="0.0" width="482" height="39.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZ0-Fs-Z4f">
+                        <rect key="frame" x="0.0" y="0.0" width="482" height="40"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8J-vw-1Fr">
+                                <rect key="frame" x="159" y="7" width="55" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <state key="normal" title="AwayDom">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnAwayDomEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="3gz-Lx-ZCn"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gVy-OH-dkL">
+                                <rect key="frame" x="30" y="7" width="1" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQp-T2-fil">
+                                <rect key="frame" x="5" y="8" width="21" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="closeIcon.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnDeleteEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="agC-vX-6fn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Go-NI-aFM">
+                                <rect key="frame" x="38" y="9" width="90" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXF-0B-MNz">
+                                <rect key="frame" x="344" y="7" width="53" height="26"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <state key="normal" title="Less than">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.031372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnLessThanEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="hhA-cY-D2r"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfn-F6-juf">
+                                <rect key="frame" x="442" y="7" width="30" height="26"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <state key="normal" title="12">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="OnValueEvent:" destination="cxk-wN-pdQ" eventType="touchUpInside" id="l87-ux-fSh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Gfn-F6-juf" firstAttribute="centerY" secondItem="RZ0-Fs-Z4f" secondAttribute="centerY" id="0V5-mo-Wke"/>
+                            <constraint firstAttribute="trailing" secondItem="Gfn-F6-juf" secondAttribute="trailing" constant="10" id="D8a-zS-4jo"/>
+                            <constraint firstItem="DXF-0B-MNz" firstAttribute="centerY" secondItem="RZ0-Fs-Z4f" secondAttribute="centerY" id="NKf-B9-Z25"/>
+                            <constraint firstItem="Gfn-F6-juf" firstAttribute="leading" secondItem="DXF-0B-MNz" secondAttribute="trailing" constant="45" id="te5-dN-rHL"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="RZ0-Fs-Z4f" secondAttribute="trailing" id="3im-4e-hks"/>
+                    <constraint firstItem="RZ0-Fs-Z4f" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" id="FsM-id-5jv"/>
+                    <constraint firstAttribute="bottom" secondItem="RZ0-Fs-Z4f" secondAttribute="bottom" constant="-0.5" id="iFH-6d-0JG"/>
+                    <constraint firstItem="RZ0-Fs-Z4f" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" id="tmz-E4-xbu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="btnDelete" destination="CQp-T2-fil" id="lGX-xQ-BbK"/>
+                <outlet property="btnLessthan" destination="DXF-0B-MNz" id="LwK-u1-A5X"/>
+                <outlet property="btnRestDom" destination="n8J-vw-1Fr" id="nyU-vk-LOb"/>
+                <outlet property="btnRestValue" destination="Gfn-F6-juf" id="cCK-IV-kCs"/>
+                <outlet property="lbRestName" destination="0Go-NI-aFM" id="name-outlet-0Go-NI-aFM"/>
+            </connections>
+            <point key="canvasLocation" x="323" y="308"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="closeIcon.png" width="24" height="24"/>
+    </resources>
+</document>

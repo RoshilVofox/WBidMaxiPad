@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BAPopOverViewController">
+            <connections>
+                <outlet property="TableView" destination="mzf-IO-2vc" id="SDk-eW-Bpq"/>
+                <outlet property="view" destination="iN0-l3-epB" id="kCW-yf-GMq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="265" height="404"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="mzf-IO-2vc">
+                    <rect key="frame" x="0.0" y="10" width="265" height="384"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="ZOS-sM-fep"/>
+                        <outlet property="delegate" destination="-1" id="ekX-lo-eTI"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mzf-IO-2vc" secondAttribute="trailing" id="Vag-w9-2Qq"/>
+                <constraint firstItem="mzf-IO-2vc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="YEK-7Y-iwl"/>
+                <constraint firstItem="mzf-IO-2vc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="akg-Yy-Wys"/>
+                <constraint firstAttribute="bottom" secondItem="mzf-IO-2vc" secondAttribute="bottom" constant="10" id="k3W-Qa-9gs"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="12.109375" y="11.1328125"/>
+        </view>
+    </objects>
+</document>

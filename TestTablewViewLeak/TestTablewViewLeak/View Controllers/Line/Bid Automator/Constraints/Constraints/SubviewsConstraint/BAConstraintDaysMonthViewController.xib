@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BAConstraintDaysMonthViewController">
+            <connections>
+                <outlet property="btnClear" destination="d0g-Wd-IJ2" id="gG7-GH-hob"/>
+                <outlet property="btnDone" destination="Ftd-wo-gqr" id="5ei-N0-CIt"/>
+                <outlet property="view" destination="iN0-l3-epB" id="kCW-yf-GMq"/>
+                <outlet property="viewCalendarShow" destination="Dsp-x0-o4O" id="Xwm-yP-bMb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVQ-yd-lsF">
+                    <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dsp-x0-o4O">
+                            <rect key="frame" x="14" y="78" width="511" height="427"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RG0-X2-A8a">
+                            <rect key="frame" x="20" y="561" width="188" height="43"/>
+                            <color key="backgroundColor" red="0.074509803920000006" green="0.52549019610000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="43" id="uZA-k7-vo8"/>
+                                <constraint firstAttribute="width" constant="188" id="zrI-3r-n8G"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                            <state key="normal" title="Done">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbZ-ua-EOv">
+                            <rect key="frame" x="386" y="560" width="187" height="44"/>
+                            <color key="backgroundColor" red="0.074509803920000006" green="0.52549019610000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="187" id="Qke-Ee-AKx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                            <state key="normal" title="Clear">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8R-wV-LA7">
+                            <rect key="frame" x="-3" y="50" width="536" height="33"/>
+                            <subviews>
+                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENl-In-zH4">
+                                    <rect key="frame" x="84" y="5" width="53" height="24"/>
+                                    <color key="backgroundColor" red="1" green="0.0" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="53" id="KT8-RL-Xoc"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
+                                    <state key="normal" title="Off">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1st touch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZY-rC-w5Q">
+                                    <rect key="frame" x="15" y="7" width="77" height="21"/>
+                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2nd touch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8h-Yn-NMV">
+                                    <rect key="frame" x="206" y="7" width="72" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="72" id="s4y-QM-VN6"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEK-n5-Kan">
+                                    <rect key="frame" x="280" y="5" width="53" height="24"/>
+                                    <color key="backgroundColor" red="0.69019607839999997" green="1" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="53" id="KGk-yp-Kbb"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
+                                    <state key="normal" title="Work">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3rd touch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwg-FY-hva">
+                                    <rect key="frame" x="393" y="6" width="74" height="21"/>
+                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuM-Xv-TEx">
+                                    <rect key="frame" x="483" y="5" width="53" height="24"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="53" id="QXg-XS-vD0"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="12"/>
+                                    <state key="normal">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="nwg-FY-hva" firstAttribute="top" secondItem="D8R-wV-LA7" secondAttribute="top" constant="6" id="5nq-hq-lES"/>
+                                <constraint firstItem="JuM-Xv-TEx" firstAttribute="top" secondItem="nEK-n5-Kan" secondAttribute="top" id="B0P-ZQ-6cW"/>
+                                <constraint firstItem="y8h-Yn-NMV" firstAttribute="leading" secondItem="ENl-In-zH4" secondAttribute="trailing" constant="69" id="BV0-5a-ror"/>
+                                <constraint firstItem="nEK-n5-Kan" firstAttribute="baseline" secondItem="ENl-In-zH4" secondAttribute="firstBaseline" id="BvA-tF-YvR"/>
+                                <constraint firstItem="ENl-In-zH4" firstAttribute="top" secondItem="D8R-wV-LA7" secondAttribute="top" constant="5" id="KzZ-Ns-9io"/>
+                                <constraint firstItem="5ZY-rC-w5Q" firstAttribute="leading" secondItem="D8R-wV-LA7" secondAttribute="leading" constant="15" id="MWx-Ur-7P1"/>
+                                <constraint firstItem="JuM-Xv-TEx" firstAttribute="leading" secondItem="nwg-FY-hva" secondAttribute="trailing" constant="16" id="OgO-2K-hpG"/>
+                                <constraint firstItem="ENl-In-zH4" firstAttribute="leading" secondItem="D8R-wV-LA7" secondAttribute="leading" constant="84" id="QWz-qy-fT2"/>
+                                <constraint firstItem="nEK-n5-Kan" firstAttribute="leading" secondItem="y8h-Yn-NMV" secondAttribute="trailing" constant="2" id="Wlj-Z9-E9S"/>
+                                <constraint firstItem="y8h-Yn-NMV" firstAttribute="leading" secondItem="5ZY-rC-w5Q" secondAttribute="trailing" constant="114" id="Z95-Ne-9wi"/>
+                                <constraint firstAttribute="trailing" secondItem="JuM-Xv-TEx" secondAttribute="trailing" id="cg4-BH-giN"/>
+                                <constraint firstItem="y8h-Yn-NMV" firstAttribute="baseline" secondItem="5ZY-rC-w5Q" secondAttribute="baseline" id="hg9-Z8-52t"/>
+                                <constraint firstItem="5ZY-rC-w5Q" firstAttribute="centerY" secondItem="ENl-In-zH4" secondAttribute="centerY" id="jtQ-0T-GU1"/>
+                                <constraint firstItem="5ZY-rC-w5Q" firstAttribute="firstBaseline" secondItem="y8h-Yn-NMV" secondAttribute="firstBaseline" id="kWm-pa-xsy"/>
+                                <constraint firstItem="5ZY-rC-w5Q" firstAttribute="top" secondItem="D8R-wV-LA7" secondAttribute="top" constant="7" id="olQ-qx-m22"/>
+                                <constraint firstItem="ENl-In-zH4" firstAttribute="baseline" secondItem="nEK-n5-Kan" secondAttribute="firstBaseline" id="pk0-yb-JFB"/>
+                                <constraint firstItem="nEK-n5-Kan" firstAttribute="centerY" secondItem="nwg-FY-hva" secondAttribute="centerY" id="uYR-xf-NHl"/>
+                                <constraint firstItem="ENl-In-zH4" firstAttribute="centerY" secondItem="D8R-wV-LA7" secondAttribute="centerY" id="zFh-op-Kcb"/>
+                            </constraints>
+                        </view>
+                        <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doX-X9-dWz">
+                            <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
+                            <color key="barTintColor" red="0.4549019608" green="0.74117647060000003" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </textAttributes>
+                            <items>
+                                <navigationItem title="Days Of Month" id="OII-fm-myg">
+                                    <barButtonItem key="leftBarButtonItem" title="Clear" id="d0g-Wd-IJ2">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="ClearButtonClicked:" destination="-1" id="VSt-Ir-mtJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem key="rightBarButtonItem" title="Done" id="Ftd-wo-gqr">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="DoneButtonClicked:" destination="-1" id="HqQ-Fu-NIi"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set days off or desired to work" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okh-0c-3PJ">
+                            <rect key="frame" x="23" y="91" width="475" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="D6x-KC-aHA"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.91764705879999997" green="0.92941176469999998" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="D8R-wV-LA7" firstAttribute="top" secondItem="doX-X9-dWz" secondAttribute="bottom" constant="6" id="7sX-SE-3rp"/>
+                        <constraint firstItem="RG0-X2-A8a" firstAttribute="bottom" secondItem="GbZ-ua-EOv" secondAttribute="bottom" id="96W-GK-XwC"/>
+                        <constraint firstAttribute="trailing" secondItem="okh-0c-3PJ" secondAttribute="trailing" constant="42" id="Ml6-vn-cDo"/>
+                        <constraint firstItem="doX-X9-dWz" firstAttribute="leading" secondItem="rVQ-yd-lsF" secondAttribute="leading" id="N2M-4b-bHg"/>
+                        <constraint firstAttribute="trailing" secondItem="D8R-wV-LA7" secondAttribute="trailing" constant="7" id="YIp-eb-mJJ"/>
+                        <constraint firstItem="doX-X9-dWz" firstAttribute="top" secondItem="rVQ-yd-lsF" secondAttribute="top" id="eIV-QH-iWm"/>
+                        <constraint firstItem="D8R-wV-LA7" firstAttribute="leading" secondItem="rVQ-yd-lsF" secondAttribute="leading" constant="-3" id="ejg-Iw-ahb"/>
+                        <constraint firstItem="Dsp-x0-o4O" firstAttribute="leading" secondItem="rVQ-yd-lsF" secondAttribute="leading" constant="14" id="jAU-aY-hGP"/>
+                        <constraint firstItem="GbZ-ua-EOv" firstAttribute="leading" secondItem="rVQ-yd-lsF" secondAttribute="leading" constant="386" id="nKE-YH-oPO"/>
+                        <constraint firstItem="okh-0c-3PJ" firstAttribute="top" secondItem="D8R-wV-LA7" secondAttribute="bottom" constant="8" symbolic="YES" id="otg-P0-N5R"/>
+                        <constraint firstAttribute="trailing" secondItem="doX-X9-dWz" secondAttribute="trailing" id="q92-PT-S6A"/>
+                        <constraint firstAttribute="bottom" secondItem="RG0-X2-A8a" secondAttribute="bottom" constant="16" id="scw-I7-tze"/>
+                        <constraint firstItem="Dsp-x0-o4O" firstAttribute="top" secondItem="doX-X9-dWz" secondAttribute="bottom" constant="34" id="uca-pS-5ul"/>
+                        <constraint firstItem="RG0-X2-A8a" firstAttribute="leading" secondItem="rVQ-yd-lsF" secondAttribute="leading" constant="20" id="uxm-mS-fFt"/>
+                        <constraint firstItem="okh-0c-3PJ" firstAttribute="leading" secondItem="rVQ-yd-lsF" secondAttribute="leading" constant="23" id="yAq-cA-cTC"/>
+                        <constraint firstItem="GbZ-ua-EOv" firstAttribute="top" secondItem="Dsp-x0-o4O" secondAttribute="bottom" constant="55" id="yur-xv-yv6"/>
+                        <constraint firstItem="RG0-X2-A8a" firstAttribute="centerY" secondItem="GbZ-ua-EOv" secondAttribute="centerY" id="z5M-OY-zqm"/>
+                        <constraint firstItem="doX-X9-dWz" firstAttribute="centerX" secondItem="Dsp-x0-o4O" secondAttribute="centerX" id="zNU-im-S1k"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="rVQ-yd-lsF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5xS-eA-fsM"/>
+                <constraint firstItem="rVQ-yd-lsF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="he5-md-mvS"/>
+                <constraint firstAttribute="bottom" secondItem="rVQ-yd-lsF" secondAttribute="bottom" id="o9V-Ne-fu7"/>
+                <constraint firstAttribute="trailing" secondItem="rVQ-yd-lsF" secondAttribute="trailing" id="sDe-Cu-UOq"/>
+            </constraints>
+            <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

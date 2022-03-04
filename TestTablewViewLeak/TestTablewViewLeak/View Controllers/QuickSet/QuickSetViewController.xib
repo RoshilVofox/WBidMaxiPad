@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuickSetViewController">
+            <connections>
+                <outlet property="btnDelete" destination="blB-wC-Cpy" id="DfZ-8z-oNz"/>
+                <outlet property="btnNew" destination="Gou-iE-uul" id="1rh-2F-h79"/>
+                <outlet property="btnUse" destination="RHm-qh-iYI" id="SeF-3i-9L1"/>
+                <outlet property="sqQuickSetToggle" destination="VwF-e7-NRJ" id="P9R-E7-NBh"/>
+                <outlet property="tblQuickSets" destination="Snd-En-nKh" id="Vak-FM-Nfy"/>
+                <outlet property="view" destination="iN0-l3-epB" id="kCW-yf-GMq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="500"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VwF-e7-NRJ">
+                    <rect key="frame" x="75" y="70" width="250" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="q0y-2R-w7o"/>
+                        <constraint firstAttribute="width" constant="250" id="tRI-39-bip"/>
+                    </constraints>
+                    <segments>
+                        <segment title="CSW"/>
+                        <segment title="Columns"/>
+                    </segments>
+                    <color key="tintColor" red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </segmentedControl>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Snd-En-nKh">
+                    <rect key="frame" x="8" y="144" width="384" height="348"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gou-iE-uul">
+                    <rect key="frame" x="100" y="106" width="60" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="xV3-gt-MUy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="tintColor" red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="New" backgroundImage="menuGreenNormal.png">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHm-qh-iYI">
+                    <rect key="frame" x="170" y="106" width="60" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="GRn-ZQ-aN7"/>
+                        <constraint firstAttribute="width" constant="60" id="Kxh-fv-kvI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="tintColor" red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Use" backgroundImage="menuGreenNormal.png">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blB-wC-Cpy">
+                    <rect key="frame" x="240" y="106" width="60" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="Rau-Uf-Hzh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="tintColor" red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Delete" backgroundImage="menuGreenNormal.png">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Snd-En-nKh" secondAttribute="trailing" constant="8" id="BYC-aW-SDW"/>
+                <constraint firstItem="RHm-qh-iYI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Cc3-l0-Dir"/>
+                <constraint firstItem="VwF-e7-NRJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="70" id="DT8-tA-LF5"/>
+                <constraint firstItem="VwF-e7-NRJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Eek-jz-FcJ"/>
+                <constraint firstItem="blB-wC-Cpy" firstAttribute="bottom" secondItem="RHm-qh-iYI" secondAttribute="bottom" id="I68-Ew-S3l"/>
+                <constraint firstItem="Snd-En-nKh" firstAttribute="top" secondItem="Gou-iE-uul" secondAttribute="bottom" constant="8" id="L5Y-vv-K2T"/>
+                <constraint firstAttribute="bottom" secondItem="Snd-En-nKh" secondAttribute="bottom" constant="8" id="L9t-ce-0ZN"/>
+                <constraint firstItem="Gou-iE-uul" firstAttribute="bottom" secondItem="RHm-qh-iYI" secondAttribute="bottom" id="NN2-et-ZmR"/>
+                <constraint firstItem="Gou-iE-uul" firstAttribute="top" secondItem="RHm-qh-iYI" secondAttribute="top" id="W7r-Bc-ubM"/>
+                <constraint firstItem="RHm-qh-iYI" firstAttribute="top" secondItem="VwF-e7-NRJ" secondAttribute="bottom" constant="8" id="eSc-r2-F3L"/>
+                <constraint firstItem="RHm-qh-iYI" firstAttribute="leading" secondItem="Gou-iE-uul" secondAttribute="trailing" constant="10" id="g0Y-eh-GBy"/>
+                <constraint firstItem="blB-wC-Cpy" firstAttribute="top" secondItem="RHm-qh-iYI" secondAttribute="top" id="kEY-nc-cFC"/>
+                <constraint firstItem="blB-wC-Cpy" firstAttribute="leading" secondItem="RHm-qh-iYI" secondAttribute="trailing" constant="10" id="wlk-Jg-bca"/>
+                <constraint firstItem="Snd-En-nKh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="zcC-CQ-Eaa"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="81" y="113"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="menuGreenNormal.png" width="88" height="28"/>
+    </resources>
+</document>

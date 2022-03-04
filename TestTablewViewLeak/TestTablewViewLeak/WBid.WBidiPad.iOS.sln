@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WBid.WBidiPad.iOS", "WBid.WBidiPad.iOS.csproj", "{2653575A-3D5E-4617-800C-82F93C5F0F65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2653575A-3D5E-4617-800C-82F93C5F0F65}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{2653575A-3D5E-4617-800C-82F93C5F0F65}.Debug|iPhone.Build.0 = Debug|iPhone
+		{2653575A-3D5E-4617-800C-82F93C5F0F65}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{2653575A-3D5E-4617-800C-82F93C5F0F65}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{2653575A-3D5E-4617-800C-82F93C5F0F65}.Release|iPhone.ActiveCfg = Release|iPhone
+		{2653575A-3D5E-4617-800C-82F93C5F0F65}.Release|iPhone.Build.0 = Release|iPhone
+		{2653575A-3D5E-4617-800C-82F93C5F0F65}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{2653575A-3D5E-4617-800C-82F93C5F0F65}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+EndGlobal

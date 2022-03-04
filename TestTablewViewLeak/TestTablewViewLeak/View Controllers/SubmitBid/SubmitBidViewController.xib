@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SubmitBidViewController">
+            <connections>
+                <outlet property="btnBuddyBidderCancel" destination="yaQ-kd-DWZ" id="wer-Rb-TIj"/>
+                <outlet property="btnBuddyBidderOK" destination="rQA-ki-t9u" id="98V-Np-434"/>
+                <outlet property="btnCancel" destination="qIM-Gz-RwM" id="Ns8-a5-gnh"/>
+                <outlet property="btnChangeAvoidanceType" destination="Bn6-hf-cTv" id="wEI-r9-rgs"/>
+                <outlet property="btnChangeBuddyBid" destination="zIQ-q5-rQI" id="2cR-Zt-YAm"/>
+                <outlet property="btnChangeEmp" destination="R7h-G7-tRC" id="Act-J1-3JD"/>
+                <outlet property="btnChangeEmployeeCancel" destination="kby-kK-a8A" id="DC8-gx-qce"/>
+                <outlet property="btnChangeEmployeeOK" destination="la3-X7-VZY" id="UNL-cR-Kur"/>
+                <outlet property="btnEmployeeToBeSsvoidedOk" destination="Ty7-xd-NXm" id="5Pg-Na-0he"/>
+                <outlet property="btnEmployeesTobeVoidedCancel" destination="hsd-lO-RPP" id="Fs0-69-Udv"/>
+                <outlet property="btnSubmitBid" destination="dld-MB-sZY" id="JoL-fw-8YM"/>
+                <outlet property="lblAvoidanceBidChoice" destination="E4w-Xx-JWv" id="IDX-no-bQQ"/>
+                <outlet property="lblBuddyBid" destination="w9u-CV-GD5" id="EQl-tA-WVV"/>
+                <outlet property="lblBuddyBidChoice" destination="7lQ-sr-tPF" id="RGy-cw-xDE"/>
+                <outlet property="lblNoAvoidanceBid" destination="UFn-2V-90W" id="oep-ze-Muc"/>
+                <outlet property="lblSubmittingBidChoices" destination="PDH-Ca-eku" id="boT-cB-hYd"/>
+                <outlet property="sgBidSubmissionType" destination="fcv-jJ-KQn" id="BYR-wK-pwt"/>
+                <outlet property="sgBuddyBidSubmissionType" destination="O0H-R5-UTg" id="Wkv-bi-bK9"/>
+                <outlet property="sgNoAvoidanceSubmissionType" destination="hT7-8q-r2g" id="dSp-25-VMz"/>
+                <outlet property="txtAvoidanceBidChoiceId" destination="9mz-2k-9I2" id="RXj-3f-Ku4"/>
+                <outlet property="txtBuddyBidChoiceId" destination="xOy-If-Nkq" id="OwO-e6-paq"/>
+                <outlet property="txtBuddyBidderOne" destination="SeJ-2h-Xiu" id="emk-GJ-mAi"/>
+                <outlet property="txtBuddyBidderTwo" destination="ycV-tj-VpA" id="CwF-me-S68"/>
+                <outlet property="txtChangeEmployeeNumber" destination="IdY-3d-gMh" id="0aR-G8-wQB"/>
+                <outlet property="txtEmployeeToBeAvoidedOne" destination="oPc-3c-bug" id="qHV-Gq-q59"/>
+                <outlet property="txtEmployeeToBeAvoidedThree" destination="Enz-NU-utG" id="fbw-AQ-mL0"/>
+                <outlet property="txtEmployeeToBeAvoidedTwo" destination="gjB-4m-8Uf" id="osW-xq-4gD"/>
+                <outlet property="txtSeniorityNo" destination="1uM-aE-jnS" id="HVE-oX-0K1"/>
+                <outlet property="txtSubmittingBidChoicesId" destination="hh8-Z2-RPG" id="ExV-gk-Z5n"/>
+                <outlet property="view" destination="2" id="3"/>
+                <outlet property="vwAvoidanceBid" destination="GiX-Zx-BsN" id="npA-4w-QNz"/>
+                <outlet property="vwAvoidanceBidChoice" destination="B5V-dJ-Xgk" id="fha-Y3-KJQ"/>
+                <outlet property="vwBuddyBid" destination="VCC-Tx-oYW" id="59n-ny-I35"/>
+                <outlet property="vwBuddyBidChoice" destination="MSu-4j-dfW" id="UEh-yM-CoL"/>
+                <outlet property="vwChangeEmployeeNumber" destination="Pdy-LR-YCy" id="4w8-pn-UHB"/>
+                <outlet property="vwEmployeeToBeAvoided" destination="99F-wb-FDI" id="dQE-G2-dkT"/>
+                <outlet property="vwSubmittingBidChoicesFor" destination="USr-7U-3Mp" id="Und-vK-dsd"/>
+                <outlet property="vwViewOrAddBuddyBidders" destination="VfZ-ya-sz2" id="eIL-DW-Qa4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="fcv-jJ-KQn">
+                    <rect key="frame" x="185" y="82" width="335" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <segments>
+                        <segment title="All Choices"/>
+                        <segment title="Up to Seniority Number"/>
+                    </segments>
+                    <color key="tintColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <action selector="sgSubmitBidTypeChanged:" destination="-1" eventType="valueChanged" id="APY-AZ-XmY"/>
+                    </connections>
+                </segmentedControl>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submission Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Uvh-VP-PNm">
+                    <rect key="frame" x="20" y="85" width="135" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seniority Number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KXM-xb-AVe">
+                    <rect key="frame" x="20" y="156" width="139" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" id="GiX-Zx-BsN">
+                    <rect key="frame" x="0.0" y="240" width="540" height="170"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Avoidance Bid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UFn-2V-90W">
+                            <rect key="frame" x="53" y="10" width="412" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="hT7-8q-r2g">
+                            <rect key="frame" x="170" y="56" width="340" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Use these Avoidance Bid"/>
+                                <segment title="Do Not Use"/>
+                            </segments>
+                            <color key="tintColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </segmentedControl>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bn6-hf-cTv">
+                            <rect key="frame" x="169" y="115" width="180" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Change Avoidance Bid">
+                                <color key="titleColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnChangeAvoidanceTapped:" destination="-1" eventType="touchUpInside" id="eZb-mr-okk"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submission Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PdA-D1-Ko2">
+                            <rect key="frame" x="20" y="59" width="135" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" id="VCC-Tx-oYW">
+                    <rect key="frame" x="0.0" y="240" width="540" height="170"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buddy Bid: XXXXX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="w9u-CV-GD5">
+                            <rect key="frame" x="53" y="10" width="412" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="O0H-R5-UTg">
+                            <rect key="frame" x="170" y="56" width="340" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Use these Buddy Bid"/>
+                                <segment title="Do Not Use"/>
+                            </segments>
+                            <color key="tintColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </segmentedControl>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zIQ-q5-rQI">
+                            <rect key="frame" x="184" y="115" width="150" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Change Buddy Bids">
+                                <color key="titleColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnChangeBuddyBidders:" destination="-1" eventType="touchUpInside" id="3zS-Gf-0J8"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submission Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vjz-tg-Edo">
+                            <rect key="frame" x="20" y="59" width="135" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dld-MB-sZY">
+                    <rect key="frame" x="294" y="550" width="100" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Submit Bid">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnSubmitBidTapped:" destination="-1" eventType="touchUpInside" id="cxH-SE-mvj"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qIM-Gz-RwM">
+                    <rect key="frame" x="146" y="550" width="100" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnSubmitBidCancelButtonTapped:" destination="-1" eventType="touchUpInside" id="Z80-7y-cnL"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="qq3-lu-50t">
+                    <rect key="frame" x="0.0" y="615" width="540" height="5"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" red="0.52156862749999999" green="0.7725490196" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1uM-aE-jnS">
+                    <rect key="frame" x="185" y="152" width="120" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="R7h-G7-tRC">
+                    <rect key="frame" x="215" y="445" width="110" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Change Emp#">
+                        <color key="titleColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnChangeEmpTapped:" destination="-1" eventType="touchUpInside" id="spJ-Br-a7E"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+            <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+        <view contentMode="scaleToFill" id="USr-7U-3Mp">
+            <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submitting XXX Bid Choices for" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PDH-Ca-eku">
+                    <rect key="frame" x="65" y="28" width="412" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" id="Ig5-mj-itQ">
+                    <rect key="frame" x="9" y="57" width="518" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="hh8-Z2-RPG">
+                    <rect key="frame" x="31" y="93" width="480" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="** Important **" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mfX-Hb-3pm">
+                    <rect key="frame" x="20" y="144" width="162" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The employee number is extremely important. DO NOT use a seniority number or anything other than your employee number." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zBF-83-W0R">
+                    <rect key="frame" x="31" y="173" width="503" height="56"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" id="B5V-dJ-Xgk">
+                    <rect key="frame" x="-16" y="237" width="572" height="209"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="9mz-2k-9I2">
+                            <rect key="frame" x="46" y="78" width="480" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avoidance bids will not be honoured for Captain bids." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E4w-Xx-JWv">
+                            <rect key="frame" x="52" y="155" width="474" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" id="MSu-4j-dfW">
+                    <rect key="frame" x="-6" y="237" width="572" height="209"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="xOy-If-Nkq">
+                            <rect key="frame" x="46" y="78" width="480" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bids for all Buddy Bidders will also be submitted." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eHP-2i-XYw">
+                            <rect key="frame" x="52" y="155" width="474" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buddy Bid Choices" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7lQ-sr-tPF">
+                            <rect key="frame" x="80" y="9" width="412" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" id="NNt-AW-fpe">
+                    <rect key="frame" x="9" y="276" width="518" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rwP-ZQ-Uv8">
+                    <rect key="frame" x="325" y="550" width="49" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Submit">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnSubmitChoiceTapped:" destination="-1" eventType="touchUpInside" id="z2E-wA-fk7"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="F2s-rV-kxJ">
+                    <rect key="frame" x="143" y="550" width="48" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnChoicesCancelTapped:" destination="-1" eventType="touchUpInside" id="n6h-3E-qtf"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+        <view contentMode="scaleToFill" id="Pdy-LR-YCy">
+            <rect key="frame" x="0.0" y="0.0" width="413" height="215"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="acS-C3-sEP">
+                    <rect key="frame" x="8" y="47" width="395" height="2"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Employee Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gUG-VC-yRP">
+                    <rect key="frame" x="15" y="12" width="388" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="IdY-3d-gMh">
+                    <rect key="frame" x="8" y="79" width="395" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="la3-X7-VZY">
+                    <rect key="frame" x="276" y="146" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="OK">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnEmployeeNumberOKTapped:" destination="-1" eventType="touchUpInside" id="heI-1h-gTw"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kby-kK-a8A">
+                    <rect key="frame" x="91" y="146" width="48" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnEmployeeNumberCancelTapped:" destination="-1" eventType="touchUpInside" id="9oK-dd-fct"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+        <view contentMode="scaleToFill" id="99F-wb-FDI">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="TVt-Iz-4Cz">
+                    <rect key="frame" x="12" y="64" width="276" height="2"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Employees to be avoided" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Yi-aZ-cXE">
+                    <rect key="frame" x="-45" y="29" width="388" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ty7-xd-NXm">
+                    <rect key="frame" x="211" y="350" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="OK">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnAvodEmployeeOK:" destination="-1" eventType="touchUpInside" id="4tm-eo-aFw"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hsd-lO-RPP">
+                    <rect key="frame" x="65" y="350" width="48" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnAvoidEmployeeCancel:" destination="-1" eventType="touchUpInside" id="pyp-xr-iWC"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="oPc-3c-bug">
+                    <rect key="frame" x="60" y="117" width="220" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="gjB-4m-8Uf">
+                    <rect key="frame" x="60" y="185" width="220" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Enz-NU-utG">
+                    <rect key="frame" x="60" y="254" width="220" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="re5-Ud-z9E">
+                    <rect key="frame" x="37" y="121" width="15" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Ts-sM-Vhk">
+                    <rect key="frame" x="37" y="189" width="15" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xHG-2M-yGD">
+                    <rect key="frame" x="37" y="257" width="15" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+        <view contentMode="scaleToFill" id="VfZ-ya-sz2">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="237"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="qyP-8Z-kbt">
+                    <rect key="frame" x="12" y="37" width="278" height="2"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change/Add Buddy Bidders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fpf-lb-oSR">
+                    <rect key="frame" x="-44" y="8" width="388" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="SeJ-2h-Xiu">
+                    <rect key="frame" x="12" y="58" width="278" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="ycV-tj-VpA">
+                    <rect key="frame" x="12" y="104" width="278" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rQA-ki-t9u">
+                    <rect key="frame" x="211" y="170" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="OK">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnChangeOrAddBuddyBidderOk:" destination="-1" eventType="touchUpInside" id="RoM-dA-xvp"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yaQ-kd-DWZ">
+                    <rect key="frame" x="56" y="170" width="48" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnChangeOrAddBuddyBidderCancel:" destination="-1" eventType="touchUpInside" id="v40-sh-FwR"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="image001.jpg" width="277" height="80"/>
+        <image name="X_icon.png" width="23" height="23"/>
+        <image name="oneMonth.png" width="150" height="150"/>
+        <image name="InAppPurchase1MonthGreen.png" width="145" height="158"/>
+        <image name="InAppPurchase1Month.png" width="147" height="157"/>
+        <image name="NewBid-navbar-xcancelbutton.png" width="23" height="23"/>
+        <image name="down-arrow.png" width="150" height="150"/>
+        <image name="up-arrow.png" width="150" height="150"/>
+        <image name="Default-Landscape.png" width="1024" height="748"/>
+        <image name="aboutScreen.png" width="1080" height="1150"/>
+        <image name="activeButtonOrange.png" width="58" height="30"/>
+        <image name="arrowCalendar.png" width="24" height="24"/>
+        <image name="arrowDown.png" width="30" height="30"/>
+        <image name="arrowUp.png" width="30" height="30"/>
+        <image name="bottomLock.png" width="64" height="64"/>
+        <image name="bottomLockIcon.png" width="30" height="30"/>
+        <image name="brightnessIcon.png" width="22" height="22"/>
+        <image name="calendarBottomLock.png" width="30" height="30"/>
+        <image name="calendarTopLock.png" width="30" height="30"/>
+        <image name="Check.png" width="24" height="24"/>
+        <image name="closeIcon.png" width="24" height="24"/>
+        <image name="Contact.png" width="25" height="25"/>
+        <image name="cpBgMen.png" width="200" height="50"/>
+        <image name="cpBgWomen.png" width="200" height="50"/>
+        <image name="cross.png" width="48" height="48"/>
+        <image name="delete.png" width="20" height="20"/>
+        <image name="deleteIconBold.png" width="22" height="22"/>
+        <image name="deleteIconThin.png" width="22" height="22"/>
+        <image name="exportMenuIcon.png" width="19" height="27"/>
+        <image name="faBgMen.png" width="200" height="50"/>
+        <image name="faBgWomen.png" width="200" height="50"/>
+        <image name="foBgMen.png" width="200" height="50"/>
+        <image name="foBgWomen.png" width="200" height="50"/>
+        <image name="full-enter.png" width="128" height="128"/>
+        <image name="full-exit.png" width="128" height="128"/>
+        <image name="gridIcon.png" width="30" height="30"/>
+        <image name="help.png" width="24" height="24"/>
+        <image name="homeIcon.png" width="30" height="30"/>
+        <image name="hotelMenuIcon.png" width="25" height="33"/>
+        <image name="icon-grid.png" width="20" height="20"/>
+        <image name="icon-home.png" width="20" height="20"/>
+        <image name="icon-mov-down.png" width="128" height="128"/>
+        <image name="icon-mov-up.png" width="128" height="128"/>
+        <image name="icon-no-grid.png" width="20" height="20"/>
+        <image name="icon-promote.png" width="18" height="19"/>
+        <image name="icon-remove-bottom-lock.png" width="20" height="20"/>
+        <image name="icon-remove-top-lock.png" width="20" height="20"/>
+        <image name="icon-save.png" width="21" height="21"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="icon-trash.png" width="18" height="19"/>
+        <image name="lock.png" width="64" height="64"/>
+        <image name="lockIcon.png" width="22" height="22"/>
+        <image name="lockIconGreen.png" width="22" height="22"/>
+        <image name="lockIconRed.png" width="22" height="22"/>
+        <image name="loginTextfieldEmp.png" width="246" height="34"/>
+        <image name="loginTextfieldPassword.png" width="246" height="34"/>
+        <image name="menuGreenActive.png" width="88" height="28"/>
+        <image name="menuGreenNormal.png" width="88" height="28"/>
+        <image name="miscMenuIcon.png" width="27" height="24"/>
+        <image name="numberBg.png" width="66" height="40"/>
+        <image name="numberpadTextfield.png" width="202" height="36"/>
+        <image name="over.png" width="64" height="64"/>
+        <image name="overlayIconBold.png" width="22" height="22"/>
+        <image name="overlayIconThin.png" width="22" height="22"/>
+        <image name="profileGreen.png" width="60" height="60"/>
+        <image name="profileOrange.png" width="60" height="60"/>
+        <image name="radiobuttonNo.png" width="16" height="16"/>
+        <image name="radiobuttonYes.png" width="16" height="16"/>
+        <image name="redoGreen.png" width="60" height="60"/>
+        <image name="redoOrange.png" width="60" height="60"/>
+        <image name="removeBottomLockIcon.png" width="30" height="30"/>
+        <image name="removeGridIcon.png" width="30" height="30"/>
+        <image name="removeTopLockIcon.png" width="30" height="30"/>
+        <image name="roundActive.png" width="28" height="28"/>
+        <image name="roundNormal.png" width="28" height="28"/>
+        <image name="saveIcon.png" width="30" height="30"/>
+        <image name="saveIconRed.png" width="30" height="30"/>
+        <image name="selected.png" width="128" height="128"/>
+        <image name="synchIcon.png" width="256" height="256"/>
+        <image name="synchIcon2.png" width="256" height="256"/>
+        <image name="synchIcon3.png" width="128" height="128"/>
+        <image name="textField.png" width="150" height="28"/>
+        <image name="timeMenuIcon.png" width="25" height="25"/>
+        <image name="topLock.png" width="64" height="64"/>
+        <image name="topLockIcon.png" width="30" height="30"/>
+        <image name="uncheck.png" width="24" height="24"/>
+        <image name="undoGreen.png" width="60" height="60"/>
+        <image name="undoOrange.png" width="60" height="60"/>
+        <image name="unselected.png" width="128" height="128"/>
+        <image name="wbidLogo.png" width="188" height="30"/>
+        <image name="weekMenuIcon.png" width="25" height="25"/>
+        <image name="Tutorial Screens/Tut 0.png" width="1483" height="1113"/>
+        <image name="Tutorial Screens/Tut 1.png" width="1227" height="869"/>
+        <image name="Tutorial Screens/Tut 10.png" width="1483" height="1113"/>
+        <image name="Tutorial Screens/Tut 11.png" width="1483" height="1113"/>
+        <image name="Tutorial Screens/Tut 12.png" width="1483" height="1113"/>
+        <image name="Tutorial Screens/Tut 13.png" width="1483" height="1113"/>
+        <image name="Tutorial Screens/Tut 14.png" width="1483" height="1113"/>
+        <image name="Tutorial Screens/Tut 15.png" width="1483" height="1243"/>
+        <image name="Tutorial Screens/Tut 16.png" width="1345" height="965"/>
+        <image name="Tutorial Screens/Tut 17.png" width="1545" height="1162"/>
+        <image name="Tutorial Screens/Tut 18.png" width="1483" height="1113"/>
+        <image name="Tutorial Screens/Tut 19.png" width="1298" height="871"/>
+        <image name="Tutorial Screens/Tut 2.png" width="1483" height="1113"/>
+        <image name="Tutorial Screens/Tut 20.png" width="1483" height="1113"/>
+        <image name="Tutorial Screens/Tut 21.png" width="1483" height="1113"/>
+        <image name="Tutorial Screens/Tut 22.png" width="1488" height="1117"/>
+        <image name="Tutorial Screens/Tut 23.png" width="1487" height="1115"/>
+        <image name="Tutorial Screens/Tut 24.png" width="1483" height="1113"/>
+        <image name="Tutorial Screens/Tut 25.png" width="1483" height="1117"/>
+        <image name="Tutorial Screens/Tut 26.png" width="1484" height="1114"/>
+        <image name="Tutorial Screens/Tut 27.png" width="1483" height="1113"/>
+        <image name="Tutorial Screens/Tut 28.png" width="1387" height="1002"/>
+        <image name="Tutorial Screens/Tut 29.png" width="1863" height="1117"/>
+        <image name="Tutorial Screens/Tut 3.png" width="1488" height="1117"/>
+        <image name="Tutorial Screens/Tut 30.png" width="1488" height="1117"/>
+        <image name="Tutorial Screens/Tut 4.png" width="1280" height="983"/>
+        <image name="Tutorial Screens/Tut 5.png" width="1488" height="1117"/>
+        <image name="Tutorial Screens/Tut 6.png" width="1483" height="1117"/>
+        <image name="Tutorial Screens/Tut 7.png" width="1483" height="1113"/>
+        <image name="Tutorial Screens/Tut 8.png" width="1483" height="1113"/>
+        <image name="Tutorial Screens/Tut 9.png" width="1483" height="1113"/>
+        <image name="Tutorial Screens/Tut 99.png" width="1298" height="988"/>
+    </resources>
+</document>
