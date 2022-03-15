@@ -55,8 +55,15 @@ namespace WBid.WBidiPad.iOS
 				ViewControllers = tabs;
 			}
 			TabBar.Translucent = false;
-			TabBar.BarTintColor = ColorClass.BottomHeaderColor;
+			TabBar.BarTintColor = ColorClass.TopHeaderColor;
 			TabBar.TintColor = UIColor.Black;
+
+			var appearance = new UITabBarAppearance();
+			appearance.ConfigureWithOpaqueBackground();
+			appearance.BackgroundColor = ColorClass.BottomHeaderColor;
+			TabBar.StandardAppearance = appearance;
+			TabBar.ScrollEdgeAppearance = TabBar.StandardAppearance;
+
 			//TabBar.Frame = new RectangleF (0, 320, 768, 56);
 			//TabBar.AutoresizingMask = UIViewAutoresizing.FlexibleWidth ;
 		}

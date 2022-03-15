@@ -24,6 +24,13 @@ namespace WBid.WBidiPad.iOS
 			txtView.AttributedText = new NSAttributedString(submitbidchoice, textFontAttributes);
 
 			this.NavigationItem.Title = "Bid Choices";
+
+			var appearance = new UINavigationBarAppearance();
+			appearance.ConfigureWithOpaqueBackground();
+			appearance.BackgroundColor = ColorClass.TopHeaderColor;
+			this.NavigationItem.StandardAppearance = appearance;
+			this.NavigationItem.ScrollEdgeAppearance = this.NavigationItem.StandardAppearance;
+
 		}
 
 		public override void DidReceiveMemoryWarning()

@@ -655,8 +655,9 @@ namespace WBid.WBidiPad.iOS
 				this.btnBlankToBottom.Enabled = true;
 				this.btnReserveToBottom.Enabled = true;
 			}
-            if (sender.TitleLabel.Text == "Sort By Award" && (GlobalSettings.WBidStateCollection.BidAwards == null || GlobalSettings.WBidStateCollection.BidAwards.Count == 0))
-            {
+            //if (sender.TitleLabel.Text == "Sort By Award" && (GlobalSettings.WBidStateCollection.BidAwards == null || GlobalSettings.WBidStateCollection.BidAwards.Count == 0))
+				if (sender.TitleLabel.Text == "Sort By Award")
+				{
                 OdataBuilder ObjOdata = new OdataBuilder();
                 MonthlyBidDetails objbiddetails = new MonthlyBidDetails();
                 ObjOdata.RestService.Objdelegate = this;

@@ -136,6 +136,11 @@ querySubmitBid	  }
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			var appearance = new UINavigationBarAppearance();
+			appearance.ConfigureWithOpaqueBackground();
+			appearance.BackgroundColor = ColorClass.TopHeaderColor;
+			this.NavigationItem.StandardAppearance = appearance;
+			this.NavigationItem.ScrollEdgeAppearance = this.NavigationItem.StandardAppearance;
 
 			BasicHttpBinding binding = ServiceUtils.CreateBasicHttp ();
 			client = new WBidDataDwonloadAuthServiceClient (binding, ServiceUtils.EndPoint);
