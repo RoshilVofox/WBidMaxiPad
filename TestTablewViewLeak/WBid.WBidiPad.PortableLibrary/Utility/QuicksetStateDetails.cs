@@ -1084,8 +1084,10 @@ namespace WBid.WBidiPad.Utility
 				line1 += " Non-Conus ,";
             if (QuickSetCSW.Constraints.ETOPS)
                 line1 += " ETOPS ,";
+            if (QuickSetCSW.Constraints.ReserveETOPS)
+                line1 += " ETOPS - Res ,";
 
-			line1 = line1.TrimEnd(',');
+            line1 = line1.TrimEnd(',');
 			if (line1 != string.Empty)
 				appliedStateType.Value.Add(line1);
 			string line2 = string.Empty;
