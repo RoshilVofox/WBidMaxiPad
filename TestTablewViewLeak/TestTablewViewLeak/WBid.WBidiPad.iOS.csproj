@@ -265,6 +265,9 @@
     <InterfaceDefinition Include="View Controllers\SyncView\SynchView.xib" />
     <InterfaceDefinition Include="View Controllers\MonthToMonthAlertView.xib" />
     <InterfaceDefinition Include="View Controllers\CustomAlert\CustomAlertView.xib" />
+    <InterfaceDefinition Include="View Controllers\VacationDifferenceView\VacationDifferenceViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\VacationDifferenceView\VacDiffDetailsCell.xib" />
+    <InterfaceDefinition Include="View Controllers\VacationDifferenceView\VacDiffHeaderCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\WBid.WBidiPad.SharedLibrary\app.config">
@@ -752,6 +755,20 @@
       <DependentUpon>CustomAlertView.cs</DependentUpon>
     </Compile>
     <Compile Include="View Controllers\DownloadBidData\downloadBidDataViewController.cs" />
+    <Compile Include="View Controllers\VacationDifferenceView\VacationDifferenceViewController.cs" />
+    <Compile Include="View Controllers\VacationDifferenceView\VacationDifferenceViewController.designer.cs">
+      <DependentUpon>VacationDifferenceViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\VacationDifferenceView\VacDiffDetailsCell.cs" />
+    <Compile Include="View Controllers\VacationDifferenceView\VacDiffDetailsCell.designer.cs">
+      <DependentUpon>VacDiffDetailsCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\VacationDifferenceView\VacDiffHeaderCell.cs" />
+    <Compile Include="View Controllers\VacationDifferenceView\VacDiffHeaderCell.designer.cs">
+      <DependentUpon>VacDiffHeaderCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\VacationDifferenceView\VacDiffTableViewControllerCell.cs" />
+    <Compile Include="View Controllers\VacationDifferenceView\VacDiffTableViewControllerSource.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -1028,6 +1045,7 @@
     <Folder Include="Resources\Common\Brightness\" />
     <Folder Include="View Controllers\timeoutalert\" />
     <Folder Include="View Controllers\CustomAlert\" />
+    <Folder Include="View Controllers\VacationDifferenceView\" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>

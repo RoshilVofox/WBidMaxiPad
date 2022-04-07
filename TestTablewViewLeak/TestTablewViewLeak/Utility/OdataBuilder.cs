@@ -46,7 +46,15 @@ namespace WBid.WBidiPad.iOS
 			RestService.Post (data);
 
 		}
-        public void GetMonthlyAwards(MonthlyBidDetails Info)
+		public void GetVacationDifferenceDetails(VacationValueDifferenceInputDTO Info)
+		{
+			string UrlString = "GetVacationDifferenceData";
+			string data = SmartSyncLogic.JsonObjectToStringSerializer<VacationValueDifferenceInputDTO>(Info);
+			RestService.ConstructURL(UrlString);
+			RestService.Post(data);
+
+		}
+		public void GetMonthlyAwards(MonthlyBidDetails Info)
         {
             string UrlString = "GetMonthlyAwardData";
             string data = SmartSyncLogic.JsonObjectToStringSerializer<MonthlyBidDetails>(Info);

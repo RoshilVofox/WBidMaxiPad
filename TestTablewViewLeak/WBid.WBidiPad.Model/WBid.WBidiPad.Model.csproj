@@ -234,6 +234,10 @@
     <Compile Include="VacFilesRequest.cs" />
     <Compile Include="AppDataBidFiles.cs" />
     <Compile Include="State\Weights\Wt1Parameters.cs" />
+    <Compile Include="VacationValueDifferenceInputDTO.cs" />
+    <Compile Include="VacationInfo.cs" />
+    <Compile Include="VacationValueDifferenceOutputDTO.cs" />
+    <Compile Include="FlightDataChangeVacValues.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="protobuf-net">
