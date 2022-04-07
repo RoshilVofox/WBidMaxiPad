@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -355,9 +355,18 @@
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <barButtonItem style="plain" id="SwH-7c-LcB">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="HKS-mv-XUP">
+                                <rect key="frame" x="609" y="7" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Vac Diff">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem id="ewG-oq-ifT">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Tuz-mf-rPh">
-                                <rect key="frame" x="609" y="7" width="30" height="30"/>
+                                <rect key="frame" x="663" y="7" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="MIL">
@@ -373,7 +382,7 @@
                         </barButtonItem>
                         <barButtonItem id="Y2l-0C-zPK">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="SKV-tw-w3q">
-                                <rect key="frame" x="639" y="7" width="31" height="30"/>
+                                <rect key="frame" x="693" y="7" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="OVR">
@@ -389,7 +398,7 @@
                         </barButtonItem>
                         <barButtonItem id="Ud1-sU-LkD">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="VMc-MQ-N9Q">
-                                <rect key="frame" x="670" y="7" width="30" height="30"/>
+                                <rect key="frame" x="724" y="7" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="VAC">
@@ -406,7 +415,7 @@
                         </barButtonItem>
                         <barButtonItem id="dxj-Om-vd3">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="mSu-uQ-EHx">
-                                <rect key="frame" x="700" y="7" width="30" height="30"/>
+                                <rect key="frame" x="754" y="7" width="14" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -424,7 +433,7 @@
                         </barButtonItem>
                         <barButtonItem id="eOw-OF-II2">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="2gv-de-LYg">
-                                <rect key="frame" x="730" y="7" width="33" height="30"/>
+                                <rect key="frame" x="768" y="7" width="0.0" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="EOM">
@@ -441,7 +450,7 @@
                         </barButtonItem>
                         <barButtonItem id="zRx-3D-Eyc">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="eXi-RI-XUf">
-                                <rect key="frame" x="763" y="7" width="5" height="30"/>
+                                <rect key="frame" x="768" y="7" width="0.0" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="CSW">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -760,7 +769,7 @@
             </subviews>
             <color key="backgroundColor" red="0.81176470590000005" green="0.8862745098" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-            <point key="canvasLocation" x="47.65625" y="112.49999999999999"/>
+            <point key="canvasLocation" x="304" y="304"/>
         </view>
     </objects>
     <resources>
