@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Json;
+using System.Linq;
 using UIKit;
 using WBid.WBidiPad.Core;
 using WBid.WBidiPad.iOS;
@@ -13,6 +14,7 @@ namespace TestTablewViewLeak.ViewControllers.VacationDifferenceView
     {
         LoadingOverlay ActivityIndicator;
         public List<VacationValueDifferenceOutputDTO> lstVacationDifferencedata { get; set; }
+        public List<FlightDataChangeVacValues> lstFlightDataChangevalues { get; set; }
         VacationValueDifferenceInputDTO input;
         OdataBuilder ObjOdata;
         public VacationDifferenceViewController() : base("VacationDifferenceViewController", null)
@@ -43,21 +45,23 @@ namespace TestTablewViewLeak.ViewControllers.VacationDifferenceView
             input.FAEOMStartDate = GlobalSettings.FAEOMStartDate.Date.Day;
             input.FromApp = (int)WBid.WBidiPad.Core.Enum.FromApp.WbidmaxIpad;
             input.lstVacation = new List<VacationInfo>();
-
+           
+            
 
             var vavacation = GlobalSettings.WBidStateCollection.Vacation;
-            if (vavacation.Count > 0)
+            if (vavacation != null && vavacation.Count > 0)
             {
                 foreach (var item in vavacation)
                 {
-                    var splitarray = item.StartDate.Split('-');
-                    var splitEndarray = item.EndDate.Split('-');
-                    var vacationstring = splitarray[1] + "/" + splitarray[2] + "-" + splitEndarray[1] + "/" + splitEndarray[2];
+                    var startdate = Convert.ToDateTime(item.StartDate);
+                    var enddate = Convert.ToDateTime(item.EndDate);
+                    var vacationstring = startdate.Month + "/" + startdate.Day + "-" + enddate.Month + "/" + enddate.Day;
                     input.lstVacation.Add(new VacationInfo { Type = "VA", VacDate = vacationstring });
+                    
                 }
             }
             var Fvvavacation = GlobalSettings.WBidStateCollection.FVVacation;
-            if (Fvvavacation.Count > 0)
+            if (Fvvavacation!=null && Fvvavacation.Count > 0)
             {
                 foreach (var item in Fvvavacation)
                 {
@@ -67,6 +71,7 @@ namespace TestTablewViewLeak.ViewControllers.VacationDifferenceView
             }
 
             ObjOdata.GetVacationDifferenceDetails(input);
+            
         }
 
         public override void DidReceiveMemoryWarning()
@@ -80,6 +85,11 @@ namespace TestTablewViewLeak.ViewControllers.VacationDifferenceView
             InvokeOnMainThread(() => {
                 Console.WriteLine("Service Success");
                 lstVacationDifferencedata = CommonClass.ConvertJSonToObject<List<VacationValueDifferenceOutputDTO>>(jsonDoc.ToString());
+                if (lstVacationDifferencedata.Count > 0)
+                {
+                    lstFlightDataChangevalues = lstVacationDifferencedata.FirstOrDefault().lstFlightDataChangeVacValues;
+                }
+                tblVacDifference.Source = new VacDiffTableViewControllerSource(lstFlightDataChangevalues); 
                // lstCAPOutputParameter = lstCAPOutputParameter.Where(x => x.CurrentMonthCap != null).ToList();
                 //tblCAPDetails.Source = new CAPTableViewControllerSource(lstCAPOutputParameter);
 

@@ -268,6 +268,7 @@
     <InterfaceDefinition Include="View Controllers\VacationDifferenceView\VacationDifferenceViewController.xib" />
     <InterfaceDefinition Include="View Controllers\VacationDifferenceView\VacDiffDetailsCell.xib" />
     <InterfaceDefinition Include="View Controllers\VacationDifferenceView\VacDiffHeaderCell.xib" />
+    <InterfaceDefinition Include="View Controllers\VacationDifferenceView\VacDiffCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\WBid.WBidiPad.SharedLibrary\app.config">
@@ -769,6 +770,10 @@
     </Compile>
     <Compile Include="View Controllers\VacationDifferenceView\VacDiffTableViewControllerCell.cs" />
     <Compile Include="View Controllers\VacationDifferenceView\VacDiffTableViewControllerSource.cs" />
+    <Compile Include="View Controllers\VacationDifferenceView\VacDiffCell.cs" />
+    <Compile Include="View Controllers\VacationDifferenceView\VacDiffCell.designer.cs">
+      <DependentUpon>VacDiffCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

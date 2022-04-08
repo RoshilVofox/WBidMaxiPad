@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zh1-HX-BH9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zh1-HX-BH9">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -726,6 +726,9 @@
                                         <state key="selected">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnVacDiffClicked:" destination="zh1-HX-BH9" eventType="touchUpInside" id="D4S-AZ-oqi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94239312410354614" green="0.99838107824325562" blue="0.86402887105941772" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -901,6 +904,7 @@
                         <outlet property="btnUndo" destination="LSn-4e-xyV" id="wV4-Fo-y4s"/>
                         <outlet property="btnUpArrow" destination="LnN-z7-CJm" id="buB-79-WFJ"/>
                         <outlet property="btnVacCorrect" destination="csy-dK-Q16" id="TdS-2s-Bhz"/>
+                        <outlet property="btnVacDiff" destination="jZt-sY-UtY" id="fNc-1Y-BSi"/>
                         <outlet property="btnVacDrop" destination="fwU-oa-SFW" id="9Sx-uw-wLi"/>
                         <outlet property="lblCalTitle" destination="AuG-Rj-WDb" id="TRa-hJ-LeT"/>
                         <outlet property="lblMOV" destination="Q3n-vB-Q80" id="BOJ-tQ-KMF"/>

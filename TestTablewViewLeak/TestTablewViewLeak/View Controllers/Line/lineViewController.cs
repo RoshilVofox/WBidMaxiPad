@@ -32,6 +32,7 @@ using TestTablewViewLeak.Utility;
 using System.Threading.Tasks;
 using WBid.WBidiPad.SharedLibrary.SWA;
 using TestTablewViewLeak.ViewControllers;
+using TestTablewViewLeak.ViewControllers.VacationDifferenceView;
 
 namespace WBid.WBidiPad.iOS
 {
@@ -330,7 +331,38 @@ namespace WBid.WBidiPad.iOS
 
 
         }
+        partial void btnVacDiffClicked(NSObject sender)
+        {
 
+            if (Reachability.CheckVPSAvailable())
+            {
+                VacationDifferenceViewController vacdiff = new VacationDifferenceViewController();
+                vacdiff.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
+                UINavigationController nav = new UINavigationController(vacdiff);
+                nav.NavigationBarHidden = true;
+                nav.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
+                this.PresentViewController(nav, true, null);
+            }
+            else
+            {
+                if (WBidHelper.IsSouthWestWifiOr2wire())
+                {
+
+                    UIAlertController okAlertController = UIAlertController.Create("WBidMax", Constants.SouthWestConnectionAlert, UIAlertControllerStyle.Alert);
+                    okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+                    this.PresentViewController(okAlertController, true, null);
+                }
+                else
+                {
+                    UIAlertController okAlertController = UIAlertController.Create("WBidMax", Constants.VPSDownAlert, UIAlertControllerStyle.Alert);
+                    okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+                    this.PresentViewController(okAlertController, true, null);
+                }
+            }
+
+
+            
+        }
         private void SetDropButtonTextAndbackground()
         {
             if ((GlobalSettings.MenuBarButtonStatus.IsEOM || GlobalSettings.MenuBarButtonStatus.IsVacationCorrection) && GlobalSettings.MenuBarButtonStatus.IsVacationDrop == false)
