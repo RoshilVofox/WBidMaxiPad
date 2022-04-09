@@ -45,8 +45,8 @@ namespace TestTablewViewLeak.ViewControllers.VacationDifferenceView
             input.FAEOMStartDate = GlobalSettings.FAEOMStartDate.Date.Day;
             input.FromApp = (int)WBid.WBidiPad.Core.Enum.FromApp.WbidmaxIpad;
             input.lstVacation = new List<VacationInfo>();
-           
-            
+
+            input.lstVacation.Add(new VacationInfo { Type = "VA", VacDate = "05/29-06/04" });
 
             var vavacation = GlobalSettings.WBidStateCollection.Vacation;
             if (vavacation != null && vavacation.Count > 0)
