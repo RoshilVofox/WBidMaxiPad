@@ -97,9 +97,10 @@ namespace TestTablewViewLeak.ViewControllers.VacationDifferenceView
                 lstVacationDifferencedata = CommonClass.ConvertJSonToObject<List<VacationValueDifferenceOutputDTO>>(jsonDoc.ToString());
                 if (lstVacationDifferencedata.Count > 0)
                 {
-                    ActivityIndicator.Hide();
+                   ActivityIndicator.Hide();
                     lstFlightDataChangevalues = lstVacationDifferencedata.FirstOrDefault().lstFlightDataChangeVacValues;
                     tblVacDifference.Source = new VacDiffTableViewControllerSource(lstFlightDataChangevalues);
+                    tblVacDifference.ReloadData();
                 }
                 else
                 {
@@ -130,7 +131,7 @@ namespace TestTablewViewLeak.ViewControllers.VacationDifferenceView
         public void ResponceError(string Error)
         {
             InvokeOnMainThread(() => {
-                ActivityIndicator.Hide();
+               ActivityIndicator.Hide();
                 Console.WriteLine("Service Fail");
 
                 UIAlertController okAlertController = UIAlertController.Create("WBidMax", Error, UIAlertControllerStyle.Alert);
