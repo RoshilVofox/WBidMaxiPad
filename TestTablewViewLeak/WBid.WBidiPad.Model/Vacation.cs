@@ -11,6 +11,9 @@ namespace WBid.WBidiPad.Model
     [Serializable]
     public class Vacation
     {
+        public Vacation()
+        {
+        }
         /// <summary>
         /// vacatio  strart Date
         /// </summary>

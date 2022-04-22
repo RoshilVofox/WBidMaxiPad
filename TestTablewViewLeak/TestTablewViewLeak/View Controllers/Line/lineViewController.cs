@@ -33,10 +33,11 @@ using System.Threading.Tasks;
 using WBid.WBidiPad.SharedLibrary.SWA;
 using TestTablewViewLeak.ViewControllers;
 using TestTablewViewLeak.ViewControllers.VacationDifferenceView;
+using System.Json;
 
 namespace WBid.WBidiPad.iOS
 {
-    public partial class lineViewController : UIViewController
+    public partial class lineViewController : UIViewController, IServiceDelegate
     {
         class MyPopDelegate : UIPopoverControllerDelegate
         {
@@ -98,6 +99,8 @@ namespace WBid.WBidiPad.iOS
         bool IsQSFromServer = false;
         bool IskeepLocalQS = false;
         bool IskeepLocalState = false;
+        OdataBuilder ObjOdata;
+        NSObject ObserverApploadData;
         public lineViewController()
             : base("lineViewController", null)
         {
@@ -137,6 +140,8 @@ namespace WBid.WBidiPad.iOS
 
 
             base.ViewDidLoad();
+            //NSNotificationCenter.DefaultCenter.AddObserver(UIApplication.WillEnterForegroundNotification, AppCallback);
+            ObserverApploadData = NSNotificationCenter.DefaultCenter.AddObserver(new Foundation.NSString("SetApplicationLoadData"), SetApplicationLoadData);
             CommonClass.lineVC = this;
             this.View.LayoutIfNeeded();
             FirstTime = true;
@@ -329,7 +334,53 @@ namespace WBid.WBidiPad.iOS
 
             HandleBlueShadowButton();
 
+            btnVacDiff.Hidden = !GlobalSettings.IsNeedToEnableVacDiffButton;
 
+
+        }
+
+        public void SetApplicationLoadData(NSNotification n)
+        {
+            btnVacDiff.Hidden = !GlobalSettings.IsNeedToEnableVacDiffButton;
+        }
+        public void ServiceResponce(JsonValue jsonDoc)
+        {
+            try
+            {
+                ApplicationLoadData appLoadData = CommonClass.ConvertJSonToObject<ApplicationLoadData>(jsonDoc.ToString());
+                GlobalSettings.IsNeedToEnableVacDiffButton = appLoadData.IsNeedtoEnableVacationDifference;
+                btnVacDiff.Hidden = !GlobalSettings.IsNeedToEnableVacDiffButton;
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+        public void ResponceError(string Error)
+        {
+            InvokeOnMainThread(() => {
+                //ActivityIndicator.Hide ();
+            });
+            //			Console.WriteLine ("Service Fail");
+
+        }
+        void AppCallback(NSNotification notification)
+        {
+            if (Reachability.CheckVPSAvailable())
+            {
+                 GetApplicationLoadDataFromServer();
+            }
+            NSNotificationCenter.DefaultCenter.RemoveObserver(notification);
+        }
+        private void GetApplicationLoadDataFromServer()
+        {
+            InvokeInBackground(() =>
+            {
+                ObjOdata = new OdataBuilder();
+                ApplicationData info = new ApplicationData();
+                ObjOdata.RestService.Objdelegate = this;
+                info.FromApp = (int)AppNum.WBidMaxApp;
+                ObjOdata.GetApplicationLoadData(info);
+            });
         }
         partial void btnVacDiffClicked(NSObject sender)
         {
@@ -339,6 +390,7 @@ namespace WBid.WBidiPad.iOS
                 VacationDifferenceViewController vacdiff = new VacationDifferenceViewController();
                 vacdiff.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
                 UINavigationController nav = new UINavigationController(vacdiff);
+                vacdiff.PreferredContentSize = new CGSize(1020, 700);
                 nav.NavigationBarHidden = true;
                 nav.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
                 this.PresentViewController(nav, true, null);
@@ -1678,65 +1730,88 @@ namespace WBid.WBidiPad.iOS
             {
                 // GlobalSettings.iSNeedToShowMonthtoMonthAlert = true;
                 //Show Month to Month vacation alert
+                //temporary disable for one test flight
                 ShowMonthToMonthVacationAlert();
             }
         }
 
         private void ShowMonthToMonthVacationAlert()
         {
-            if (GlobalSettings.CurrentBidDetails.Postion != "FA" && GlobalSettings.iSNeedToShowMonthtoMonthAlert == true)
+            List<Vacation> uservacation = new List<Vacation>();
+            try
             {
-                List<Weekday> lstweekdays = GetWeekDays(GlobalSettings.CurrentBidDetails.Year, GlobalSettings.CurrentBidDetails.Month);
-                List<Vacation> uservacation = GlobalSettings.WBidStateCollection.Vacation;
-                List<Weekday> vacationweeks = lstweekdays.Where(x => uservacation.Any(y => DateTime.Parse(y.StartDate) == x.StartDate && DateTime.Parse(y.EndDate) == x.EndDate)).ToList();
-                bool isneedtoShowAlert = vacationweeks.Any(x => x.Code.Contains("A") || x.Code.Contains("E"));
-                if (isneedtoShowAlert == true)
+                if (GlobalSettings.CurrentBidDetails.Postion != "FA" && GlobalSettings.iSNeedToShowMonthtoMonthAlert == true)
                 {
-                    var startDateA = "";
-                    var endDateA = "";
-                    var startDateE = "";
-                    var endDateE = "";
+                    
 
-                    string AlertText = string.Empty;
-                    var codeArray = vacationweeks.Select(x => x.Code);
+                    List<Weekday> lstweekdays = GetWeekDays(GlobalSettings.CurrentBidDetails.Year, GlobalSettings.CurrentBidDetails.Month);
 
-                    if (codeArray.Contains("A") && codeArray.Contains("E"))
+                   
+                     uservacation = GlobalSettings.WBidStateCollection.Vacation;
+                    List<Weekday> vacationweeks = lstweekdays.Where(x => uservacation.Any(y => DateTime.Parse(y.StartDate,CultureInfo.InvariantCulture) == x.StartDate && DateTime.Parse(y.EndDate,CultureInfo.InvariantCulture) == x.EndDate)).ToList();
+                    bool isneedtoShowAlert = vacationweeks.Any(x => x.Code.Contains("A") || x.Code.Contains("E"));
+                    if (isneedtoShowAlert == true)
                     {
-                        //AE Vacation
-                        startDateA = vacationweeks.Find(x => x.Code == "A").StartDate.Day + " " + vacationweeks.Find(x => x.Code == "A").StartDate.ToString("MMM");
-                        endDateA = vacationweeks.Find(x => x.Code == "A").EndDate.Day + " " + vacationweeks.Find(x => x.Code == "A").EndDate.ToString("MMM");
+                        var startDateA = "";
+                        var endDateA = "";
+                        var startDateE = "";
+                        var endDateE = "";
 
-                        startDateE = vacationweeks.Find(x => x.Code == "E").StartDate.Day + " " + vacationweeks.Find(x => x.Code == "E").StartDate.ToString("MMM");
-                        endDateE = vacationweeks.Find(x => x.Code == "E").EndDate.Day + " " + vacationweeks.Find(x => x.Code == "E").EndDate.ToString("MMM");
+                        string AlertText = string.Empty;
+                        var codeArray = vacationweeks.Select(x => x.Code);
 
-                        AlertText = "You have  'A & E' week vacation: \n\n" + startDateA + " - " + endDateA + " and " + startDateE + " - " + endDateE;
-                        AlertText += "\n\nA weeks generally are the lead out month and E weeks generally are the lead-in month of a month-to-month vacation..";
-                        AlertText += "\n\nThere are opportunities with Month-To-Month Vacations, but there are ALSO limitations.";
+                        if (codeArray.Contains("A") && codeArray.Contains("E"))
+                        {
+                            //AE Vacation
+                            startDateA = vacationweeks.Find(x => x.Code == "A").StartDate.Day + " " + vacationweeks.Find(x => x.Code == "A").StartDate.ToString("MMM");
+                            endDateA = vacationweeks.Find(x => x.Code == "A").EndDate.Day + " " + vacationweeks.Find(x => x.Code == "A").EndDate.ToString("MMM");
+
+                            startDateE = vacationweeks.Find(x => x.Code == "E").StartDate.Day + " " + vacationweeks.Find(x => x.Code == "E").StartDate.ToString("MMM");
+                            endDateE = vacationweeks.Find(x => x.Code == "E").EndDate.Day + " " + vacationweeks.Find(x => x.Code == "E").EndDate.ToString("MMM");
+
+                            AlertText = "You have  'A & E' week vacation: \n\n" + startDateA + " - " + endDateA + " and " + startDateE + " - " + endDateE;
+                            AlertText += "\n\nA weeks generally are the lead out month and E weeks generally are the lead-in month of a month-to-month vacation..";
+                            AlertText += "\n\nThere are opportunities with Month-To-Month Vacations, but there are ALSO limitations.";
+                        }
+                        else if (codeArray.Contains("A"))
+                        {
+                            //A Vacation
+                            startDateA = vacationweeks.Find(x => x.Code == "A").StartDate.Day + " " + vacationweeks.Find(x => x.Code == "A").StartDate.ToString("MMM");
+                            endDateA = vacationweeks.Find(x => x.Code == "A").EndDate.Day + " " + vacationweeks.Find(x => x.Code == "A").EndDate.ToString("MMM");
+                            AlertText = "You have  'A' week vacation: \n\n" + startDateA + " - " + endDateA;
+                            AlertText += "\n\nA weeks generally are the lead out month of a month-to - month vacation.";
+                            AlertText += "\n\nThere are opportunities with Month-To-Month Vacations, but there are ALSO limitations.";
+
+                        }
+                        else if (codeArray.Contains("E"))
+                        {
+                            //E Vacation
+                            startDateE = vacationweeks.Find(x => x.Code == "E").StartDate.Day + " " + vacationweeks.Find(x => x.Code == "E").StartDate.ToString("MMM");
+                            endDateE = vacationweeks.Find(x => x.Code == "E").EndDate.Day + " " + vacationweeks.Find(x => x.Code == "E").EndDate.ToString("MMM");
+                            AlertText = "You have  'E' week vacation: \n\n" + startDateE + " - " + endDateE;
+                            AlertText += "\n\nE weeks generally are the lead-in month of a month-to-month vacation..";
+                            AlertText += "\n\nThere are opportunities with Month-To-Month Vacations, but there are ALSO limitations.";
+                        }
+
+                        AlertText += "\n\nWe suggest you read the following documents to improve your bidding knowledge";
+
+                        ShowMonthToMonthAlerView(AlertText);
                     }
-                    else if (codeArray.Contains("A"))
-                    {
-                        //A Vacation
-                        startDateA = vacationweeks.Find(x => x.Code == "A").StartDate.Day + " " + vacationweeks.Find(x => x.Code == "A").StartDate.ToString("MMM");
-                        endDateA = vacationweeks.Find(x => x.Code == "A").EndDate.Day + " " + vacationweeks.Find(x => x.Code == "A").EndDate.ToString("MMM");
-                        AlertText = "You have  'A' week vacation: \n\n" + startDateA + " - " + endDateA;
-                        AlertText += "\n\nA weeks generally are the lead out month of a month-to - month vacation.";
-                        AlertText += "\n\nThere are opportunities with Month-To-Month Vacations, but there are ALSO limitations.";
-
-                    }
-                    else if (codeArray.Contains("E"))
-                    {
-                        //E Vacation
-                        startDateE = vacationweeks.Find(x => x.Code == "E").StartDate.Day + " " + vacationweeks.Find(x => x.Code == "E").StartDate.ToString("MMM");
-                        endDateE = vacationweeks.Find(x => x.Code == "E").EndDate.Day + " " + vacationweeks.Find(x => x.Code == "E").EndDate.ToString("MMM");
-                        AlertText = "You have  'E' week vacation: \n\n" + startDateE + " - " + endDateE;
-                        AlertText += "\n\nE weeks generally are the lead-in month of a month-to-month vacation..";
-                        AlertText += "\n\nThere are opportunities with Month-To-Month Vacations, but there are ALSO limitations.";
-                    }
-
-                    AlertText += "\n\nWe suggest you read the following documents to improve your bidding knowledge";
-
-                    ShowMonthToMonthAlerView(AlertText);
                 }
+
+            }
+            catch (Exception ex)
+            {
+                List<Vacation> uservacation1 = GlobalSettings.WBidStateCollection.Vacation;
+                string message = string.Empty;
+                foreach (var item in uservacation1)
+                {
+                    message += item.StartDate + " " + item.EndDate + "--";
+                }
+                UIAlertController okAlertController = UIAlertController.Create("WBidMax", message, UIAlertControllerStyle.Alert);
+                okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+                this.PresentViewController(okAlertController, true, null);
+                
             }
         }
 
@@ -3562,7 +3637,7 @@ namespace WBid.WBidiPad.iOS
 
             arrObserver.Add(NSNotificationCenter.DefaultCenter.AddObserver(new Foundation.NSString("handleColumnPopoverModernView"), handleColumnPopoverModernView));
             arrObserver.Add(NSNotificationCenter.DefaultCenter.AddObserver(new Foundation.NSString("OpenMonthToMonthAlert"), OpenMonthToMonthAlert));
-
+            arrObserver.Add(NSNotificationCenter.DefaultCenter.AddObserver(new Foundation.NSString("SetApplicationLoadData"), SetApplicationLoadData));
         }
 
 

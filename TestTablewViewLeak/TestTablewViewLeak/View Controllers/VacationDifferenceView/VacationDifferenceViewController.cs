@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Json;
 using System.Linq;
+using Foundation;
 using UIKit;
 using WBid.WBidiPad.Core;
 using WBid.WBidiPad.iOS;
@@ -26,6 +28,9 @@ namespace TestTablewViewLeak.ViewControllers.VacationDifferenceView
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
 
+            ActivityIndicator = new LoadingOverlay(View.Bounds, "Retrieving data. \n Please wait..");
+            this.View.Add(ActivityIndicator);
+
             ObjOdata = new OdataBuilder();
             input = new VacationValueDifferenceInputDTO();
             ObjOdata.RestService.Objdelegate = this;
@@ -46,22 +51,22 @@ namespace TestTablewViewLeak.ViewControllers.VacationDifferenceView
             input.FromApp = (int)WBid.WBidiPad.Core.Enum.FromApp.WbidmaxIpad;
             input.lstVacation = new List<VacationInfo>();
 
-            input.lstVacation.Add(new VacationInfo { Type = "VA", VacDate = "05/29-06/04" });
-
+            
             var vavacation = GlobalSettings.WBidStateCollection.Vacation;
             if (vavacation != null && vavacation.Count > 0)
             {
                 foreach (var item in vavacation)
                 {
-                    var startdate = Convert.ToDateTime(item.StartDate);
-                    var enddate = Convert.ToDateTime(item.EndDate);
+                   
+                    var startdate = DateTime.Parse(item.StartDate,CultureInfo.InvariantCulture);
+                    var enddate = DateTime.Parse(item.EndDate, CultureInfo.InvariantCulture);
                     var vacationstring = startdate.Month + "/" + startdate.Day + "-" + enddate.Month + "/" + enddate.Day;
                     input.lstVacation.Add(new VacationInfo { Type = "VA", VacDate = vacationstring });
-                    
+
                 }
             }
             var Fvvavacation = GlobalSettings.WBidStateCollection.FVVacation;
-            if (Fvvavacation!=null && Fvvavacation.Count > 0)
+            if (Fvvavacation != null && Fvvavacation.Count > 0)
             {
                 foreach (var item in Fvvavacation)
                 {
@@ -69,8 +74,10 @@ namespace TestTablewViewLeak.ViewControllers.VacationDifferenceView
                     input.lstVacation.Add(new VacationInfo { Type = item.AbsenceType, VacDate = vacationstring });
                 }
             }
-
-            ObjOdata.GetVacationDifferenceDetails(input);
+            InvokeInBackground(() =>
+            {
+                ObjOdata.GetVacationDifferenceDetails(input);
+            });
             
         }
 
@@ -79,7 +86,10 @@ namespace TestTablewViewLeak.ViewControllers.VacationDifferenceView
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
         }
-
+        partial void btnOkClick(NSObject sender)
+        {
+            this.DismissViewController(true,null);
+        }
         public void ServiceResponce(JsonValue jsonDoc)
         {
             InvokeOnMainThread(() => {
@@ -87,15 +97,33 @@ namespace TestTablewViewLeak.ViewControllers.VacationDifferenceView
                 lstVacationDifferencedata = CommonClass.ConvertJSonToObject<List<VacationValueDifferenceOutputDTO>>(jsonDoc.ToString());
                 if (lstVacationDifferencedata.Count > 0)
                 {
+                    ActivityIndicator.Hide();
                     lstFlightDataChangevalues = lstVacationDifferencedata.FirstOrDefault().lstFlightDataChangeVacValues;
+                    tblVacDifference.Source = new VacDiffTableViewControllerSource(lstFlightDataChangevalues);
                 }
-                tblVacDifference.Source = new VacDiffTableViewControllerSource(lstFlightDataChangevalues); 
-               // lstCAPOutputParameter = lstCAPOutputParameter.Where(x => x.CurrentMonthCap != null).ToList();
-                //tblCAPDetails.Source = new CAPTableViewControllerSource(lstCAPOutputParameter);
+                else
+                {
+                    InvokeOnMainThread(() => {
+                        ActivityIndicator.Hide();
+                        string message = string.Empty;
+                        if (GlobalSettings.MenuBarButtonStatus.IsVacationCorrection || GlobalSettings.MenuBarButtonStatus.IsEOM)
+                        {
+                            message = "There are no differences in pay for your vacation with the new Flight Data.";
+                        }
+                        else
+                        {
+                            message = "There are no differences in pay with the new Flight Data. But if you have vacation, please turn ON vacation and check the vacation difference";
+                        }
+                        UIAlertController okAlertController = UIAlertController.Create("WBidMax", message, UIAlertControllerStyle.Alert);
+                        okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, (actionOK) => {
 
-
-
-
+                            this.DismissViewController(true, null);
+                        }));
+                        this.PresentViewController(okAlertController, true, null);
+                    });
+                }
+                
+                
             });
         }
 

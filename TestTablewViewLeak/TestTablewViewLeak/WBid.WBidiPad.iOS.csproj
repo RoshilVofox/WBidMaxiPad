@@ -266,8 +266,6 @@
     <InterfaceDefinition Include="View Controllers\MonthToMonthAlertView.xib" />
     <InterfaceDefinition Include="View Controllers\CustomAlert\CustomAlertView.xib" />
     <InterfaceDefinition Include="View Controllers\VacationDifferenceView\VacationDifferenceViewController.xib" />
-    <InterfaceDefinition Include="View Controllers\VacationDifferenceView\VacDiffDetailsCell.xib" />
-    <InterfaceDefinition Include="View Controllers\VacationDifferenceView\VacDiffHeaderCell.xib" />
     <InterfaceDefinition Include="View Controllers\VacationDifferenceView\VacDiffCell.xib" />
   </ItemGroup>
   <ItemGroup>
@@ -759,14 +757,6 @@
     <Compile Include="View Controllers\VacationDifferenceView\VacationDifferenceViewController.cs" />
     <Compile Include="View Controllers\VacationDifferenceView\VacationDifferenceViewController.designer.cs">
       <DependentUpon>VacationDifferenceViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View Controllers\VacationDifferenceView\VacDiffDetailsCell.cs" />
-    <Compile Include="View Controllers\VacationDifferenceView\VacDiffDetailsCell.designer.cs">
-      <DependentUpon>VacDiffDetailsCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View Controllers\VacationDifferenceView\VacDiffHeaderCell.cs" />
-    <Compile Include="View Controllers\VacationDifferenceView\VacDiffHeaderCell.designer.cs">
-      <DependentUpon>VacDiffHeaderCell.cs</DependentUpon>
     </Compile>
     <Compile Include="View Controllers\VacationDifferenceView\VacDiffTableViewControllerCell.cs" />
     <Compile Include="View Controllers\VacationDifferenceView\VacDiffTableViewControllerSource.cs" />

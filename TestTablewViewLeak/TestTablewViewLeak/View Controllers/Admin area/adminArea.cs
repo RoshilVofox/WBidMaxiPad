@@ -252,6 +252,7 @@ namespace WBid.WBidiPad.iOS
 		partial void btnUserIdCheckBoxTapped (Foundation.NSObject sender)
 		{
             ((UIButton)sender).Selected = !((UIButton)sender).Selected;
+            GlobalSettings.IsNeedToEnableVacDiffButton = ((UIButton)sender).Selected;
 		}
 		partial void sgMockTapped (Foundation.NSObject sender)
 		{

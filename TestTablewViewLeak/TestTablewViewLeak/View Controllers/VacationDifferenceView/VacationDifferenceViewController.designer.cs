@@ -13,13 +13,24 @@ namespace TestTablewViewLeak.ViewControllers.VacationDifferenceView
 	partial class VacationDifferenceViewController
 	{
 		[Outlet]
+		UIKit.UIButton btnOk { get; set; }
+
+		[Outlet]
 		UIKit.UITableView tblVacDifference { get; set; }
+
+		[Action ("btnOkClick:")]
+		partial void btnOkClick (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
 			if (tblVacDifference != null) {
 				tblVacDifference.Dispose ();
 				tblVacDifference = null;
+			}
+
+			if (btnOk != null) {
+				btnOk.Dispose ();
+				btnOk = null;
 			}
 		}
 	}

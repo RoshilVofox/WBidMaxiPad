@@ -54,6 +54,14 @@ namespace WBid.WBidiPad.iOS
 			RestService.Post(data);
 
 		}
+		public void GetApplicationLoadData(ApplicationData Info)
+		{
+			string UrlString = "GetApplicationLoadDatas";
+			string data = SmartSyncLogic.JsonObjectToStringSerializer<ApplicationData>(Info);
+			RestService.ConstructURL(UrlString);
+			RestService.Post(data);
+
+		}
 		public void GetMonthlyAwards(MonthlyBidDetails Info)
         {
             string UrlString = "GetMonthlyAwardData";

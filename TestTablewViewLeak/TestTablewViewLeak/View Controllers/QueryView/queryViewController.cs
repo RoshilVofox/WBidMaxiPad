@@ -300,8 +300,19 @@ querySubmitBid	  }
                     {
 						string fileName = submitResult.Substring (0, submitResult.IndexOf ("\n")) + "Rct.pdf";
 						if (fileName != null) {
-                            //System.IO.File.WriteAllText (WBidHelper.GetAppDataPath () + "/" + fileName, submitResult);
-                            if (CommonClass.SaveFormatBidReceipt(submitResult))
+							//System.IO.File.WriteAllText (WBidHelper.GetAppDataPath () + "/" + fileName, submitResult);
+
+							bool SubmitScucess = false;
+							
+							if (GlobalSettings.CurrentBidDetails.Postion == "FA")
+							{
+								SubmitScucess = CommonClass.SaveFormatBidReceipt(submitResult);
+							}
+							else
+							{
+								SubmitScucess = CommonClass.SaveFormattedBidReceiptForPilot(submitResult);
+							}
+							if (SubmitScucess)
                             {
                                 Task.Factory.StartNew(() =>
                                 {

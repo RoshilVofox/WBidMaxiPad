@@ -49,6 +49,6 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Please enable Location policy to detect the app using in airplanes.</string>
 	<key>CFBundleVersion</key>
-	<string>3</string>
+	<string>10</string>
 </dict>
 </plist>

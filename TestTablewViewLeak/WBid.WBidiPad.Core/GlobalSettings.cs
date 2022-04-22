@@ -373,6 +373,8 @@ namespace WBid.WBidiPad.Core
         public static List<Absense> FVVacation { get; set; }
 
         public const string FVBackColr = "#42d1f4";
+
+		public static bool IsNeedToEnableVacDiffButton { get; set; }
 	}
 
 }

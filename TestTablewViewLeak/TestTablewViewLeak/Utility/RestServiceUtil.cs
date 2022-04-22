@@ -21,18 +21,20 @@ namespace WBid.WBidiPad.iOS
 		public IServiceDelegate Objdelegate;
 		string url=CommonClass.isVPSServer;
 		public static string BaseUrl="";
+		public static string HttpsBaseUrl = "";
 
 		//public static string BaseUrl="http://192.168.10.100/WBidDataDownloadAuthorizationService/WBidDataDwonloadAuthService.svc/";
-	
+
 		public void SetURl ()
 		{
 			if (url == "TRUE")
 			{
-				//BaseUrl="https://www.auth.wbidmax.com/WBidDataDwonloadAuthService.svc/Rest/";
-				BaseUrl="http://108.60.201.50:8000/WBidDataDwonloadAuthService.svc/";
+				HttpsBaseUrl = "https://www.auth.wbidmax.com/WBidDataDwonloadAuthService.svc/Rest/";
+				
+				//BaseUrl="http://108.60.201.50:8000/WBidDataDwonloadAuthService.svc/";
 				BaseUrl="http://www.auth.wbidmax.com/WBidDataDwonloadAuthService.svc/";
 				//BaseUrl="http://192.168.10.100/WBidDataDownloadAuthorizationService/WBidDataDwonloadAuthService.svc/";
-				
+
 			}
 			else
 			{
@@ -48,7 +50,14 @@ namespace WBid.WBidiPad.iOS
 			ServiceURL = ServiceURL.Replace (" ", "%20");
 
 		}
-        public  StreamReader GetRestData(string serviceNameandParameter)
+		public void ConstructHttpsURL(string ServiceName)
+		{
+			SetURl();
+			ServiceURL = HttpsBaseUrl + ServiceName;
+			ServiceURL = ServiceURL.Replace(" ", "%20");
+
+		}
+		public  StreamReader GetRestData(string serviceNameandParameter)
         {
             SetURl();
             string url = BaseUrl + serviceNameandParameter;
@@ -88,6 +97,8 @@ namespace WBid.WBidiPad.iOS
 				HttpWebRequest request = (HttpWebRequest)WebRequest.Create (ServiceURL);
 				request.Timeout = 30000;
 				request.ContentType = "application/x-www-form-urlencoded";
+
+				//request.ContentType = "text/xml; charset=utf-8";
 				request.Method = "POST";
 
 				var bytes = Encoding.UTF8.GetBytes (data);

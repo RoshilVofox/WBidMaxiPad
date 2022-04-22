@@ -33,6 +33,7 @@ namespace WBid.WBidiPad.iOS
         string subscriptionMessageContent = string.Empty;
 		string WebType;
 		string empnumber;
+		OdataBuilder ObjOdata;
 		public homeViewController () : base ("homeViewController", null)
 		{
 		}
@@ -98,26 +99,28 @@ namespace WBid.WBidiPad.iOS
 			this.NavigationController.PushViewController(lineview, true);
 		}
 
-		void Callback (NSNotification notification)
-        {
-            //			//bool isPresented =UIApplication.SharedApplication.KeyWindow.RootViewController.PresentedViewController.IsBeingPresented;
-            //			if (!(UIApplication.SharedApplication.KeyWindow.RootViewController.GetType() == typeof(homeViewController) || UIApplication.SharedApplication.KeyWindow.RootViewController.GetType() == typeof(lineViewController) )) {
-            //				return;
-            //			}
-           
-            if (Reachability.CheckVPSAvailable())
-                {
-                    var value = NSUserDefaults.StandardUserDefaults["First"];
-                    if (value != null)
-                    {
-                        UserAccountChecking();
-                    }
+		void Callback(NSNotification notification)
+		{
+			//			//bool isPresented =UIApplication.SharedApplication.KeyWindow.RootViewController.PresentedViewController.IsBeingPresented;
+			//			if (!(UIApplication.SharedApplication.KeyWindow.RootViewController.GetType() == typeof(homeViewController) || UIApplication.SharedApplication.KeyWindow.RootViewController.GetType() == typeof(lineViewController) )) {
+			//				return;
+			//			}
 
-                }
-           
-           // DisplaySubscriptionAlert();
-            NSNotificationCenter.DefaultCenter.RemoveObserver(notification);
-        }
+			if (Reachability.CheckVPSAvailable())
+			{
+				var value = NSUserDefaults.StandardUserDefaults["First"];
+				if (value != null)
+				{
+					UserAccountChecking();
+				}
+				GetApplicationLoadDataFromServer();
+
+
+			}
+
+			// DisplaySubscriptionAlert();
+			NSNotificationCenter.DefaultCenter.RemoveObserver(notification);
+		}
 
         private void DisplaySubscriptionAlert()
         {
@@ -274,6 +277,9 @@ namespace WBid.WBidiPad.iOS
 
 			LineSummaryBL.SetSelectedModernBidLineVacationColumnstoGlobalList ();
 
+
+			
+
 			//CommonClass.bidLineProperties = new List<string>() {
 			//    "Pay",
 			//    "PDiem",
@@ -311,8 +317,8 @@ namespace WBid.WBidiPad.iOS
 					if (value != null) {
 						UserAccountChecking ();
 					}
-
-				}
+				GetApplicationLoadDataFromServer();
+			}
 				else 
 				{
 					if (WBidHelper.IsSouthWestWifiOr2wire()) 
@@ -417,7 +423,18 @@ namespace WBid.WBidiPad.iOS
 			//}
 		
 		}
-
+		private void GetApplicationLoadDataFromServer()
+		{
+			InvokeInBackground(() =>
+			{
+				ObjOdata = new OdataBuilder();
+				ApplicationData info = new ApplicationData();
+				ObjOdata.RestService.Objdelegate = this;
+				info.FromApp = (int)AppNum.WBidMaxApp;
+				WebType = "ApplicationLoadDataFromServer";
+				ObjOdata.GetApplicationLoadData(info);
+			});
+		}
 		private void OfflinePaymentChecking()
 		{
 			try {
@@ -533,15 +550,15 @@ namespace WBid.WBidiPad.iOS
 		{
 			Console.WriteLine ("Service Success");
 			//ActivityIndicator.Hide ();
-			if (WebType == "UpdateSubscriptionDate") 
+			if (WebType == "UpdateSubscriptionDate")
 			{
-				CustomServiceResponse remoteUserdetails = new CustomServiceResponse ();
-				remoteUserdetails = CommonClass.ConvertJSonToObject<CustomServiceResponse> (jsonDoc.ToString ());
-				if(remoteUserdetails!=null)
+				CustomServiceResponse remoteUserdetails = new CustomServiceResponse();
+				remoteUserdetails = CommonClass.ConvertJSonToObject<CustomServiceResponse>(jsonDoc.ToString());
+				if (remoteUserdetails != null)
 				{
-					if(remoteUserdetails.Status==true)
+					if (remoteUserdetails.Status == true)
 					{
-						if (remoteUserdetails.WBExpirationDate != null) 
+						if (remoteUserdetails.WBExpirationDate != null)
 						{
 							GlobalSettings.WbidUserContent.UserInformation.PaidUntilDate = remoteUserdetails.WBExpirationDate;
 							GlobalSettings.WbidUserContent.UserInformation.TopSubscriptionLine = remoteUserdetails.TopSubscriptionLine;
@@ -549,25 +566,26 @@ namespace WBid.WBidiPad.iOS
 							GlobalSettings.WbidUserContent.UserInformation.ThirdSubscriptionLine = remoteUserdetails.ThirdSubscriptionLine;
 
 						}
-						WBidHelper.SaveUserFile (GlobalSettings.WbidUserContent, WBidHelper.WBidUserFilePath);
+						WBidHelper.SaveUserFile(GlobalSettings.WbidUserContent, WBidHelper.WBidUserFilePath);
 						File.Delete(WBidHelper.GetWBidOfflinePaymentFilePath());
 
 					}
 
 				}
 
-			} 
-			else if(WebType == "CheckRemoUserAccount")
+			}
+			else if (WebType == "CheckRemoUserAccount")
 			{
-				if (jsonDoc ["FirstName"] != null || jsonDoc ["FirstName"].ToString ().Length > 0) {
-					RemoteUserInformation remoteUserdetails = new RemoteUserInformation ();
-					remoteUserdetails = CommonClass.ConvertJSonToObject<RemoteUserInformation> (jsonDoc.ToString ());
-					int DateTimeDifference = DateTime.Compare (remoteUserdetails.UserAccountDateTime, GlobalSettings.WbidUserContent.UserInformation.UserAccountDateTime);
+				if (jsonDoc["FirstName"] != null || jsonDoc["FirstName"].ToString().Length > 0)
+				{
+					RemoteUserInformation remoteUserdetails = new RemoteUserInformation();
+					remoteUserdetails = CommonClass.ConvertJSonToObject<RemoteUserInformation>(jsonDoc.ToString());
+					int DateTimeDifference = DateTime.Compare(remoteUserdetails.UserAccountDateTime, GlobalSettings.WbidUserContent.UserInformation.UserAccountDateTime);
 
 					if (DateTimeDifference != 0)
 					{
-						CheckUserInformations (remoteUserdetails);
-					} 
+						CheckUserInformations(remoteUserdetails);
+					}
 
 					GlobalSettings.WbidUserContent.UserInformation.PaidUntilDate = remoteUserdetails.WBExpirationDate;
 					GlobalSettings.WbidUserContent.UserInformation.TopSubscriptionLine = remoteUserdetails.TopSubscriptionLine;
@@ -576,10 +594,20 @@ namespace WBid.WBidiPad.iOS
 					GlobalSettings.WbidUserContent.UserInformation.IsFree = remoteUserdetails.IsFree;
 					GlobalSettings.WbidUserContent.UserInformation.IsMonthlySubscribed = remoteUserdetails.IsMonthlySubscribed;
 					GlobalSettings.WbidUserContent.UserInformation.IsYearlySubscribed = remoteUserdetails.IsYearlySubscribed;
-                    subscriptionMessageContent = remoteUserdetails.SubscriptionMessage;
-					WBidHelper.SaveUserFile (GlobalSettings.WbidUserContent, WBidHelper.WBidUserFilePath);
-                    DisplaySubscriptionAlert();
+					subscriptionMessageContent = remoteUserdetails.SubscriptionMessage;
+					WBidHelper.SaveUserFile(GlobalSettings.WbidUserContent, WBidHelper.WBidUserFilePath);
+					DisplaySubscriptionAlert();
 				}
+			}
+			else if(WebType== "ApplicationLoadDataFromServer")
+			{
+				ApplicationLoadData appLoadData = CommonClass.ConvertJSonToObject<ApplicationLoadData>(jsonDoc.ToString());
+				GlobalSettings.IsNeedToEnableVacDiffButton = appLoadData.IsNeedtoEnableVacationDifference;
+				InvokeOnMainThread(() => {
+					NSNotificationCenter.DefaultCenter.PostNotificationName("SetApplicationLoadData", null);
+				});
+				
+
 			}
 		}
 		public void ResponceError(string Error)
