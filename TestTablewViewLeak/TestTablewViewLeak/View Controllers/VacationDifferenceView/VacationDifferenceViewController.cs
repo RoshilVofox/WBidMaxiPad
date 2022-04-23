@@ -95,7 +95,7 @@ namespace TestTablewViewLeak.ViewControllers.VacationDifferenceView
             InvokeOnMainThread(() => {
                 Console.WriteLine("Service Success");
                 lstVacationDifferencedata = CommonClass.ConvertJSonToObject<List<VacationValueDifferenceOutputDTO>>(jsonDoc.ToString());
-                if (lstVacationDifferencedata.Count > 0)
+                if (lstVacationDifferencedata!=null && lstVacationDifferencedata.Count > 0)
                 {
                    ActivityIndicator.Hide();
                     lstFlightDataChangevalues = lstVacationDifferencedata.FirstOrDefault().lstFlightDataChangeVacValues;

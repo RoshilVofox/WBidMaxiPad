@@ -23,18 +23,27 @@ namespace WBid.WBidiPad.iOS
             EmployeeNo = Regex.Replace(EmployeeNo, "[^0-9]+", string.Empty);
 			string UrlString = "GetEmployeeDetails/" + EmployeeNo+"/4";
            
-			RestService.ConstructURL (UrlString);
+			RestService.ConstructHttpsURL (UrlString);
 			RestService.Get ();
 
 		}
+		public void CheckRemoUserAccountTest(string EmployeeNo)
+		{
+			//string UrlString = "GetUserAccountDetails/" + EmployeeNo;
+			EmployeeNo = Regex.Replace(EmployeeNo, "[^0-9]+", string.Empty);
+			string UrlString = "GetEmployeeDetails/" + EmployeeNo + "/4";
 
+			RestService.ConstructURL(UrlString);
+			RestService.Get();
+
+		}
 		public void UpdateUserAccount(RemoteUpdateUserInformation UserInfo)
 		{
 			string UrlString = "UpdateWBidUserDetails/" ;
 			if(UserInfo.Position == 5 || UserInfo.Position==4)
 				UserInfo.Position=4;
 			string data = SmartSyncLogic.JsonObjectToStringSerializer<RemoteUpdateUserInformation> (UserInfo);
-			RestService.ConstructURL (UrlString);
+			RestService.ConstructHttpsURL(UrlString);
 			RestService.Post (data);
 
 		}
@@ -42,7 +51,7 @@ namespace WBid.WBidiPad.iOS
 		{
 			string UrlString = "GetCAPData" ;
 			string data = SmartSyncLogic.JsonObjectToStringSerializer<CAPInputParameter> (Info);
-			RestService.ConstructURL (UrlString);
+			RestService.ConstructHttpsURL(UrlString);
 			RestService.Post (data);
 
 		}
@@ -50,7 +59,7 @@ namespace WBid.WBidiPad.iOS
 		{
 			string UrlString = "GetVacationDifferenceData";
 			string data = SmartSyncLogic.JsonObjectToStringSerializer<VacationValueDifferenceInputDTO>(Info);
-			RestService.ConstructURL(UrlString);
+			RestService.ConstructHttpsURL(UrlString);
 			RestService.Post(data);
 
 		}
@@ -58,7 +67,7 @@ namespace WBid.WBidiPad.iOS
 		{
 			string UrlString = "GetApplicationLoadDatas";
 			string data = SmartSyncLogic.JsonObjectToStringSerializer<ApplicationData>(Info);
-			RestService.ConstructURL(UrlString);
+			RestService.ConstructHttpsURL(UrlString);
 			RestService.Post(data);
 
 		}
@@ -66,7 +75,7 @@ namespace WBid.WBidiPad.iOS
         {
             string UrlString = "GetMonthlyAwardData";
             string data = SmartSyncLogic.JsonObjectToStringSerializer<MonthlyBidDetails>(Info);
-            RestService.ConstructURL(UrlString);
+            RestService.ConstructHttpsURL(UrlString);
             RestService.Post(data);
 
         }
@@ -74,7 +83,7 @@ namespace WBid.WBidiPad.iOS
         {
             string UrlString = "GetBidSubmittedData";
             string data = SmartSyncLogic.JsonObjectToStringSerializer<BidSubmittedData>(Info);
-            RestService.ConstructURL(UrlString);
+            RestService.ConstructHttpsURL(UrlString);
             RestService.Post(data);
 
         }
@@ -82,7 +91,7 @@ namespace WBid.WBidiPad.iOS
         {
             string UrlString = "SaveBidSubmittedData";
             string data = SmartSyncLogic.JsonObjectToStringSerializer<BidSubmittedData>(Info);
-            RestService.ConstructURL(UrlString);
+            RestService.ConstructHttpsURL(UrlString);
             RestService.Post(data);
 
         }
@@ -101,7 +110,7 @@ namespace WBid.WBidiPad.iOS
 			string UrlString = "UpdateWBidPaidUntilDate/" ;
 
 			string data = SmartSyncLogic.JsonObjectToStringSerializer<PaymentUpdateModel> (SubscriptionDetails);
-			RestService.ConstructURL (UrlString);
+			RestService.ConstructHttpsURL(UrlString);
 			RestService.Post (data);
 
 		}
@@ -110,7 +119,7 @@ namespace WBid.WBidiPad.iOS
 		{
 			string UrlString = "CheckPasswordValidForUser/" ;
 			string data = SmartSyncLogic.JsonObjectToStringSerializer<CheckPassword> (Password);
-			RestService.ConstructURL (UrlString);
+			RestService.ConstructHttpsURL(UrlString);
 			RestService.Post (data);
 
 		}
@@ -119,7 +128,7 @@ namespace WBid.WBidiPad.iOS
 		{
 			string UrlString = "UpdateCrewbidUserPassword/" ;
 			string data = SmartSyncLogic.JsonObjectToStringSerializer<CheckPassword> (Password);
-			RestService.ConstructURL (UrlString);
+			RestService.ConstructHttpsURL(UrlString);
 			RestService.Post (data);
 
 		}
@@ -128,7 +137,7 @@ namespace WBid.WBidiPad.iOS
 		{
 			string UrlString = "SendPasswordrecoveryDetails/" ;
 			string data = SmartSyncLogic.JsonObjectToStringSerializer<ForgotPasswordDetails> (Password);
-			RestService.ConstructURL (UrlString);
+			RestService.ConstructHttpsURL(UrlString);
 			RestService.Post (data);
 
 		}
@@ -136,7 +145,7 @@ namespace WBid.WBidiPad.iOS
 		{
 			string UrlString = "CreateWbidMaxUser/" ;
 			string data = SmartSyncLogic.JsonObjectToStringSerializer<RemoteUpdateUserInformation> (UserInfo);
-			RestService.ConstructURL (UrlString);
+			RestService.ConstructHttpsURL(UrlString);
 			RestService.Post (data);
 
 		}
@@ -144,7 +153,7 @@ public void GetMonthlyBidData(RemoteUpdateUserInformation UserInfo)
 		{
 			string UrlString = "GetMonthlyBidFiles/";
 			string data = SmartSyncLogic.JsonObjectToStringSerializer<RemoteUpdateUserInformation> (UserInfo);
-			RestService.ConstructURL (UrlString);
+			RestService.ConstructHttpsURL(UrlString);
 			RestService.Post (data);
 
 		}

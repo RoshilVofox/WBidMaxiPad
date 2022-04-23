@@ -12,11 +12,15 @@ using System.Collections.Generic;
 using WBid.WBidiPad.PortableLibrary;
 using WBid.WBidiPad.SharedLibrary.Parser;
 using TestTablewViewLeak.ViewControllers;
+using System.Json;
+using System.Net;
+using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace WBid.WBidiPad.iOS
 {
-	public partial class adminArea : UIViewController
-	{
+	public partial class adminArea : UIViewController, IServiceDelegate
+    {
 		public bool fromHome;
         LoadingOverlay loadingOverlay;
         UIPopoverController popoverController;
@@ -262,7 +266,145 @@ namespace WBid.WBidiPad.iOS
 		{
 
 		}
-	
-	}
+        public RestServiceUtil RestService=new RestServiceUtil();
+        OdataBuilder ObjOdata = new OdataBuilder();
+        partial void btnService1Tap(NSObject sender)
+        {
+            ObjOdata.RestService.Objdelegate = this;
+            string EmployeeNo = "21221";
+            ObjOdata.CheckRemoUserAccount(EmployeeNo);
+            string UrlString = "GetEmployeeDetails/" + EmployeeNo + "/4";
+          
+           // RestService.ConstructHttpsURL(UrlString);
+           // RestService.Get();
+        }
+        partial void btnService2Tap(NSObject sender)
+        {
+            ObjOdata.RestService.Objdelegate = this;
+            string EmployeeNo = "21221";
+            ObjOdata.CheckRemoUserAccountTest(EmployeeNo);
+            string UrlString = "GetEmployeeDetails/" + EmployeeNo + "/4";
+        }
+        partial void btnService3Tap(NSObject sender)
+        {
+            try
+            {
+                
+                try
+                {
+                    UIAlertController alert;
+                    string EmployeeNo = "21221";
+                    string UrlString = "GetEmployeeDetails/" + EmployeeNo + "/4";
+
+
+                    //using (var client = new HttpClient())
+                    //{
+                    //    client.BaseAddress = new Uri("http://www.auth.wbidmax.com/WBidDataDwonloadAuthService.svc/");
+                    //    //HTTP GET
+                    //    var responseTask = client.GetAsync("GetEmployeeDetails/" + EmployeeNo + "/4");
+                    //    responseTask.Wait();
+
+                    //    var result = responseTask.Result;
+                    //    if (result.IsSuccessStatusCode)
+                    //    {
+
+                    //        //var readTask = result.Content.ReadAsAsync<Student[]>();
+                    //        //readTask.Wait();
+
+                    //        //var students = readTask.Result;
+
+                    //        //foreach (var student in students)
+                    //        //{
+                    //        //    Console.WriteLine(student.Name);
+                    //        //}
+                    //    }
+                    //}
+                    //Console.ReadLine();
+
+                    using (WebClient webClient = new WebClient())
+                    {
+                        webClient.BaseAddress = "https://www.auth.wbidmax.com/WBidDataDwonloadAuthService.svc/Rest/";
+                        var json = webClient.DownloadString("GetEmployeeDetails/" + EmployeeNo + "/4" );
+                        var ObjremoteUserInfo = CommonClass.ConvertJSonToObject<RemoteUserInformation>(json.ToString());
+                        alert = UIAlertController.Create("Great!", json, UIAlertControllerStyle.Alert);
+                        alert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, (actionOK) => {
+                           
+                        }));
+
+                        this.PresentViewController(alert, true, null);
+
+                    }
+                }
+                catch (WebException ex)
+                {
+                    throw ex;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        partial void btnService4(NSObject sender)
+        {
+            UIAlertController alert;
+            string EmployeeNo = "21221";
+            string UrlString = "GetEmployeeDetails/" + EmployeeNo + "/4";
+
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://www.auth.wbidmax.com/WBidDataDwonloadAuthService.svc/");
+                //HTTP GET
+                var responseTask = client.GetAsync("GetEmployeeDetails/" + EmployeeNo + "/4");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    alert = UIAlertController.Create("Great!","", UIAlertControllerStyle.Alert);
+                    alert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, (actionOK) => {
+
+                    }));
+
+                    this.PresentViewController(alert, true, null);
+                }
+            }
+            Console.ReadLine();
+        }
+        public void ServiceResponce(JsonValue jsonDoc)
+        {
+            Console.WriteLine("Service Success");
+           
+            UIAlertController alert;
+
+            int empNo = int.Parse(jsonDoc["EmpNum"].ToString());
+            if (empNo != 0)
+            {
+                alert = UIAlertController.Create("Great!", "We found a previous account from  WbidMax.\nWe've imported those settings.\nPlease verify the settings and change as needed", UIAlertControllerStyle.Alert);
+                alert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, (actionOK) => {
+                  var  ObjremoteUserInfo = CommonClass.ConvertJSonToObject<RemoteUserInformation>(jsonDoc.ToString());
+                    
+                }));
+
+                this.PresentViewController(alert, true, null);
+            }
+            else
+            {
+                alert = UIAlertController.Create("No Existing Account", "\nWe checked , but no previous account exists for you.\n\nThe next view will let you create your account.", UIAlertControllerStyle.Alert);
+                alert.AddAction(UIAlertAction.Create("Create Account", UIAlertActionStyle.Default, (actionOK) => {
+                    
+                }));
+
+                this.PresentViewController(alert, true, null);
+            }
+        }
+
+        public void ResponceError(string Error)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
 
