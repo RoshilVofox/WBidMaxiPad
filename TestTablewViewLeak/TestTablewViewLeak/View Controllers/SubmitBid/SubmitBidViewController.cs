@@ -55,12 +55,14 @@ namespace WBid.WBidiPad.iOS
         {
             base.ViewDidLoad();
             this.NavigationItem.BackBarButtonItem = new UIBarButtonItem("Back", UIBarButtonItemStyle.Plain, null);
-
-            var appearance = new UINavigationBarAppearance();
-            appearance.ConfigureWithOpaqueBackground();
-            appearance.BackgroundColor = ColorClass.TopHeaderColor;
-            this.NavigationItem.StandardAppearance = appearance;
-            this.NavigationItem.ScrollEdgeAppearance = this.NavigationItem.StandardAppearance;
+            if (UIDevice.CurrentDevice.CheckSystemVersion(13, 0))
+            {
+                var appearance = new UINavigationBarAppearance();
+                appearance.ConfigureWithOpaqueBackground();
+                appearance.BackgroundColor = ColorClass.TopHeaderColor;
+                this.NavigationItem.StandardAppearance = appearance;
+                this.NavigationItem.ScrollEdgeAppearance = this.NavigationItem.StandardAppearance;
+            }
 
             this.SetUpView();
 			CommonClass.ObjSubmitView = this;

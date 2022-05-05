@@ -74,12 +74,15 @@ namespace WBid.WBidiPad.iOS
 			btnUse.TouchUpInside += btnUseTapped;
 			btnDelete.TouchUpInside += btnDeleteTapped;
 
-			//in ios 15, the header coming as transparent and below code solved the issue
-			var appearance = new UINavigationBarAppearance();
-			appearance.ConfigureWithOpaqueBackground();
-			appearance.BackgroundColor = ColorClass.TopHeaderColor;
-			this.NavigationItem.StandardAppearance = appearance;
-			this.NavigationItem.ScrollEdgeAppearance = this.NavigationItem.StandardAppearance;
+			if (UIDevice.CurrentDevice.CheckSystemVersion(13, 0))
+			{
+				//in ios 15, the header coming as transparent and below code solved the issue
+				var appearance = new UINavigationBarAppearance();
+				appearance.ConfigureWithOpaqueBackground();
+				appearance.BackgroundColor = ColorClass.TopHeaderColor;
+				this.NavigationItem.StandardAppearance = appearance;
+				this.NavigationItem.ScrollEdgeAppearance = this.NavigationItem.StandardAppearance;
+			}
 
 
 		}

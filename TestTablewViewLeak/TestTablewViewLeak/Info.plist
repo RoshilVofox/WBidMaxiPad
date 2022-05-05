@@ -9,7 +9,7 @@
 	<key>CFBundleName</key>
 	<string>WBidMax</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.57.6</string>
+	<string>1.57.7</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -49,6 +49,6 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Please enable Location policy to detect the app using in airplanes.</string>
 	<key>CFBundleVersion</key>
-	<string>10</string>
+	<string>1</string>
 </dict>
 </plist>
