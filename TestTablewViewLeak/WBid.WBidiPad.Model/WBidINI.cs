@@ -118,7 +118,8 @@ namespace WBid.WBidiPad.Model
         public List<SenListFormat> SenioritylistFormat { get; set; }
         public SplitPointCities SplitPointCities { get; set; }
 
-
+        public string LocalFlightDataVersion { get; set; }
+      
         #endregion
 
     }

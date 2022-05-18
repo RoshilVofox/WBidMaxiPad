@@ -375,6 +375,9 @@ namespace WBid.WBidiPad.Core
         public const string FVBackColr = "#42d1f4";
 
 		public static bool IsNeedToEnableVacDiffButton { get; set; }
+
+		public static string ServerFlightDataVersion { get; set; }
+		
 	}
 
 }

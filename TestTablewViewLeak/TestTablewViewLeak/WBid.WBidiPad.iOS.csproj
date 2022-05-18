@@ -267,6 +267,8 @@
     <InterfaceDefinition Include="View Controllers\CustomAlert\CustomAlertView.xib" />
     <InterfaceDefinition Include="View Controllers\VacationDifferenceView\VacationDifferenceViewController.xib" />
     <InterfaceDefinition Include="View Controllers\VacationDifferenceView\VacDiffCell.xib" />
+    <InterfaceDefinition Include="View Controllers\CommuteDifferenceView\CommuteDifferenceViewController.xib" />
+    <InterfaceDefinition Include="View Controllers\CommuteDifferenceView\CommutDiffTableViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\WBid.WBidiPad.SharedLibrary\app.config">
@@ -764,6 +766,16 @@
     <Compile Include="View Controllers\VacationDifferenceView\VacDiffCell.designer.cs">
       <DependentUpon>VacDiffCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utility\CommuteCalculations.cs" />
+    <Compile Include="View Controllers\CommuteDifferenceView\CommuteDifferenceViewController.cs" />
+    <Compile Include="View Controllers\CommuteDifferenceView\CommuteDifferenceViewController.designer.cs">
+      <DependentUpon>CommuteDifferenceViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\CommuteDifferenceView\CommutDiffTableViewCell.cs" />
+    <Compile Include="View Controllers\CommuteDifferenceView\CommutDiffTableViewCell.designer.cs">
+      <DependentUpon>CommutDiffTableViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Controllers\CommuteDifferenceView\CommuteDifferenceTableViewSource.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -1041,6 +1053,7 @@
     <Folder Include="View Controllers\timeoutalert\" />
     <Folder Include="View Controllers\CustomAlert\" />
     <Folder Include="View Controllers\VacationDifferenceView\" />
+    <Folder Include="View Controllers\CommuteDifferenceView\" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>

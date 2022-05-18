@@ -603,6 +603,7 @@ namespace WBid.WBidiPad.iOS
 			{
 				ApplicationLoadData appLoadData = CommonClass.ConvertJSonToObject<ApplicationLoadData>(jsonDoc.ToString());
 				GlobalSettings.IsNeedToEnableVacDiffButton = appLoadData.IsNeedtoEnableVacationDifference;
+				GlobalSettings.ServerFlightDataVersion = appLoadData.FlightDataVersion;
 				InvokeOnMainThread(() => {
 					NSNotificationCenter.DefaultCenter.PostNotificationName("SetApplicationLoadData", null);
 				});

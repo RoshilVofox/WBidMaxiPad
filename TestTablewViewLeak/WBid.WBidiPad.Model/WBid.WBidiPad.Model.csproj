@@ -240,6 +240,7 @@
     <Compile Include="FlightDataChangeVacValues.cs" />
     <Compile Include="ApplicationLoadData.cs" />
     <Compile Include="ApplicationData.cs" />
+    <Compile Include="CommuteFltChangeValues.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="protobuf-net">

@@ -7,5 +7,6 @@ namespace WBid.WBidiPad.Model
         {
         }
         public bool IsNeedtoEnableVacationDifference { get; set; }
+        public string FlightDataVersion { get; set; }
     }
 }

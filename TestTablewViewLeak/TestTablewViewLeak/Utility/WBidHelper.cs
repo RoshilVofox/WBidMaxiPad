@@ -101,6 +101,20 @@ namespace WBid.WBidiPad.iOS.Utility
         {
             return GetAppDataPath() + "/Payment.log";
         }
+        public static string WBidCommuteFilePath
+        {
+            get
+            {
+                return WBidHelper.GetAppDataPath() + "\\" + GetCommuteDifferenceFileName();
+            }
+        }
+        public static string GetCommuteDifferenceFileName()
+        {
+
+            //BWICP0122M
+            var fileName = (GlobalSettings.CurrentBidDetails == null) ? string.Empty : GlobalSettings.CurrentBidDetails.Domicile + GlobalSettings.CurrentBidDetails.Postion + GlobalSettings.CurrentBidDetails.Month.ToString("d2") + (GlobalSettings.CurrentBidDetails.Year - 2000).ToString() + GlobalSettings.CurrentBidDetails.Round + "Cmt.COM";
+            return fileName;
+        }
         /// <summary>
         /// Get the "Column defenition" path 
         /// </summary>

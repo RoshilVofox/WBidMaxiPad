@@ -34,6 +34,7 @@ using WBid.WBidiPad.SharedLibrary.SWA;
 using TestTablewViewLeak.ViewControllers;
 using TestTablewViewLeak.ViewControllers.VacationDifferenceView;
 using System.Json;
+using TestTablewViewLeak.ViewControllers.CommuteDifferenceView;
 
 namespace WBid.WBidiPad.iOS
 {
@@ -334,14 +335,42 @@ namespace WBid.WBidiPad.iOS
 
             HandleBlueShadowButton();
 
-            btnVacDiff.Hidden = !GlobalSettings.IsNeedToEnableVacDiffButton;
+           // btnVacDiff.Hidden = !GlobalSettings.IsNeedToEnableVacDiffButton;
 
-
+            SetFlightDataDiffButton();
         }
+        public void SetFlightDataDiffButton()
+        {
+            bool IsEnableFltDiff;
+            if (GlobalSettings.IsNeedToEnableVacDiffButton)
+            {
+                bool isCommuteAutoAvailable = false;
+                if (wBIdStateContent.CxWtState.CLAuto.Cx || wBIdStateContent.CxWtState.CLAuto.Wt || (wBIdStateContent.SortDetails.BlokSort.Contains("33") || wBIdStateContent.SortDetails.BlokSort.Contains("34") || wBIdStateContent.SortDetails.BlokSort.Contains("35")))
+                {
+                    isCommuteAutoAvailable = true;
+                }
 
+
+                if (GlobalSettings.CurrentBidDetails != null && GlobalSettings.CurrentBidDetails.Postion == "FA")
+                {
+                    //For FA, the Flt difference button should be display only when user set any commutable line auto in constraints ,weights,sorts or in bid auto
+                    IsEnableFltDiff = isCommuteAutoAvailable && (GlobalSettings.ServerFlightDataVersion != GlobalSettings.WBidINIContent.LocalFlightDataVersion);
+                }
+                else
+                {
+                    IsEnableFltDiff = ((isCommuteAutoAvailable && (GlobalSettings.ServerFlightDataVersion != GlobalSettings.WBidINIContent.LocalFlightDataVersion)) || (btnVacCorrect.Enabled || btnEOM.Enabled));
+                }
+            }
+            else
+            {
+                IsEnableFltDiff = false;
+            }
+            btnVacDiff.Hidden=!IsEnableFltDiff;
+        }
         public void SetApplicationLoadData(NSNotification n)
         {
-            btnVacDiff.Hidden = !GlobalSettings.IsNeedToEnableVacDiffButton;
+            //  btnVacDiff.Hidden = !GlobalSettings.IsNeedToEnableVacDiffButton;
+            SetFlightDataDiffButton();
         }
         public void ServiceResponce(JsonValue jsonDoc)
         {
@@ -349,7 +378,9 @@ namespace WBid.WBidiPad.iOS
             {
                 ApplicationLoadData appLoadData = CommonClass.ConvertJSonToObject<ApplicationLoadData>(jsonDoc.ToString());
                 GlobalSettings.IsNeedToEnableVacDiffButton = appLoadData.IsNeedtoEnableVacationDifference;
-                btnVacDiff.Hidden = !GlobalSettings.IsNeedToEnableVacDiffButton;
+                GlobalSettings.ServerFlightDataVersion = appLoadData.FlightDataVersion;
+                
+                //btnVacDiff.Hidden = !GlobalSettings.IsNeedToEnableVacDiffButton;
             }
             catch (Exception ex)
             {
@@ -384,10 +415,10 @@ namespace WBid.WBidiPad.iOS
         }
         partial void btnVacDiffClicked(NSObject sender)
         {
-
-            if (Reachability.CheckVPSAvailable())
+            if (GlobalSettings.CurrentBidDetails.Postion == "FA")
             {
-                VacationDifferenceViewController vacdiff = new VacationDifferenceViewController();
+                //only commut diff need to show
+                CommuteDifferenceViewController vacdiff = new CommuteDifferenceViewController();
                 vacdiff.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
                 UINavigationController nav = new UINavigationController(vacdiff);
                 vacdiff.PreferredContentSize = new CGSize(1020, 700);
@@ -397,20 +428,61 @@ namespace WBid.WBidiPad.iOS
             }
             else
             {
-                if (WBidHelper.IsSouthWestWifiOr2wire())
+                bool isCommuteAutoAvailable = false;
+                if (wBIdStateContent.CxWtState.CLAuto.Cx || wBIdStateContent.CxWtState.CLAuto.Wt || (wBIdStateContent.SortDetails.BlokSort.Contains("33") || wBIdStateContent.SortDetails.BlokSort.Contains("34") || wBIdStateContent.SortDetails.BlokSort.Contains("35")))
                 {
-
-                    UIAlertController okAlertController = UIAlertController.Create("WBidMax", Constants.SouthWestConnectionAlert, UIAlertControllerStyle.Alert);
-                    okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
-                    this.PresentViewController(okAlertController, true, null);
+                    isCommuteAutoAvailable = true;
+                }
+                if (((isCommuteAutoAvailable && (GlobalSettings.ServerFlightDataVersion != GlobalSettings.WBidINIContent.LocalFlightDataVersion)) && (btnVacCorrect.Enabled || btnEOM.Enabled)))
+                {
+                    //both commut diff and vac diff available
+                    
+                }
+                else if ((isCommuteAutoAvailable && (GlobalSettings.ServerFlightDataVersion != GlobalSettings.WBidINIContent.LocalFlightDataVersion)))
+                {
+                    //only commut diff need to show
+                        CommuteDifferenceViewController vacdiff = new CommuteDifferenceViewController();
+                    vacdiff.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
+                    UINavigationController nav = new UINavigationController(vacdiff);
+                    vacdiff.PreferredContentSize = new CGSize(1020, 700);
+                    nav.NavigationBarHidden = true;
+                    nav.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
+                    this.PresentViewController(nav, true, null);
                 }
                 else
                 {
-                    UIAlertController okAlertController = UIAlertController.Create("WBidMax", Constants.VPSDownAlert, UIAlertControllerStyle.Alert);
-                    okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
-                    this.PresentViewController(okAlertController, true, null);
+                    //Show vac diff
+                    if (Reachability.CheckVPSAvailable())
+                    {
+                        VacationDifferenceViewController vacdiff = new VacationDifferenceViewController();
+                        vacdiff.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
+                        UINavigationController nav = new UINavigationController(vacdiff);
+                        vacdiff.PreferredContentSize = new CGSize(1020, 700);
+                        nav.NavigationBarHidden = true;
+                        nav.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
+                        this.PresentViewController(nav, true, null);
+                    }
+                    else
+                    {
+                        if (WBidHelper.IsSouthWestWifiOr2wire())
+                        {
+
+                            UIAlertController okAlertController = UIAlertController.Create("WBidMax", Constants.SouthWestConnectionAlert, UIAlertControllerStyle.Alert);
+                            okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+                            this.PresentViewController(okAlertController, true, null);
+                        }
+                        else
+                        {
+                            UIAlertController okAlertController = UIAlertController.Create("WBidMax", Constants.VPSDownAlert, UIAlertControllerStyle.Alert);
+                            okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+                            this.PresentViewController(okAlertController, true, null);
+                        }
+                    }
                 }
+
             }
+
+            
 
 
             
