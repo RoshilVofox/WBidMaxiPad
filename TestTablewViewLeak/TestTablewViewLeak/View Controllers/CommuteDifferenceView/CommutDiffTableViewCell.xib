@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -72,6 +72,15 @@
                     <constraint firstItem="dTu-rm-6Cv" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="5" id="mgy-ou-w7Y"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="lblLine" destination="k31-Yy-8LJ" id="8bM-DO-nMm"/>
+                <outlet property="lblNewCmtBa" destination="sps-8V-GOd" id="6ND-xR-n8d"/>
+                <outlet property="lblNewCmtFr" destination="gIN-4M-WMa" id="ceV-ro-iIn"/>
+                <outlet property="lblNewCmtOv" destination="b90-qM-6lP" id="765-tn-QVE"/>
+                <outlet property="lblOldCmtBa" destination="t0U-Kz-NcW" id="kX1-iO-VWc"/>
+                <outlet property="lblOldCmtFr" destination="qDC-ms-Ke5" id="laA-cd-daW"/>
+                <outlet property="lblOldCmtOv" destination="Ie0-bg-1N0" id="v7b-TK-ukw"/>
+            </connections>
             <point key="canvasLocation" x="147.84172661870505" y="8.7939698492462313"/>
         </tableViewCell>
     </objects>

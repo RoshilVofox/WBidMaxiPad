@@ -20,21 +20,20 @@ namespace TestTablewViewLeak.ViewControllers.CommuteDifferenceView
         {
             // Note: this .ctor should not contain any initialization logic.
         }
-        public void LabelValues(CommuteFltChangeValues flightDataChangeCommutValues)
+        public void LabelValues(CommuteFltChangeValues flightDataChangeVacValues)
         {
-            //lblLine.Text = flightDataChangeVacValues.LineNum.ToString();
+            lblLine.Text = flightDataChangeVacValues.LineNum.ToString();
 
-            //lblOldTotPay.Text = flightDataChangeVacValues.OldTotalPay.ToString();
-            //lblNewTotPay.Text = flightDataChangeVacValues.NewTotalPay.ToString();
+            lblOldCmtOv.Text = flightDataChangeVacValues.OldCmtOV.ToString();
+            lblNewCmtOv.Text = flightDataChangeVacValues.NewCmtOV.ToString();
 
-            //lblOldVpCu.Text = flightDataChangeVacValues.OldVPCu.ToString();
-            //lblNewVpCu.Text = flightDataChangeVacValues.NewVPCu.ToString();
+            lblOldCmtFr.Text = flightDataChangeVacValues.OldCmtFr.ToString();
+            lblNewCmtFr.Text = flightDataChangeVacValues.NewCmtFr.ToString();
 
-            //lblOldVpNe.Text = flightDataChangeVacValues.OldVPNe.ToString();
-            //lblNewVpNe.Text = flightDataChangeVacValues.NewVPNe.ToString();
+            lblOldCmtBa.Text = flightDataChangeVacValues.OldCmtBa.ToString();
+            lblNewCmtBa.Text = flightDataChangeVacValues.NewCmtBa.ToString();
 
-            //lblOldVpBo.Text = flightDataChangeVacValues.OldVPBo.ToString();
-            //lblNewVpBo.Text = flightDataChangeVacValues.NewVPBo.ToString();
+            
 
 
 

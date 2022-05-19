@@ -105,7 +105,7 @@ namespace WBid.WBidiPad.iOS.Utility
         {
             get
             {
-                return WBidHelper.GetAppDataPath() + "\\" + GetCommuteDifferenceFileName();
+                return WBidHelper.GetAppDataPath() + "/" + GetCommuteDifferenceFileName();
             }
         }
         public static string GetCommuteDifferenceFileName()

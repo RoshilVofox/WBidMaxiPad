@@ -269,6 +269,7 @@
     <InterfaceDefinition Include="View Controllers\VacationDifferenceView\VacDiffCell.xib" />
     <InterfaceDefinition Include="View Controllers\CommuteDifferenceView\CommuteDifferenceViewController.xib" />
     <InterfaceDefinition Include="View Controllers\CommuteDifferenceView\CommutDiffTableViewCell.xib" />
+    <InterfaceDefinition Include="View Controllers\CommuteDifferenceView\FltDiffButtonViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\WBid.WBidiPad.SharedLibrary\app.config">
@@ -776,6 +777,10 @@
       <DependentUpon>CommutDiffTableViewCell.cs</DependentUpon>
     </Compile>
     <Compile Include="View Controllers\CommuteDifferenceView\CommuteDifferenceTableViewSource.cs" />
+    <Compile Include="View Controllers\CommuteDifferenceView\FltDiffButtonViewController.cs" />
+    <Compile Include="View Controllers\CommuteDifferenceView\FltDiffButtonViewController.designer.cs">
+      <DependentUpon>FltDiffButtonViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

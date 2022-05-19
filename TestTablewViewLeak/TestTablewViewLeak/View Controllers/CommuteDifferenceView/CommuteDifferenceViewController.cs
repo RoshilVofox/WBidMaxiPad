@@ -71,10 +71,10 @@ namespace TestTablewViewLeak.ViewControllers.CommuteDifferenceView
                         List<CommuteFltChangeValues> lstdifferencedata = new List<CommuteFltChangeValues>();
                         foreach (var item in lstComuteLineProperties)
                         {
-                            if (item.NewCmtBa != item.OldCmtBa || item.NewCmtFr != item.OldCmtFr || item.NewCmtOV != item.OldCmtOV)
-                            {
+                            //if (item.NewCmtBa != item.OldCmtBa || item.NewCmtFr != item.OldCmtFr || item.NewCmtOV != item.OldCmtOV)
+                           // {
                                 lstdifferencedata.Add(item);
-                            }
+                           // }
                         }
 
 
@@ -132,7 +132,8 @@ namespace TestTablewViewLeak.ViewControllers.CommuteDifferenceView
 
 
                 var CommutDiffData = new List<CommuteFltChangeValues>(lstComuteLineProperties);
-
+                tblCommuteDifference.Source = new CommuteDifferenceTableViewSource(CommutDiffData);
+                tblCommuteDifference.ReloadData();
                 ActivityIndicator.Hide();
 
             }
@@ -224,13 +225,13 @@ namespace TestTablewViewLeak.ViewControllers.CommuteDifferenceView
                     CommutabilityOverall = Math.Round((commutableFronts + CommutableBacks) / (2 * TotalCommutes)  *100, 2);
 
                     objCommutData.LineNum = line.LineNum;
-                    objCommutData.NewCmtOV = CommutabilityOverall;
-                    objCommutData.NewCmtFr = CommutabilityFront;
-                    objCommutData.NewCmtBa = CommutabilityBack;
+                    objCommutData.NewCmtOV = Math.Round(CommutabilityOverall,2);
+                    objCommutData.NewCmtFr = Math.Round(CommutabilityFront,2);
+                    objCommutData.NewCmtBa = Math.Round(CommutabilityBack,2);
 
-                    objCommutData.OldCmtOV = line.CommutabilityOverall;
-                    objCommutData.OldCmtFr = line.CommutabilityFront;
-                    objCommutData.OldCmtBa = line.CommutabilityBack;
+                    objCommutData.OldCmtOV = Math.Round(line.CommutabilityOverall,2);
+                    objCommutData.OldCmtFr = Math.Round(line.CommutabilityFront,2);
+                    objCommutData.OldCmtBa = Math.Round(line.CommutabilityBack, 2);
 
                     lstCommuteFtData.Add(objCommutData);
 

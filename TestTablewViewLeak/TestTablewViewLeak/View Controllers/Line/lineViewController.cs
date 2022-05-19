@@ -436,7 +436,15 @@ namespace WBid.WBidiPad.iOS
                 if (((isCommuteAutoAvailable && (GlobalSettings.ServerFlightDataVersion != GlobalSettings.WBidINIContent.LocalFlightDataVersion)) && (btnVacCorrect.Enabled || btnEOM.Enabled)))
                 {
                     //both commut diff and vac diff available
-                    
+
+                    FltDiffButtonViewController fltdiff = new FltDiffButtonViewController();
+                    fltdiff.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
+                    UINavigationController nav = new UINavigationController(fltdiff);
+                    fltdiff.PreferredContentSize = new CGSize(1020, 700);
+                    nav.NavigationBarHidden = true;
+                    nav.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
+                    this.PresentViewController(nav, true, null);
+
                 }
                 else if ((isCommuteAutoAvailable && (GlobalSettings.ServerFlightDataVersion != GlobalSettings.WBidINIContent.LocalFlightDataVersion)))
                 {
