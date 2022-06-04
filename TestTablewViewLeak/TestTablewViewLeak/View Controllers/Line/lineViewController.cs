@@ -142,7 +142,7 @@ namespace WBid.WBidiPad.iOS
 
             base.ViewDidLoad();
             //NSNotificationCenter.DefaultCenter.AddObserver(UIApplication.WillEnterForegroundNotification, AppCallback);
-            ObserverApploadData = NSNotificationCenter.DefaultCenter.AddObserver(new Foundation.NSString("SetApplicationLoadData"), SetApplicationLoadData);
+            //ObserverApploadData = NSNotificationCenter.DefaultCenter.AddObserver(new Foundation.NSString("SetApplicationLoadData"), SetApplicationLoadData);
             CommonClass.lineVC = this;
             this.View.LayoutIfNeeded();
             FirstTime = true;
@@ -339,16 +339,22 @@ namespace WBid.WBidiPad.iOS
 
             SetFlightDataDiffButton();
         }
+        private bool IsCommuteAutoAvailable()
+        {
+            bool isCommuteAutoAvailable = false;
+            if (wBIdStateContent.CxWtState.CLAuto.Cx || wBIdStateContent.CxWtState.CLAuto.Wt || (wBIdStateContent.SortDetails.BlokSort.Contains("33") || wBIdStateContent.SortDetails.BlokSort.Contains("34") || wBIdStateContent.SortDetails.BlokSort.Contains("35")))
+            {
+                isCommuteAutoAvailable = true;
+            }
+            return isCommuteAutoAvailable;
+        }
         public void SetFlightDataDiffButton()
         {
             bool IsEnableFltDiff;
             if (GlobalSettings.IsNeedToEnableVacDiffButton)
             {
-                bool isCommuteAutoAvailable = false;
-                if (wBIdStateContent.CxWtState.CLAuto.Cx || wBIdStateContent.CxWtState.CLAuto.Wt || (wBIdStateContent.SortDetails.BlokSort.Contains("33") || wBIdStateContent.SortDetails.BlokSort.Contains("34") || wBIdStateContent.SortDetails.BlokSort.Contains("35")))
-                {
-                    isCommuteAutoAvailable = true;
-                }
+                bool isCommuteAutoAvailable = IsCommuteAutoAvailable();
+                
 
 
                 if (GlobalSettings.CurrentBidDetails != null && GlobalSettings.CurrentBidDetails.Postion == "FA")
@@ -367,11 +373,17 @@ namespace WBid.WBidiPad.iOS
             }
             btnVacDiff.Hidden=!IsEnableFltDiff;
         }
-        public void SetApplicationLoadData(NSNotification n)
+
+
+        public void SetFlightDataDifferenceButton(NSNotification n)
         {
-            //  btnVacDiff.Hidden = !GlobalSettings.IsNeedToEnableVacDiffButton;
             SetFlightDataDiffButton();
         }
+        //public void SetApplicationLoadData(NSNotification n)
+        //{
+        //    //  btnVacDiff.Hidden = !GlobalSettings.IsNeedToEnableVacDiffButton;
+        //    SetFlightDataDiffButton();
+        //}
         public void ServiceResponce(JsonValue jsonDoc)
         {
             try
@@ -437,13 +449,58 @@ namespace WBid.WBidiPad.iOS
                 {
                     //both commut diff and vac diff available
 
-                    FltDiffButtonViewController fltdiff = new FltDiffButtonViewController();
-                    fltdiff.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
-                    UINavigationController nav = new UINavigationController(fltdiff);
-                    fltdiff.PreferredContentSize = new CGSize(1020, 700);
-                    nav.NavigationBarHidden = true;
-                    nav.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
-                    this.PresentViewController(nav, true, null);
+                    UIAlertController alert = UIAlertController.Create("WBidMax", "You may have changes in commute and vacation due to new flight data. What would you like to Open ?", UIAlertControllerStyle.Alert);
+                    alert.AddAction(UIAlertAction.Create("View Commute Difference", UIAlertActionStyle.Default, (actionCancel) =>
+                    {
+                        CommuteDifferenceViewController vacdiff = new CommuteDifferenceViewController();
+                        vacdiff.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
+                        UINavigationController nav = new UINavigationController(vacdiff);
+                        vacdiff.PreferredContentSize = new CGSize(1020, 700);
+                        nav.NavigationBarHidden = true;
+                        nav.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
+                        this.PresentViewController(nav, true, null);
+                       
+
+                    }));
+
+                    alert.AddAction(UIAlertAction.Create("View Vacation Difference", UIAlertActionStyle.Default, (actionOK) =>
+                    {
+                        if (Reachability.CheckVPSAvailable())
+                        {
+                            VacationDifferenceViewController vacdiff = new VacationDifferenceViewController();
+                            vacdiff.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
+                            UINavigationController nav = new UINavigationController(vacdiff);
+                            vacdiff.PreferredContentSize = new CGSize(1020, 700);
+                            nav.NavigationBarHidden = true;
+                            nav.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
+                            this.PresentViewController(nav, true, null);
+                        }
+                        else
+                        {
+                            if (WBidHelper.IsSouthWestWifiOr2wire())
+                            {
+
+                                UIAlertController okAlertController = UIAlertController.Create("WBidMax", Constants.SouthWestConnectionAlert, UIAlertControllerStyle.Alert);
+                                okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+                                this.PresentViewController(okAlertController, true, null);
+                            }
+                            else
+                            {
+                                UIAlertController okAlertController = UIAlertController.Create("WBidMax", Constants.VPSDownAlert, UIAlertControllerStyle.Alert);
+                                okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+                                this.PresentViewController(okAlertController, true, null);
+                            }
+                        }
+                    }));
+
+                    this.PresentViewController(alert, true, null);
+                    //FltDiffButtonViewController fltdiff = new FltDiffButtonViewController();
+                    //fltdiff.ModalPresentationStyle = UIModalPresentationStyle.OverFullScreen;
+                    //UINavigationController nav = new UINavigationController(fltdiff);
+                    ////fltdiff.PreferredContentSize = new CGSize(1020, 700);
+                    //nav.NavigationBarHidden = true;
+                    //nav.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
+                    //this.PresentViewController(nav, true, null);
 
                 }
                 else if ((isCommuteAutoAvailable && (GlobalSettings.ServerFlightDataVersion != GlobalSettings.WBidINIContent.LocalFlightDataVersion)))
@@ -3717,7 +3774,8 @@ namespace WBid.WBidiPad.iOS
 
             arrObserver.Add(NSNotificationCenter.DefaultCenter.AddObserver(new Foundation.NSString("handleColumnPopoverModernView"), handleColumnPopoverModernView));
             arrObserver.Add(NSNotificationCenter.DefaultCenter.AddObserver(new Foundation.NSString("OpenMonthToMonthAlert"), OpenMonthToMonthAlert));
-            arrObserver.Add(NSNotificationCenter.DefaultCenter.AddObserver(new Foundation.NSString("SetApplicationLoadData"), SetApplicationLoadData));
+            arrObserver.Add(NSNotificationCenter.DefaultCenter.AddObserver(new Foundation.NSString("SetFlightDataDifferenceButton"), SetFlightDataDifferenceButton));
+            //arrObserver.Add(NSNotificationCenter.DefaultCenter.AddObserver(new Foundation.NSString("SetFlightDataDifferenceButton"), SetFlightDataDifferenceButton));
         }
 
 
@@ -9247,6 +9305,11 @@ namespace WBid.WBidiPad.iOS
                     }
                     wBidStateContent.SortDetails.SortColumn = "Manual";
 
+                    bool isCommuteAutoAvailable = IsCommuteAutoAvailable();
+                    if (isCommuteAutoAvailable == true && File.Exists(WBidHelper.WBidCommuteFilePath))
+                    {
+                        File.Delete(WBidHelper.WBidCommuteFilePath);
+                    }
                     string stateFilePath = Path.Combine(WBidHelper.GetAppDataPath(), stateQsSync.StateFileName + ".WBS");
                     //WBidCollection.SaveStateFile(GlobalSettings.WBidStateCollection, stateFilePath);
                     WBidHelper.SaveStateFile(WBidHelper.WBidStateFilePath);
@@ -9306,6 +9369,7 @@ namespace WBid.WBidiPad.iOS
 
 
                         SetVacButtonStates();
+                        SetFlightDataDiffButton();
                     }
                     else
                     {
@@ -9585,6 +9649,7 @@ namespace WBid.WBidiPad.iOS
 
                         NSNotificationCenter.DefaultCenter.PostNotificationName("DataReload", null);
                         SetVacButtonStates();
+                        SetFlightDataDiffButton();
                     }
                     else
                     {

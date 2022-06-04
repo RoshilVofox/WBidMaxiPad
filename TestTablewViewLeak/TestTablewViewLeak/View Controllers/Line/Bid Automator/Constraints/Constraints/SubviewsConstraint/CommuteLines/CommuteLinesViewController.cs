@@ -380,7 +380,10 @@ namespace WBid.WBidiPad.iOS
 
 
             }
-
+			if (System.IO.File.Exists(WBidHelper.WBidCommuteFilePath))
+			{
+				System.IO.File.Delete(WBidHelper.WBidCommuteFilePath);
+			}
             CalculateLineProperties lineproprty = new CalculateLineProperties();
             lineproprty.CalculateCommuteLineProperties(wBIdStateContent);
 

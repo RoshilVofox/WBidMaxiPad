@@ -20,6 +20,7 @@ using System.Json;
 using Newtonsoft.Json;
 using System.Reflection;
 using WBid.WBidiPad.Core.Enum;
+using TestTablewViewLeak.Utility;
 
 namespace WBid.WBidiPad.iOS
 {
@@ -686,6 +687,7 @@ namespace WBid.WBidiPad.iOS
 						GlobalSettings.TagDetails = new TagDetails();
 						wBIdStateContent.TagDetails.ForEach(x => GlobalSettings.TagDetails.Add(new Tag { Line = x.Line, Content = x.Content }));
 					}
+
 					//}
 					GlobalSettings.MenuBarButtonStatus = wBIdStateContent.MenuBarButtonState;
 					GlobalSettings.IsVacationCorrection = wBIdStateContent.IsVacationOverlapOverlapCorrection;
@@ -695,6 +697,17 @@ namespace WBid.WBidiPad.iOS
 
 					WBidHelper.GenerateDynamicOverNightCitiesList();
 					GlobalSettings.AllCitiesInBid = GlobalSettings.WBidINIContent.Cities.Select(y => y.Name).ToList();
+				 
+					if (GlobalSettings.CurrentBidDetails.Month==DateTime.Now.AddMonths(1).Month &&(wBIdStateContent.CxWtState.CLAuto.Cx || wBIdStateContent.CxWtState.CLAuto.Wt || (wBIdStateContent.SortDetails.BlokSort.Contains("33") || wBIdStateContent.SortDetails.BlokSort.Contains("34") || wBIdStateContent.SortDetails.BlokSort.Contains("35"))))
+					{
+						if (GlobalSettings.FlightRouteDetails == null)
+						{
+							NetworkData networkplandata = new NetworkData();
+							networkplandata.ReadFlightRoutes();
+						}
+						CommuteCalculations objCommuteCalculations = new CommuteCalculations();
+						objCommuteCalculations.CalculateDailyCommutableTimes(wBIdStateContent.Constraints.CLAuto, GlobalSettings.FlightRouteDetails);
+					}
 					if (GlobalSettings.WBidStateCollection.Vacation != null)
 					{
 
@@ -1053,6 +1066,7 @@ wBidStateContent.BidAuto.BAFilter.ForEach(x => x.IsApplied = true);
 
 				//Delete Old formatted files
 				string fileName = domcile + position + bidperiod.ToString ("d2") + (year - 2000) + (round == "1st Round" ? "M" : "S") + "737";
+				string CmtfileName = domcile + position + bidperiod.ToString("d2") + (year - 2000) + (round == "1st Round" ? "M" : "S") + "Cmt.COM";
 
 				string folderName = WBidCollection.GetPositions ().FirstOrDefault (x => x.LongStr == fileName.Substring (3, 2)).ShortStr + (round == "1st Round" ? "D" : "B") + fileName.Substring (0, 3) + WBidCollection.GetBidPeriods ().FirstOrDefault (x => x.BidPeriodId == bidperiod).HexaValue;
 				//Delete WBL file
@@ -1082,7 +1096,10 @@ wBidStateContent.BidAuto.BAFilter.ForEach(x => x.IsApplied = true);
 				if (Directory.Exists (WBidHelper.GetAppDataPath () + "/" + folderName)) {
 					Directory.Delete (WBidHelper.GetAppDataPath () + "/" + folderName, true);
 				}
-				
+				if (File.Exists(WBidHelper.GetAppDataPath() + "/"+CmtfileName))
+				{
+					File.Delete(WBidHelper.GetAppDataPath() + "/"+CmtfileName);
+				}
 
 			} catch (Exception ex) {
 				throw ex;

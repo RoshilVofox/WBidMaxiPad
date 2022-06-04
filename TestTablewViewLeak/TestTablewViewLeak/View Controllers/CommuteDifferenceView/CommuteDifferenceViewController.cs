@@ -50,91 +50,103 @@ namespace TestTablewViewLeak.ViewControllers.CommuteDifferenceView
 
                 if (localFlightDataVersion != GlobalSettings.ServerFlightDataVersion)
                 {
-                    bool isConnectionAvailable = Reachability.CheckVPSAvailable();
-                    if (isConnectionAvailable)
+                    InvokeInBackground(() =>
                     {
-                        FtCommutableLine commutableObj = wBidStateContent.Constraints.CLAuto;
-
-                        // Download new flight data and Get Flight route details from a temporary flight data 
-                        NetworkData objnetwork = new NetworkData();
-                        var FlightRouteDetails = objnetwork.GetFlightRoutesForTempCalculation();
-
-                        //Calculate daily commutes using the new flight data
-                        CommuteCalculations objCommuteCalculations = new CommuteCalculations();
-                        objCommuteCalculations.FtCommutable = commutableObj;
-                        List<CommuteTime> lstDailyCommuteTimes = objCommuteCalculations.CalculateDailyCommutableTimesForVacationDifference(commutableObj, FlightRouteDetails);
-
-                        //Calculate new commute line properties
-                        lstComuteLineProperties = CalculateCommutableLineProperties(lstDailyCommuteTimes);
-
-                        //need to filter only the difference data fromt list, but for temporary ,we are showing all values.
-                        List<CommuteFltChangeValues> lstdifferencedata = new List<CommuteFltChangeValues>();
-                        foreach (var item in lstComuteLineProperties)
+                        bool isConnectionAvailable = Reachability.CheckVPSAvailable();
+                        if (isConnectionAvailable)
                         {
-                            //if (item.NewCmtBa != item.OldCmtBa || item.NewCmtFr != item.OldCmtFr || item.NewCmtOV != item.OldCmtOV)
-                           // {
+
+                            FtCommutableLine commutableObj = wBidStateContent.Constraints.CLAuto;
+
+                            // Download new flight data and Get Flight route details from a temporary flight data 
+                            NetworkData objnetwork = new NetworkData();
+                            var FlightRouteDetails = objnetwork.GetFlightRoutesForTempCalculation();
+
+                            //Calculate daily commutes using the new flight data
+                            CommuteCalculations objCommuteCalculations = new CommuteCalculations();
+                            objCommuteCalculations.FtCommutable = commutableObj;
+                            List<CommuteTime> lstDailyCommuteTimes = objCommuteCalculations.CalculateDailyCommutableTimesForVacationDifference(commutableObj, FlightRouteDetails);
+
+                            //Calculate new commute line properties
+                            lstComuteLineProperties = CalculateCommutableLineProperties(lstDailyCommuteTimes);
+
+                            //need to filter only the difference data fromt list, but for temporary ,we are showing all values.
+                            List<CommuteFltChangeValues> lstdifferencedata = new List<CommuteFltChangeValues>();
+                            foreach (var item in lstComuteLineProperties)
+                            {
+                                //if (item.NewCmtBa != item.OldCmtBa || item.NewCmtFr != item.OldCmtFr || item.NewCmtOV != item.OldCmtOV)
+                                // {
                                 lstdifferencedata.Add(item);
-                           // }
-                        }
+                                // }
+                            }
 
 
-                        //save Commute difference values into the Json file
-                        objCommuteFltChange = new CommuteFltChange();
-                        objCommuteFltChange.FlightDataVersion = GlobalSettings.ServerFlightDataVersion;
-                        objCommuteFltChange.LstCommuteFltChangeValues = lstdifferencedata;
-                        lstComuteLineProperties = lstdifferencedata;
+                            //save Commute difference values into the Json file
+                            objCommuteFltChange = new CommuteFltChange();
+                            objCommuteFltChange.FlightDataVersion = GlobalSettings.ServerFlightDataVersion;
+                            objCommuteFltChange.LstCommuteFltChangeValues = lstdifferencedata;
+                            lstComuteLineProperties = lstdifferencedata;
 
-                        var jsonData = ServiceUtils.JsonSerializer(objCommuteFltChange);
-                        File.WriteAllText(filePath,jsonData);
-                        //Serailize the Json file.
-                        //WBidHelper.SerializeObject(filePath, objCommuteFltChange);
-                    }
-                    else
-                    {
-                        if (WBidHelper.IsSouthWestWifiOr2wire())
-                        {
+                            var jsonData = ServiceUtils.JsonSerializer(objCommuteFltChange);
+                            File.WriteAllText(filePath, jsonData);
+
+                            var CommutDiffData = new List<CommuteFltChangeValues>(lstComuteLineProperties);
                             InvokeOnMainThread(() =>
                             {
-                                AlertController = UIAlertController.Create("WBidMax", Constants.SouthWestConnectionAlert, UIAlertControllerStyle.Alert);
-                                AlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, (actionOK) =>
-                                {
-                                    this.DismissViewController(true, null);
-                                }));
-                                this.PresentViewController(AlertController, true, null);
-                                NSNotificationCenter.DefaultCenter.PostNotificationName("reachabilityCheckFailed", null);
-
-
+                                tblCommuteDifference.Source = new CommuteDifferenceTableViewSource(CommutDiffData);
+                                tblCommuteDifference.ReloadData();
+                                ActivityIndicator.Hide();
                             });
-
-
+                            
                         }
                         else
                         {
+                            if (WBidHelper.IsSouthWestWifiOr2wire())
+                            {
+                                InvokeOnMainThread(() =>
+                                {
+                                    AlertController = UIAlertController.Create("WBidMax", Constants.SouthWestConnectionAlert, UIAlertControllerStyle.Alert);
+                                    AlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, (actionOK) =>
+                                    {
+                                        this.DismissViewController(true, null);
+                                    }));
+                                    this.PresentViewController(AlertController, true, null);
+                                    NSNotificationCenter.DefaultCenter.PostNotificationName("reachabilityCheckFailed", null);
 
-                            InvokeOnMainThread(() =>
+
+                                });
+
+
+                            }
+                            else
                             {
 
-                                AlertController = UIAlertController.Create("WBidMax", Constants.VPSDownAlert, UIAlertControllerStyle.Alert);
-                                AlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, (actionOK) =>
+                                InvokeOnMainThread(() =>
                                 {
-                                    this.DismissViewController(true, null);
-                                }));
-                                this.PresentViewController(AlertController, true, null);
-                                NSNotificationCenter.DefaultCenter.PostNotificationName("reachabilityCheckFailed", null);
-                            });
+
+                                    AlertController = UIAlertController.Create("WBidMax", Constants.VPSDownAlert, UIAlertControllerStyle.Alert);
+                                    AlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, (actionOK) =>
+                                    {
+                                        this.DismissViewController(true, null);
+                                    }));
+                                    this.PresentViewController(AlertController, true, null);
+                                    NSNotificationCenter.DefaultCenter.PostNotificationName("reachabilityCheckFailed", null);
+                                });
+                            }
                         }
-                    }
+                    });
                 }
                 else
                 {
                     lstComuteLineProperties = objCommuteFltChange.LstCommuteFltChangeValues;
+                    var CommutDiffData = new List<CommuteFltChangeValues>(lstComuteLineProperties);
+                    tblCommuteDifference.Source = new CommuteDifferenceTableViewSource(CommutDiffData);
+                    tblCommuteDifference.ReloadData();
+                    ActivityIndicator.Hide();
                 }
 
 
-                var CommutDiffData = new List<CommuteFltChangeValues>(lstComuteLineProperties);
-                tblCommuteDifference.Source = new CommuteDifferenceTableViewSource(CommutDiffData);
-                tblCommuteDifference.ReloadData();
-                ActivityIndicator.Hide();
+                
 
             }
             catch (Exception ex)
@@ -149,8 +161,12 @@ namespace TestTablewViewLeak.ViewControllers.CommuteDifferenceView
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
         }
+        partial void btnOKClick(NSObject sender)
+        {
+            this.DismissViewController(true, null);
 
-       
+        }
+
         private List<CommuteFltChangeValues> CalculateCommutableLineProperties(List<CommuteTime> lstDailyCommuteTimes)
         {
             List<CommuteFltChangeValues> lstCommuteFtData = new List<CommuteFltChangeValues>();
@@ -225,13 +241,13 @@ namespace TestTablewViewLeak.ViewControllers.CommuteDifferenceView
                     CommutabilityOverall = Math.Round((commutableFronts + CommutableBacks) / (2 * TotalCommutes)  *100, 2);
 
                     objCommutData.LineNum = line.LineNum;
-                    objCommutData.NewCmtOV = Math.Round(CommutabilityOverall,2);
-                    objCommutData.NewCmtFr = Math.Round(CommutabilityFront,2);
-                    objCommutData.NewCmtBa = Math.Round(CommutabilityBack,2);
+                    objCommutData.NewCmtOV = Math.Round(decimal.Parse(String.Format("{0:0.00}",CommutabilityOverall)),2);
+                    objCommutData.NewCmtFr = Math.Round(decimal.Parse(String.Format("{0:0.00}",CommutabilityFront)),2);
+                    objCommutData.NewCmtBa = Math.Round(decimal.Parse(String.Format("{0:0.00}",CommutabilityBack)),2);
 
-                    objCommutData.OldCmtOV = Math.Round(line.CommutabilityOverall,2);
-                    objCommutData.OldCmtFr = Math.Round(line.CommutabilityFront,2);
-                    objCommutData.OldCmtBa = Math.Round(line.CommutabilityBack, 2);
+                    objCommutData.OldCmtOV = Math.Round(decimal.Parse(String.Format("{0:0.00}",line.CommutabilityOverall)),2);
+                    objCommutData.OldCmtFr = Math.Round(decimal.Parse(String.Format("{0:0.00}",line.CommutabilityFront)),2);
+                    objCommutData.OldCmtBa = Math.Round(decimal.Parse(String.Format("{0:0.00}",line.CommutabilityBack)), 2);
 
                     lstCommuteFtData.Add(objCommutData);
 

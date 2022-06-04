@@ -690,6 +690,7 @@ namespace WBid.WBidiPad.iOS
             CommonClass.lineVC.UpdateSaveButton();
             //NSNotificationCenter.DefaultCenter.PostNotificationName("DataCulumnsUpdated", null);
             NSNotificationCenter.DefaultCenter.PostNotificationName("DataReload", null);
+            NSNotificationCenter.DefaultCenter.PostNotificationName("SetFlightDataDifferenceButton", null);
             this.NavigationController.DismissViewController(true, null);
 
             PerformSelector(new ObjCRuntime.Selector("memoryRelease"), null, 0.2);

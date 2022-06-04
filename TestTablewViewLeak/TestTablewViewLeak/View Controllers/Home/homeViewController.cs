@@ -605,7 +605,7 @@ namespace WBid.WBidiPad.iOS
 				GlobalSettings.IsNeedToEnableVacDiffButton = appLoadData.IsNeedtoEnableVacationDifference;
 				GlobalSettings.ServerFlightDataVersion = appLoadData.FlightDataVersion;
 				InvokeOnMainThread(() => {
-					NSNotificationCenter.DefaultCenter.PostNotificationName("SetApplicationLoadData", null);
+					NSNotificationCenter.DefaultCenter.PostNotificationName("SetFlightDataDifferenceButton", null);
 				});
 				
 
@@ -1250,6 +1250,7 @@ namespace WBid.WBidiPad.iOS
 				//if (MessageBox.Show(message, "WBidMax", System.Windows.MessageBoxButton.YesNo, System.Windows.MessageBoxImage.Information) == System.Windows.MessageBoxResult.Yes)
 				// {
 				string fileName = domcile + position + bidperiod.ToString("d2") + (round == "D" ? "M" : "S") + "737";
+				string CommutefileName = domcile + position + bidperiod.ToString("d2") + (round == "D" ? "M" : "S") + "Cmt.COM";
 
 				string folderName = WBidCollection.GetPositions().FirstOrDefault(x => x.LongStr == fileName.Substring(3, 2)).ShortStr + round + fileName.Substring(0, 23) + WBidCollection.GetBidPeriods().FirstOrDefault(x=>x.BidPeriodId==bidperiod).HexaValue;
 				//Delete WBL file
@@ -1283,6 +1284,10 @@ namespace WBid.WBidiPad.iOS
 				if (Directory.Exists(WBidHelper.GetAppDataPath() + "\\" + folderName))
 				{
 					Directory.Delete(WBidHelper.GetAppDataPath() + "\\" + folderName, true);
+				}
+				if (System.IO.File.Exists(CommutefileName))
+				{
+					System.IO.File.Delete(CommutefileName);
 				}
 			}
 

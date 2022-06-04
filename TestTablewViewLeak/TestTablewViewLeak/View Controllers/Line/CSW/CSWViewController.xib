@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -46,8 +46,8 @@
                     </constraints>
                     <items>
                         <barButtonItem id="NdB-qq-j0Z">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="vD7-xN-YTZ">
-                                <rect key="frame" x="0.0" y="0.0" width="38" height="32"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="vD7-xN-YTZ">
+                                <rect key="frame" x="20" y="6" width="39" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <state key="normal" title="Back"/>
@@ -60,9 +60,7 @@
                         <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="LF1-Qy-Kzl"/>
                         <barButtonItem width="5" style="plain" systemItem="fixedSpace" id="W6N-gB-r5n"/>
                         <barButtonItem id="1Bw-WG-1pc">
-                            <inset key="imageInsets" minX="10" minY="10" maxX="10" maxY="10">
-                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                            </inset>
+                            <inset key="imageInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="v5d-ra-m1N">
                                 <rect key="frame" x="84" y="0.0" width="60" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -77,9 +75,7 @@
                         </barButtonItem>
                         <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="K3G-wp-9Sq"/>
                         <barButtonItem style="plain" id="K9e-Ie-D8l">
-                            <inset key="imageInsets" minX="10" minY="10" maxX="10" maxY="10">
-                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                            </inset>
+                            <inset key="imageInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" id="F7I-fO-p9H">
                                 <rect key="frame" x="154" y="0.0" width="60" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -91,9 +87,7 @@
                             </button>
                         </barButtonItem>
                         <barButtonItem style="plain" id="2D3-Hs-MLU">
-                            <inset key="imageInsets" minX="10" minY="10" maxX="10" maxY="10">
-                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                            </inset>
+                            <inset key="imageInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                             <button key="customView" opaque="NO" contentMode="center" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" id="5aW-jZ-8jB">
                                 <rect key="frame" x="214" y="0.0" width="60" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -107,8 +101,8 @@
                         </barButtonItem>
                         <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="UJq-kL-cML"/>
                         <barButtonItem style="plain" id="mC7-b4-Ie5">
-                            <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" id="hA3-UX-MuC">
-                                <rect key="frame" x="0.0" y="0.0" width="60" height="38"/>
+                            <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" id="hA3-UX-MuC">
+                                <rect key="frame" x="284" y="0.0" width="60" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
@@ -120,8 +114,8 @@
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="obF-cN-GaT"/>
                         <barButtonItem style="plain" id="gnW-fc-Dwk">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="6NN-UX-Hrf">
-                                <rect key="frame" x="0.0" y="0.0" width="44" height="32"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="6NN-UX-Hrf">
+                                <rect key="frame" x="1250" y="6" width="45" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <state key="normal" title="Reset">
@@ -134,8 +128,8 @@
                         </barButtonItem>
                         <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="SbE-2w-XsB"/>
                         <barButtonItem style="plain" id="kgu-Vv-cFq">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="iyf-vR-Xwq">
-                                <rect key="frame" x="0.0" y="0.0" width="36" height="32"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="iyf-vR-Xwq">
+                                <rect key="frame" x="1305" y="6" width="37" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <state key="normal" title="Misc">
@@ -149,7 +143,7 @@
                         <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="skP-U0-R1q"/>
                         <barButtonItem style="plain" id="QCG-Wq-Lcc">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="8JJ-9w-HLl">
-                                <rect key="frame" x="0.0" y="0.0" width="36" height="32"/>
+                                <rect key="frame" x="1352" y="6" width="36" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <state key="normal" title="Help"/>
@@ -160,8 +154,8 @@
                         </barButtonItem>
                         <barButtonItem width="10" style="plain" systemItem="fixedSpace" id="aCK-qL-OdO"/>
                         <barButtonItem width="75" style="plain" id="dEW-Hs-Gy9">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="2Zk-Lh-9vH">
-                                <rect key="frame" x="0.0" y="0.0" width="67" height="32"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="2Zk-Lh-9vH">
+                                <rect key="frame" x="1398" y="6" width="69" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <state key="normal" title="Bid Stuff">
@@ -230,4 +224,11 @@
             <point key="canvasLocation" x="1146" y="-422"/>
         </view>
     </objects>
+    <resources>
+        <image name="profileGreen.png" width="60" height="60"/>
+        <image name="redoGreen.png" width="30" height="30"/>
+        <image name="saveIcon.png" width="30" height="30"/>
+        <image name="saveIconRed.png" width="30" height="30"/>
+        <image name="undoGreen.png" width="30" height="30"/>
+    </resources>
 </document>

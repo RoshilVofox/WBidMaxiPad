@@ -254,6 +254,10 @@ namespace WBid.WBidiPad.iOS
                     NSNotificationCenter.DefaultCenter.PostNotificationName ("reloadBlockSort", null);
                 }
 				NSNotificationCenter.DefaultCenter.PostNotificationName ("LineCountReload", null);
+					if (System.IO.File.Exists(WBidHelper.WBidCommuteFilePath ))
+					{
+						System.IO.File.Delete(WBidHelper.WBidCommuteFilePath);
+					}
 				this.DismissViewController(true,null);
 				break;
 			case CommuteFromView.CSWCommutabilityWeights:
@@ -274,7 +278,11 @@ namespace WBid.WBidiPad.iOS
                     NSNotificationCenter.DefaultCenter.PostNotificationName ("reloadBlockSort", null);
                 }
 				NSNotificationCenter.DefaultCenter.PostNotificationName ("LineCountReload", null);
-				this.DismissViewController(true,null);
+					if (System.IO.File.Exists(WBidHelper.WBidCommuteFilePath))
+					{
+						System.IO.File.Delete(WBidHelper.WBidCommuteFilePath);
+					}
+					this.DismissViewController(true,null);
 				break;
 
                 case CommuteFromView.CSWCommutabilitySort:
@@ -299,7 +307,11 @@ namespace WBid.WBidiPad.iOS
                 if (wBIdStateContent.CxWtState.Commute.Wt) NSNotificationCenter.DefaultCenter.PostNotificationName ("AddWeights", null);
                 if (wBIdStateContent.CxWtState.Commute.Cx) NSNotificationCenter.DefaultCenter.PostNotificationName ("AddConstraints", null);
                 NSNotificationCenter.DefaultCenter.PostNotificationName ("LineCountReload", null);
-                this.DismissViewController (true, null);
+					if (System.IO.File.Exists(WBidHelper.WBidCommuteFilePath))
+					{
+						System.IO.File.Delete(WBidHelper.WBidCommuteFilePath);
+					}
+					this.DismissViewController (true, null);
                 break;
 
             }

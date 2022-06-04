@@ -23,6 +23,9 @@ namespace TestTablewViewLeak.ViewControllers.CommuteDifferenceView
 
 		[Outlet]
 		UIKit.UITableView tblCommuteDifference { get; set; }
+
+		[Action ("btnOKClick:")]
+		partial void btnOKClick (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{

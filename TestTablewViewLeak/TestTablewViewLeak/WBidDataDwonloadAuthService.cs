@@ -205,7 +205,8 @@ namespace WBidDataDownloadAuthorizationService.Model
         private string MessageField;
         
         private string TypeField;
-        
+
+        private string FlightDataVersionField;
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int AuthRequestId
         {
@@ -244,7 +245,19 @@ namespace WBidDataDownloadAuthorizationService.Model
                 this.IsNeedToDownloadSeniorityFromServerField = value;
             }
         }
-        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FlightDataVersion
+        {
+            get
+            {
+                return this.FlightDataVersionField;
+            }
+            set
+            {
+                this.FlightDataVersionField = value;
+            }
+        }
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Message
         {
@@ -1904,7 +1917,10 @@ namespace WBidDataDownloadAuthorizationService.Model
         private bool IsMonthlySubscribedField;
         
         private bool IsNeedToDownloadSeniorityFromServerField;
-        
+
+        private string FlightDataVersionField;
+
+
         private bool IsYearlySubscribedField;
         
         private string MessageField;
@@ -2009,7 +2025,18 @@ namespace WBidDataDownloadAuthorizationService.Model
                 this.IsNeedToDownloadSeniorityFromServerField = value;
             }
         }
-        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FlightDataVersion
+        {
+            get
+            {
+                return this.FlightDataVersionField;
+            }
+            set
+            {
+                this.FlightDataVersionField = value;
+            }
+        }
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsYearlySubscribed
         {

@@ -39,21 +39,24 @@ namespace WBid.WBidiPad.iOS
 			{
 			if (File.Exists(zipLocalFile))
 				ZipFile.ExtractToDirectory(zipLocalFile,target);
+
+				GlobalSettings.WBidINIContent.LocalFlightDataVersion = GlobalSettings.ServerFlightDataVersion;
+				WBidHelper.SaveINIFile(GlobalSettings.WBidINIContent, WBidHelper.GetWBidINIFilePath());
+				//ZipStorer.
 			}
 
-			//ZipStorer.
 
-//			// Open an existing zip file for reading
-//			ZipStorer zip = ZipStorer.Open (zipLocalFile, FileAccess.Read);
-//
-//			// Read the central directory collection
-//			List<ZipStorer.ZipFileEntry> dir = zip.ReadCentralDir ();
-//
-//			// Look for the desired file
-//			foreach (ZipStorer.ZipFileEntry entry in dir) {
-//				zip.ExtractFile (entry, target + entry);
-//			}
-//			zip.Close ();
+			//			// Open an existing zip file for reading
+			//			ZipStorer zip = ZipStorer.Open (zipLocalFile, FileAccess.Read);
+			//
+			//			// Read the central directory collection
+			//			List<ZipStorer.ZipFileEntry> dir = zip.ReadCentralDir ();
+			//
+			//			// Look for the desired file
+			//			foreach (ZipStorer.ZipFileEntry entry in dir) {
+			//				zip.ExtractFile (entry, target + entry);
+			//			}
+			//			zip.Close ();
 
 			if (File.Exists (zipLocalFile)) {
 				File.Delete (zipLocalFile);

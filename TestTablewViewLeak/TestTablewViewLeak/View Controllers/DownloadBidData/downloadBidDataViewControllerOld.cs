@@ -33,6 +33,7 @@ using WBid.WBidiPad.SharedLibrary;
 
 using SystemConfiguration;
 using WBid.WBidiPad.Core.Enum;
+using TestTablewViewLeak.Utility;
 
 
 #endregion
@@ -224,6 +225,7 @@ namespace WBid.WBidiPad.iOS
 
 						GenerateStateFile(_stateFileName);
 
+						
 
 						SetValuesToStateFile();
 											
@@ -247,6 +249,8 @@ namespace WBid.WBidiPad.iOS
 						ShowSeniorityListInformation();
 
 						FlightDataDownload();
+
+						CalculateDailyCommutes();
 					}
 					else
 					{
@@ -323,6 +327,19 @@ namespace WBid.WBidiPad.iOS
 				NSNotificationCenter.DefaultCenter.RemoveObserver(obj);
 			}
 		}
+		private void CalculateDailyCommutes()
+		{
+			if (wBIdStateContent.CxWtState.CLAuto.Cx || wBIdStateContent.CxWtState.CLAuto.Wt || (wBIdStateContent.SortDetails.BlokSort.Contains("33") || wBIdStateContent.SortDetails.BlokSort.Contains("34") || wBIdStateContent.SortDetails.BlokSort.Contains("35")))
+			{
+				if (GlobalSettings.FlightRouteDetails == null)
+				{
+					NetworkData networkplandata = new NetworkData();
+					networkplandata.ReadFlightRoutes();
+				}
+				CommuteCalculations objCommuteCalculations = new CommuteCalculations();
+				objCommuteCalculations.CalculateDailyCommutableTimes(wBIdStateContent.Constraints.CLAuto, GlobalSettings.FlightRouteDetails);
+			}
+		}
 		private void SetDRPColoring()
 		{
 			if (GlobalSettings.MenuBarButtonStatus.IsVacationCorrection)
@@ -356,7 +373,13 @@ namespace WBid.WBidiPad.iOS
 				if (File.Exists(zipLocalFile))
 				{
 					ZipFile.ExtractToDirectory(zipLocalFile, target);
+
+					GlobalSettings.WBidINIContent.LocalFlightDataVersion = GlobalSettings.ServerFlightDataVersion;
+					//Save Ini file
+
+					WBidHelper.SaveINIFile(GlobalSettings.WBidINIContent, WBidHelper.GetWBidINIFilePath());
 				}
+
 			}
 			catch (Exception ex)
 			{
@@ -1691,6 +1714,10 @@ namespace WBid.WBidiPad.iOS
 						serviceResponseModel.IsAuthorized = true;
 					else
 						serviceResponseModel = e.Result;
+
+					if (serviceResponseModel.FlightDataVersion != string.Empty)
+						GlobalSettings.ServerFlightDataVersion = serviceResponseModel.FlightDataVersion;
+
 					if (serviceResponseModel.IsAuthorized)
 					{
 						GlobalSettings.IsNeedToDownloadSeniorityUser= serviceResponseModel.IsNeedToDownloadSeniorityFromServer;
